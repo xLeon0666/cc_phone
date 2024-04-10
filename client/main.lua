@@ -30,9 +30,9 @@ Citizen.CreateThread(function()
 		Citizen.Wait(500)
 	end
 
-    while ESX.GetPlayerData().job3 == nil do
-		Citizen.Wait(500)
-	end
+    -- while ESX.GetPlayerData().job3 == nil do -- only need if you have the job3
+	-- 	Citizen.Wait(500)
+	-- end
 
     ESX.PlayerData = ESX.GetPlayerData()
 
@@ -133,13 +133,13 @@ function OpenPhone()
         end
     end
 
-    for k, v in pairs(business) do
-        if v.hasapp then
-            if v.name == string.lower(ESX.PlayerData.job3.name) then
-                haveAccess3 = true
-            end
-        end
-    end
+    -- for k, v in pairs(business) do -- only if you have job3
+    --     if v.hasapp then
+    --         if v.name == string.lower(ESX.PlayerData.job3.name) then
+    --             haveAccess3 = true
+    --         end
+    --     end
+    -- end
 
     SendNUIMessage({
         action = 'open',

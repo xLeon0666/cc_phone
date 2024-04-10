@@ -9,6 +9,54 @@ uniqueId = 0
 
 business = {}
 
+function GetPlayerRPName(playerId)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    return xPlayer.name
+end
+
+function GetPlayerIdentifier(playerId)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    return xPlayer.identifier
+end
+
+function GetPlayerJob(playerId)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    return xPlayer.job
+end
+
+function GetPlayerJob3(playerId)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    return xPlayer.job3
+end
+
+function GetPlayerCoords(playerId, vec)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    return xPlayer.getCoords(vec)
+end
+
+function SetPlayerJob(playerId, name, grade)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    xPlayer.setJob(name, grade)
+end
+
+function SetPlayerJob3(playerId, name, grade)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    xPlayer.setJob3(name, grade)
+end
+
+function GetPlayerInventoryItem(playerId, item)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+
+    return xPlayer.getInventoryItem(item)
+end
+
 MySQL.ready(function()
     MySQL.Async.fetchAll('SELECT * FROM jobs', {}, function(result)
         for k, v in pairs(result) do
@@ -106,7 +154,7 @@ AddEventHandler('cc_phone:onJoin', function()
 
     if not Phones[playerId] then
         Phones[playerId] = {}
-        local identifier = ESX.GetPlayerIdentifier(playerId)
+        local identifier = GetPlayerIdentifier(playerId)
 
         if identifier ~= nil then
             MySQL.Async.fetchAll('SELECT * FROM phones WHERE identifier = @identifier', {
@@ -222,7 +270,7 @@ AddEventHandler('cc_phone:onJoin', function()
 
                                             Phones[playerId] = CreatePhone(playerId, identifier, phone_number, contacts, messages, calls, gallery, groups, notes)
                                             ESX.GetPlayerFromId(playerId).set('phone_number', phone_number)
-                                            TriggerClientEvent('cc_phone:getBusinessInformation', playerId, business, ESX.GetPlayerRPName(playerId), phone_number)
+                                            TriggerClientEvent('cc_phone:getBusinessInformation', playerId, business, GetPlayerRPName(playerId), phone_number)
                                         end)
                                     end)
                                 end)
@@ -242,7 +290,7 @@ AddEventHandler('cc_phone:onJoin', function()
                             }, function(row)
                                 Phones[playerId] = CreatePhone(playerId, identifier, number, nil, nil, nil, nil, nil, '')
                                 ESX.GetPlayerFromId(playerId).set('phone_number', number)
-                                TriggerClientEvent('cc_phone:getBusinessInformation', playerId, business, ESX.GetPlayerRPName(playerId), number)
+                                TriggerClientEvent('cc_phone:getBusinessInformation', playerId, business, GetPlayerRPName(playerId), number)
                             end)
                         else
                             Phones[playerId] = nil
@@ -259,7 +307,7 @@ AddEventHandler('cc_phone:generateNumber', function(playerId)
     Citizen.Wait(2500)
 
     if not Phones[playerId] then
-        local identifier = ESX.GetPlayerIdentifier(playerId)
+        local identifier = GetPlayerIdentifier(playerId)
 
         if identifier ~= nil then
             local number = GenerateNumber()
@@ -274,7 +322,7 @@ AddEventHandler('cc_phone:generateNumber', function(playerId)
                     }, function(row)
                         Phones[playerId] = CreatePhone(playerId, identifier, number, nil, nil, nil, nil, nil, '')
                         ESX.GetPlayerFromId(playerId).set('phone_number', number)
-                        TriggerClientEvent('cc_phone:getBusinessInformation', playerId, business, ESX.GetPlayerRPName(playerId), number)
+                        TriggerClientEvent('cc_phone:getBusinessInformation', playerId, business, GetPlayerRPName(playerId), number)
                     end)
                 else
                     Phones[playerId] = nil
@@ -462,7 +510,7 @@ Events.RegisterServerEvent('cc_phone:attemptCall', function(source, number)
 
     if target then
         local targetPhone = GetPlayerPhone(target)
-        local itemPhone = ESX.GetPlayerInventoryItem(target, 'phone')
+        local itemPhone = GetPlayerInventoryItem(target, 'phone')
         local count = 0
 
         if itemPhone ~= nil then
@@ -642,7 +690,7 @@ end)
 
 Events.RegisterServerEvent('cc_phone:getBusiness', function(source)
     local xPlayers = exports['cc_core']:GetPlayersFix()
-    local jobName = ESX.GetPlayerJob(source).name
+    local jobName = GetPlayerJob(source).name
 
     local data = {
         members = {},
@@ -684,7 +732,7 @@ end)
 Events.RegisterServerEvent('cc_phone:getBusiness2', function(source)
     local xPlayers = exports['cc_core']:GetPlayersFix()
     local playerId = source
-    local jobName = ESX.GetPlayerJob3(playerId).name
+    local jobName = GetPlayerJob3(playerId).name
 
     local data = {
         members = {},
@@ -727,8 +775,8 @@ Events.RegisterServerEvent('cc_phone:rankUp', function(source, number, job3)
     local target = GetPlayerFromPhone(number)
     
     if not job3 then
-        local job = ESX.GetPlayerJob(source)
-        local targetJob = ESX.GetPlayerJob(target)
+        local job = GetPlayerJob(source)
+        local targetJob = GetPlayerJob(target)
 
         local data = {
             can = false,
@@ -754,9 +802,9 @@ Events.RegisterServerEvent('cc_phone:rankUp', function(source, number, job3)
 
             if job.grade_name == 'boss' and job.name == targetJob.name then
                 data.can = true
-                data.message = 'Du hast ' .. ESX.GetPlayerRPName(target) .. ' befördert (' .. targetJob.grade + 1 .. ').'
+                data.message = 'Du hast ' .. GetPlayerRPName(target) .. ' befördert (' .. targetJob.grade + 1 .. ').'
 
-                ESX.SetPlayerJob(target, targetJob.name, tonumber(targetJob.grade) + 1)
+                SetPlayerJob(target, targetJob.name, tonumber(targetJob.grade) + 1)
 
                 return data
             else
@@ -766,8 +814,8 @@ Events.RegisterServerEvent('cc_phone:rankUp', function(source, number, job3)
             end
         end
     else
-        local job = ESX.GetPlayerJob3(source)
-        local targetJob = ESX.GetPlayerJob3(target)
+        local job = GetPlayerJob3(source)
+        local targetJob = GetPlayerJob3(target)
     
         local data = {
             can = false,
@@ -793,9 +841,9 @@ Events.RegisterServerEvent('cc_phone:rankUp', function(source, number, job3)
     
             if job.grade_name == 'boss' and job.name == targetJob.name then
                 data.can = true
-                data.message = 'Du hast ' .. ESX.GetPlayerRPName(target) .. ' befördert (' .. targetJob.grade + 1 .. ').'
+                data.message = 'Du hast ' .. GetPlayerRPName(target) .. ' befördert (' .. targetJob.grade + 1 .. ').'
     
-                ESX.SetPlayerJob3(target, targetJob.name, tonumber(targetJob.grade) + 1)
+                SetPlayerJob3(target, targetJob.name, tonumber(targetJob.grade) + 1)
     
                 return data
             else
@@ -811,8 +859,8 @@ Events.RegisterServerEvent('cc_phone:rankDown', function(source, number, job3)
     local target = GetPlayerFromPhone(number)
 
     if not job3 then
-        local job = ESX.GetPlayerJob(source)
-        local targetJob = ESX.GetPlayerJob(target)
+        local job = GetPlayerJob(source)
+        local targetJob = GetPlayerJob(target)
 
         local data = {
             can = false,
@@ -838,9 +886,9 @@ Events.RegisterServerEvent('cc_phone:rankDown', function(source, number, job3)
                 end
 
                 data.can = true
-                data.message = 'Du hast ' .. ESX.GetPlayerRPName(target) .. ' runtergestuft (' .. targetJob.grade - 1 .. ').'
+                data.message = 'Du hast ' .. GetPlayerRPName(target) .. ' runtergestuft (' .. targetJob.grade - 1 .. ').'
 
-                ESX.SetPlayerJob(target, targetJob.name, tonumber(targetJob.grade) - 1)
+                SetPlayerJob(target, targetJob.name, tonumber(targetJob.grade) - 1)
 
                 return data
             else
@@ -850,8 +898,8 @@ Events.RegisterServerEvent('cc_phone:rankDown', function(source, number, job3)
             end
         end
     else
-        local job = ESX.GetPlayerJob3(source)
-        local targetJob = ESX.GetPlayerJob3(target)
+        local job = GetPlayerJob3(source)
+        local targetJob = GetPlayerJob3(target)
     
         local data = {
             can = false,
@@ -877,9 +925,9 @@ Events.RegisterServerEvent('cc_phone:rankDown', function(source, number, job3)
                 end
     
                 data.can = true
-                data.message = 'Du hast ' .. ESX.GetPlayerRPName(target) .. ' runtergestuft (' .. targetJob.grade - 1 .. ').'
+                data.message = 'Du hast ' .. GetPlayerRPName(target) .. ' runtergestuft (' .. targetJob.grade - 1 .. ').'
     
-                ESX.SetPlayerJob3(target, targetJob.name, tonumber(targetJob.grade) - 1)
+                SetPlayerJob3(target, targetJob.name, tonumber(targetJob.grade) - 1)
     
                 return data
             else
@@ -895,8 +943,8 @@ Events.RegisterServerEvent('cc_phone:kickPlayer', function(source, number, job3)
     local target = GetPlayerFromPhone(number)
 
     if not job3 then
-        local job = ESX.GetPlayerJob(source)
-        local targetJob = ESX.GetPlayerJob(target)
+        local job = GetPlayerJob(source)
+        local targetJob = GetPlayerJob(target)
 
         local data = {
             can = false,
@@ -917,8 +965,8 @@ Events.RegisterServerEvent('cc_phone:kickPlayer', function(source, number, job3)
             end
             
             data.can = true
-            data.message = 'Du hast ' .. ESX.GetPlayerRPName(target) .. ' gefeuert.'
-            ESX.SetPlayerJob(target, 'unemployed', 0)
+            data.message = 'Du hast ' .. GetPlayerRPName(target) .. ' gefeuert.'
+            SetPlayerJob(target, 'unemployed', 0)
             return data
         else
             data.can = false
@@ -926,8 +974,8 @@ Events.RegisterServerEvent('cc_phone:kickPlayer', function(source, number, job3)
             return data
         end
     else
-        local job = ESX.GetPlayerJob3(source)
-        local targetJob = ESX.GetPlayerJob3(target)
+        local job = GetPlayerJob3(source)
+        local targetJob = GetPlayerJob3(target)
     
         local data = {
             can = false,
@@ -948,8 +996,8 @@ Events.RegisterServerEvent('cc_phone:kickPlayer', function(source, number, job3)
             end
             
             data.can = true
-            data.message = 'Du hast ' .. ESX.GetPlayerRPName(target) .. ' gefeuert.'
-            ESX.SetPlayerJob3(target, 'unemployed', 0)
+            data.message = 'Du hast ' .. GetPlayerRPName(target) .. ' gefeuert.'
+            SetPlayerJob3(target, 'unemployed', 0)
             return data
         else
             data.can = false
@@ -968,7 +1016,7 @@ AddEventHandler('cc_phone:setMOTD', function(text, job3)
     end
 
     if not job3 then
-        local job = ESX.GetPlayerJob(playerId).name
+        local job = GetPlayerJob(playerId).name
         local jobName = string.lower(job)
 
         business[jobName].motd = text
@@ -978,7 +1026,7 @@ AddEventHandler('cc_phone:setMOTD', function(text, job3)
             ['@job'] = jobName
         })
     else
-        local job = ESX.GetPlayerJob3(playerId).name
+        local job = GetPlayerJob3(playerId).name
         local jobName = string.lower(job)
 
         business[jobName].motd = text
@@ -993,7 +1041,7 @@ end)
 -- Dispatch
 
 Events.RegisterServerEvent('cc_phone:getDispatchData', function(source, number)
-    local name = ESX.GetPlayerJob(source).name
+    local name = GetPlayerJob(source).name
 
     local data = {
         dispatches = {},
@@ -1047,7 +1095,7 @@ AddEventHandler('cc_phone:sendDispatch', function(job, desc)
     end
 
     if not DispatchTimeout[playerId] then
-        local playerCoords = ESX.GetPlayerCoords(playerId, true)
+        local playerCoords = GetPlayerCoords(playerId, true)
 
         -- if isInDistance(job, playerCoords) then
         --     TriggerClientEvent('cc_phone:sendNotify', playerId, 'Dispatch', 'Es ist schon ein Dispatch im Umkreis von 30M offen!', 'info', 4000)
@@ -1062,10 +1110,10 @@ AddEventHandler('cc_phone:sendDispatch', function(job, desc)
                 uniqueId = uniqueId + 1
     
                 for k1, v1 in pairs(xPlayers) do
-                    local zJobName = ESX.GetPlayerJob(v1.playerId).name
+                    local zJobName = GetPlayerJob(v1.playerId).name
     
                     if zJobName == job then
-                        local distance = #(playerCoords - ESX.GetPlayerCoords(v1.playerId, true))
+                        local distance = #(playerCoords - GetPlayerCoords(v1.playerId, true))
                         TriggerClientEvent('cc_phone:sendNotify', v1.playerId, 'Dispatch', 'Es ist ein Notruf eingegangen! Entfernung: ' .. round(distance, 2) .. 'M', 'info', 4000)
                     end
                 end
@@ -1088,7 +1136,7 @@ AddEventHandler('cc_phone:sendDispatch', function(job, desc)
                         }
                     },
 
-                    rpName = ESX.GetPlayerRPName(playerId),
+                    rpName = GetPlayerRPName(playerId),
                     coords = playerCoords,
                     type = 'open'
                 }
@@ -1105,7 +1153,7 @@ end)
 
 Events.RegisterServerEvent('cc_phone:getDispatches', function(source)
     local dispatches = {}
-    local jobName = ESX.GetPlayerJob(source).name
+    local jobName = GetPlayerJob(source).name
 
     for k, v in pairs(Dispatches) do
         if jobName == v.job then
@@ -1120,7 +1168,7 @@ end)
 
 Events.RegisterServerEvent('cc_phone:getDispatchType', function(source, dispatchType)
     local dispatches = {}
-    local jobName = ESX.GetPlayerJob(source).name
+    local jobName = GetPlayerJob(source).name
 
     for k, v in pairs(Dispatches) do
         if jobName == v.job then
@@ -1135,7 +1183,7 @@ Events.RegisterServerEvent('cc_phone:getDispatchType', function(source, dispatch
                     end
                 end
 
-                local distance = #(v.coords - ESX.GetPlayerCoords(source, true))
+                local distance = #(v.coords - GetPlayerCoords(source, true))
 
                 table.insert(dispatches, {
                     uniqueId = k,
@@ -1155,7 +1203,7 @@ end)
 
 Events.RegisterServerEvent('cc_phone:getDispatchChat', function(source, uniqueId)
     uniqueId = tonumber(uniqueId)
-    local jobName = ESX.GetPlayerJob(source).name
+    local jobName = GetPlayerJob(source).name
 
     if Dispatches[uniqueId] ~= nil then
         if Dispatches[uniqueId].job == jobName then
@@ -1168,7 +1216,7 @@ end)
 Events.RegisterServerEvent('cc_phone:acceptDispatch', function(source, job, uniqueId, playerId, dType)
     uniqueId = tonumber(uniqueId)
 
-    if ESX.GetPlayerJob(source).name == job then
+    if GetPlayerJob(source).name == job then
         if Dispatches[uniqueId] ~= nil then
             if Dispatches[uniqueId].job == job then
                 if dType ~= 'delete' then    
@@ -1180,20 +1228,20 @@ Events.RegisterServerEvent('cc_phone:acceptDispatch', function(source, job, uniq
                 if dType == 'accept' then
                     TriggerClientEvent('cc_phone:sendNotify', target, 'Handy - Dispatch', 'Dein Dispatch wurde angenommen!', 'info', 4000)
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch angenommen!', 'info', 4000)
-                    Dispatches[uniqueId].reason = 'Dispatch wurde angenommen von ' .. ESX.GetPlayerRPName(source)
+                    Dispatches[uniqueId].reason = 'Dispatch wurde angenommen von ' .. GetPlayerRPName(source)
                 elseif dType == 'decline' then
                     TriggerClientEvent('cc_phone:sendNotify', target, 'Handy - Dispatch', 'Dein Dispatch wurde abgelehnt!', 'info', 4000)
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch abgelehnt!', 'info', 4000)
-                    Dispatches[uniqueId].reason = 'Dispatch wurde abgelehnt von ' .. ESX.GetPlayerRPName(source)
+                    Dispatches[uniqueId].reason = 'Dispatch wurde abgelehnt von ' .. GetPlayerRPName(source)
                 elseif dType == 'open' then
                     TriggerClientEvent('cc_phone:sendNotify', target, 'Handy - Dispatch', 'Dein Dispatch wurde wieder eröffnet!', 'info', 4000)
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch wieder eröffnet!', 'info', 4000)
                     Dispatches[uniqueId].reason = nil
                 elseif dType == 'close' then
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch geschlossen!', 'info', 4000)
-                    Dispatches[uniqueId].reason = 'Dispatch wurde geschlossen von ' .. ESX.GetPlayerRPName(source)
+                    Dispatches[uniqueId].reason = 'Dispatch wurde geschlossen von ' .. GetPlayerRPName(source)
                 elseif dType == 'delete' then
-                    if ESX.GetPlayerJob(source).grade_name == 'boss' then
+                    if GetPlayerJob(source).grade_name == 'boss' then
                         Dispatches[uniqueId] = nil
                         TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch gelöscht!', 'info', 4000) 
                     else
@@ -1208,7 +1256,7 @@ end)
 Events.RegisterServerEvent('cc_phone:declineDispatch', function(source, job, uniqueId, playerId, dType)
     uniqueId = tonumber(uniqueId)
     
-    if ESX.GetPlayerJob(source).name == job then
+    if GetPlayerJob(source).name == job then
         if Dispatches[uniqueId] ~= nil then
             if Dispatches[uniqueId].job == job then
                 if dType ~= 'delete' then    
@@ -1220,20 +1268,20 @@ Events.RegisterServerEvent('cc_phone:declineDispatch', function(source, job, uni
                 if dType == 'accept' then
                     TriggerClientEvent('cc_phone:sendNotify', target, 'Handy - Dispatch', 'Dein Dispatch wurde angenommen!', 'info', 4000)
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch angenommen!', 'info', 4000)
-                    Dispatches[uniqueId].reason = 'Dispatch wurde abgenommen von ' .. ESX.GetPlayerRPName(source)
+                    Dispatches[uniqueId].reason = 'Dispatch wurde abgenommen von ' .. GetPlayerRPName(source)
                 elseif dType == 'decline' then
                     TriggerClientEvent('cc_phone:sendNotify', target, 'Handy - Dispatch', 'Dein Dispatch wurde abgelehnt!', 'info', 4000)
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch abgelehnt!', 'info', 4000)
-                    Dispatches[uniqueId].reason = 'Dispatch wurde abgelehnt von ' .. ESX.GetPlayerRPName(source)
+                    Dispatches[uniqueId].reason = 'Dispatch wurde abgelehnt von ' .. GetPlayerRPName(source)
                 elseif dType == 'open' then
                     TriggerClientEvent('cc_phone:sendNotify', target, 'Handy - Dispatch', 'Dein Dispatch wurde wieder eröffnet!', 'info', 4000)
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch wieder eröffnet!', 'info', 4000)
                     Dispatches[uniqueId].reason = nil
                 elseif dType == 'close' then
                     TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch geschlossen!', 'info', 4000)
-                    Dispatches[uniqueId].reason = 'Dispatch wurde geschlossen von ' .. ESX.GetPlayerRPName(source)
+                    Dispatches[uniqueId].reason = 'Dispatch wurde geschlossen von ' .. GetPlayerRPName(source)
                 elseif dType == 'delete' then
-                    if ESX.GetPlayerJob(source).grade_name == 'boss' then
+                    if GetPlayerJob(source).grade_name == 'boss' then
                         Dispatches[uniqueId] = nil
                         TriggerClientEvent('cc_phone:sendNotify', source, 'Handy - Dispatch', 'Du hast ein Dispatch gelöscht!', 'info', 4000) 
                     else
