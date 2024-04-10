@@ -1,0 +1,1356 @@
+@keyframes Frame-Show-frames {
+    from {
+        transform: translate(calc(-100% + -50px), calc(-0% + +50px));
+    }
+
+    to {
+        transform: translate(calc(-100% + -50px), calc(-100% + -50px));
+    }
+}
+
+.Show-Frame {
+    animation: Frame-Show-frames;
+}
+
+@keyframes Frame-Hide-frames {
+    from {
+        transform: translate(calc(-100% + -50px), calc(-100% + -50px));
+    }
+
+    to {
+        transform: translate(calc(-100% + -50px), calc(-0% + +50px));
+    }
+}
+
+.Hide-Frame {
+    animation: Frame-Hide-frames;
+}
+
+@keyframes Frame-Show-Notify-frames {
+    from {
+        transform: translate(calc(-100% + -50px), calc(-0% + 50px));
+    }
+
+    to {
+        transform: translate(calc(-100% + -50px), calc(-15% + -50px));
+    }
+}
+
+.Show-Notify-Frame {
+    animation: Frame-Show-Notify-frames;
+}
+
+@keyframes Frame-Close-Notify-frames {
+    from {
+        transform: translate(calc(-100% + -50px), calc(-15% + -50px));
+    }
+
+    to {
+        transform: translate(calc(-100% + -50px), calc(-0% + +50px));
+    }
+}
+
+.Close-Notify-Frame {
+    animation: Frame-Close-Notify-frames;
+}
+
+/*--------------------------------------------------Apps--------------------------------------------------*/
+
+@keyframes App-Show-frames {
+	from {
+		transform: translate(var(--Col), var(--Row)) scale(0);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Show-App {
+	animation: App-Show-frames;
+}
+
+@keyframes App-Hide-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(var(--Col), var(--Row)) scale(0);
+	}
+}
+
+.Hide-App {
+	animation: App-Hide-frames;
+}
+
+/*--------------------------------------------------Slide-In--------------------------------------------------*/
+
+@keyframes Slide-In-Left-Show-frames {
+	from {
+		transform: translate(-150%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Slide-In-Left {
+	animation: Slide-In-Left-Show-frames;
+}
+
+@keyframes Slide-In-Right-Show-frames {
+	from {
+		transform: translate(50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Slide-In-Right {
+	animation: Slide-In-Right-Show-frames;
+}
+
+@keyframes Slide-In-Top-Show-frames {
+	from {
+		transform: translate(-50%, -150%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Slide-In-Top {
+	animation: Slide-In-Top-Show-frames;
+}
+
+@keyframes Slide-In-Bottom-Show-frames {
+	from {
+		transform: translate(-50%, 50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Slide-In-Bottom {
+	animation: Slide-In-Bottom-Show-frames;
+}
+
+/*--------------------------------------------------Slide-Out---------------------------------------------*/
+
+@keyframes Slide-Out-Left-Show-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-150%, -50%) scale(1);
+	}
+}
+
+.Slide-Out-Left {
+	animation: Slide-Out-Left-Show-frames;
+}
+
+@keyframes Slide-Out-Right-Show-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(50%, -50%) scale(1);
+	}
+}
+
+.Slide-Out-Right {
+	animation: Slide-Out-Right-Show-frames;
+}
+
+@keyframes Slide-Out-Top-Show-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -150%) scale(1);
+	}
+}
+
+.Slide-Out-Top {
+	animation: Slide-Out-Top-Show-frames;
+}
+
+@keyframes Slide-Out-Bottom-Show-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, 50%) scale(1);
+	}
+}
+
+.Slide-Out-Bottom {
+	animation: Slide-Out-Bottom-Show-frames;
+}
+
+/*--------------------------------------------------Camera--------------------------------------------------*/
+
+
+@keyframes Camera-Rotate-Back-frames {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	to {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+}
+
+.Camera-Rotate-Back {
+	animation: Camera-Rotate-Back-frames;
+}
+
+@keyframes Camera-Rotate-Front-frames {
+	from {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.Camera-Rotate-Front {
+	animation: Camera-Rotate-Front-frames;
+}
+
+/*--------------------------------------------------Dispatch-Form--------------------------------------------------*/
+
+@keyframes Dispatch-Form-Show-frames {
+    from {
+        transform: translate(50%, -0%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -0%);
+        opacity: 1;
+    }
+}
+
+.Show-Dispatch-Form {
+    animation: Dispatch-Form-Show-frames;
+}
+
+@keyframes Dispatch-Form-Hide-frames {
+    from {
+        transform: translate(-50%, -0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(50%, -0%);
+        opacity: 0;
+    }
+}
+
+.Hide-Dispatch-Form {
+    animation: Dispatch-Form-Hide-frames;
+}
+
+/*--------------------------------------------------Photos-Form--------------------------------------------------*/
+
+@keyframes Photos-Form-Show-frames {
+    from {
+        transform: translate(50%, -0%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -0%);
+        opacity: 1;
+    }
+}
+
+.Show-Photos-Form {
+    animation: Photos-Form-Show-frames;
+}
+
+@keyframes Photos-Form-Hide-frames {
+    from {
+        transform: translate(-50%, -0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(50%, -0%);
+        opacity: 0;
+    }
+}
+
+.Hide-Photos-Form {
+    animation: Dispatch-Form-Hide-frames;
+}
+
+/*--------------------------------------------------Dispatching--------------------------------------------------*/
+
+@keyframes Dispatching-Inbox-Show-frames {
+    from {
+        transform: translate(50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.Show-Inbox-Dispatching {
+    animation: Dispatching-Inbox-Show-frames;
+}
+
+@keyframes Dispatching-Inbox-Hide-frames {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(50%, -50%);
+        opacity: 0;
+    }
+}
+
+.Hide-Inbox-Dispatching {
+    animation: Dispatching-Inbox-Hide-frames;
+}
+
+/* DISPACHTING_SHOW_FRAMES */
+
+@keyframes Dispatching-Show-frames {
+    from {
+        transform: translate(50%, -50%);
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.Show-Dispatching {
+    animation: Dispatching-Show-frames;
+}
+
+@keyframes Dispatching-Hide-frames {
+    from {
+        transform: translate(-50%, -50%);
+    }
+
+    to {
+        transform: translate(50%, -50%);
+    }
+}
+
+.Hide-Dispatching {
+    animation: Dispatching-Hide-frames;
+}
+
+/*----------------------------------------------Phone-Recents-Option------------------------------------------------*/
+
+.Phone-Recents-Option-Show {
+    animation: Phone-Recents-Option-Show-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Phone-Recents-Option-Show-frames {
+    from {
+        transform: translate(-50%, -0%) scale(1, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -100%) scale(1, 1);
+        opacity: 1;
+    }
+}
+
+.Phone-Recents-Option-Hide {
+    animation: Phone-Recents-Option-Hide-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Phone-Recents-Option-Hide-frames {
+    from {
+        transform: translate(-50%, -100%) scale(1, 1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(-50%, -0%) scale(1, 0);
+        opacity: 0;
+    }
+}
+
+/*----------Phone-Recents-Favoraite------------*/
+
+.Phone-Recents-Fav-Inner-On {
+    fill: var(--Fav-Rec-I-C);
+}
+
+.Phone-Recents-Fav-Inner-Off {
+    fill: var(--Fav-Rec-R-C);
+}
+
+.Phone-Recents-Fav-Inner-Dis {
+    fill: var(--Fav-Rec-I-C);
+}
+
+.Phone-Recents-Fav-Outer-On {
+    fill: var(--Fav-Rec-O-C);
+}
+
+.Phone-Recents-Fav-Outer-Off {
+    fill: var(--Fav-Rec-R-C);
+}
+
+.Phone-Recents-Fav-Outer-Dis {
+    fill: var(--Fav-Rec-D-C);
+}
+
+.Phone-Recents-Fav-Text-On {
+    color: var(--Texts-A-C);
+}
+
+.Phone-Recents-Fav-Text-Off {
+    color: var(--Texts-R-C);
+}
+
+.Phone-Recents-Fav-Text-Dis {
+    color: var(--Texts-D-C);
+}
+
+.Disabled-Recent-Option:hover {
+    filter: none;
+}
+
+.Phone-Recents-Add-Img-On {
+    stroke: var(--Icons-C);
+}
+
+.Phone-Recents-Add-Img-Off {
+    stroke: var(--Icons-D-C);
+}
+
+.Phone-Recents-Add-Text-On {
+    color: var(--Texts-C);
+}
+
+.Phone-Recents-Add-Text-Off {
+    color: var(--Texts-D-C);
+}
+
+/*----------------------------------------------Phone-Recents-Option-Blur-Back------------------------------------------------*/
+
+.Phone-Recents-Option-Blur-Back-Show {
+    animation: Phone-Recents-Option-Blur-Back-Show-frames forwards 0.3s;
+}
+
+@keyframes Phone-Recents-Option-Blur-Back-Show-frames {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.Phone-Recents-Option-Blur-Back-Hide {
+    animation: Phone-Recents-Option-Blur-Back-Hide-frames forwards 0.3s;
+}
+
+@keyframes Phone-Recents-Option-Blur-Back-Hide-frames {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+/*----------------------------------------------Phone-Favorites-Option------------------------------------------------*/
+
+.Phone-Favorites-Option-Show {
+    animation: Phone-Favorites-Option-Show-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Phone-Favorites-Option-Show-frames {
+    from {
+        transform: translate(-50%, -0%) scale(1, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -100%) scale(1, 1);
+        opacity: 1;
+    }
+}
+
+.Phone-Favorites-Option-Hide {
+    animation: Phone-Favorites-Option-Hide-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Phone-Favorites-Option-Hide-frames {
+    from {
+        transform: translate(-50%, -100%) scale(1, 1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(-50%, -0%) scale(1, 0);
+        opacity: 0;
+    }
+}
+
+/*----------------------------------------------Phone-Favorites-Option-Blur-Back------------------------------------------------*/
+
+.Phone-Favorites-Option-Blur-Back-Show {
+    animation: Phone-Favorites-Option-Blur-Back-Show-frames forwards 0.3s;
+}
+
+@keyframes Phone-Favorites-Option-Blur-Back-Show-frames {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.Phone-Favorites-Option-Blur-Back-Hide {
+    animation: Phone-Favorites-Option-Blur-Back-Hide-frames forwards 0.3s;
+}
+
+@keyframes Phone-Favorites-Option-Blur-Back-Hide-frames {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+/*--------------------------------------------------Call--------------------------------------------------*/
+
+/*----------Call---Call----------*/
+
+@keyframes Call-Show-Call-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.Call-Show-Call {
+    animation: Call-Show-Call-frames;
+}
+
+@keyframes Call-Hide-Call-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        display: block;
+    }
+
+    to {
+        display: none;
+    }
+}
+
+.Call-Hide-Call {
+    animation: Call-Hide-Call-frames;
+}
+
+/*----------Call---Phone----------*/
+
+@keyframes Call-Show-Phone-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.Call-Show-Phone {
+    animation: Call-Show-Phone-frames;
+}
+
+@keyframes Call-Hide-Phone-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    99% {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: none;
+    }
+}
+
+.Call-Hide-Phone {
+    animation: Call-Hide-Phone-frames;
+}
+
+/*----------Call---Contacts----------*/
+
+@keyframes Call-Show-Contacts-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.Call-Show-Contacts {
+    animation: Call-Show-Contacts-frames;
+}
+
+@keyframes Call-Hide-Contacts-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    99% {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: none;
+    }
+}
+
+.Call-Hide-Contacts {
+    animation: Call-Hide-Contacts-frames;
+}
+
+/*----------Call---Business----------*/
+
+@keyframes Call-Show-Business-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.Call-Show-Business {
+    animation: Call-Show-Business-frames;
+}
+
+@keyframes Call-Hide-Business-frames {
+    from {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    99% {
+        display: block;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        display: none;
+    }
+}
+
+.Call-Hide-Business {
+    animation: Call-Hide-Business-frames;
+}
+
+/*---------------------------------------------Contacts ActionBox------------------------------------------------*/
+
+.Contacts-Action-Box-Show {
+    animation: Contacts-Action-Box-Show-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Contacts-Action-Box-Show-frames {
+    from {
+        display: flex;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.Contacts-Action-Box-Hide {
+    animation: Contacts-Action-Box-Hide-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Contacts-Action-Box-Hide-frames {
+    from {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    99% {
+        display: flex;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        display: none;
+    }
+}
+
+/*----------Contacts-ActionBox Show----------*/
+
+.Contacts-Content-Box-Activate {
+    height: 50px;
+}
+
+.Contacts-Content-Box-Name-Show {
+    transform: translateY(-50%);
+}
+
+.Contacts-Content-Box-Btn-Show {
+    width: 62%;
+}
+
+.Contacts-Content-Box-Num-Show {
+    opacity: 1;
+}
+
+.Disabled-Text-Field:hover {
+    filter: none;
+}
+
+/*-----------------------------------------------New-Contact--------------------------------------------------*/
+
+@keyframes New-Contact-Show-frames {
+    from {
+        transform: translate(-50%, 50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.Show-New-Contact {
+    animation: New-Contact-Show-frames;
+}
+
+@keyframes New-Contact-Hide-frames {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, 50%) scale(0);
+    }
+}
+
+.Hide-New-Contact {
+    animation: New-Contact-Hide-frames;
+}
+
+/*-----------------------------------------------Edit-Contact--------------------------------------------------*/
+
+@keyframes Edit-Contact-Show-frames {
+    from {
+        transform: translate(-50%, -150%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.Show-Edit-Contact {
+    animation: Edit-Contact-Show-frames;
+}
+
+@keyframes Edit-Contact-Hide-frames {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -150%) scale(1);
+    }
+}
+
+.Hide-Edit-Contact {
+    animation: Edit-Contact-Hide-frames;
+}
+
+/*--------------------------------------------------Messaging--------------------------------------------------*/
+
+@keyframes Messaging-Show-frames {
+    from {
+        transform: translate(50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.Show-Messaging {
+    animation: Messaging-Show-frames;
+}
+
+@keyframes Messaging-Hide-frames {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(50%, -50%) scale(1);
+    }
+}
+
+.Hide-Messaging {
+    animation: Messaging-Hide-frames;
+}
+
+/*--------------------------------------------------Whatsapping--------------------------------------------------*/
+
+@keyframes Whatsapping-Show-frames {
+	from {
+		transform: translate(50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Show-Whatsapping {
+	animation: Whatsapping-Show-frames;
+}
+
+@keyframes Whatsapping-Hide-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(50%, -50%) scale(1);
+	}
+}
+
+.Hide-Whatsapping {
+	animation: Whatsapping-Hide-frames;
+}
+
+/*-----------------------------------------------Edit-Whatsapp--------------------------------------------------*/
+
+@keyframes Edit-Whatsapp-Show-frames {
+	from {
+		transform: translate(-50%, -150%) scale(0);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Show-Edit-Whatsapp {
+	animation: Edit-Whatsapp-Show-frames;
+}
+
+@keyframes Edit-Whatsapp-Hide-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -150%) scale(1);
+	}
+}
+
+.Hide-Edit-Whatsapp {
+	animation: Edit-Whatsapp-Hide-frames;
+}
+
+/*----------------------------------------------Edit-Whatsapp-GPName-Edit------------------------------------------------*/
+
+.Edit-Whatsapp-GPName-Edit-Show {
+	animation: Edit-Whatsapp-GPName-Edit-Show-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-GPName-Edit-Show-frames {
+	from {
+		transform: translate(-50%, 50%);
+	}
+
+	to {
+		transform: translate(-50%, -50%);
+	}
+}
+
+.Edit-Whatsapp-GPName-Edit-Hide {
+	animation: Edit-Whatsapp-GPName-Edit-Hide-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-GPName-Edit-Hide-frames {
+	from {
+		transform: translate(-50%, -50%);
+	}
+
+	to {
+		transform: translate(-50%, 50%);
+	}
+}
+
+/*----------------------------------------------Edit-Whatsapp-RemoveGP------------------------------------------------*/
+
+.Edit-Whatsapp-RemoveGP-Show {
+	animation: Edit-Whatsapp-RemoveGP-Show-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-RemoveGP-Show-frames {
+	from {
+		transform: translate(-50%, 50%);
+	}
+
+	to {
+		transform: translate(-50%, -50%);
+	}
+}
+
+.Edit-Whatsapp-RemoveGP-Hide {
+	animation: Edit-Whatsapp-RemoveGP-Hide-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-RemoveGP-Hide-frames {
+	from {
+		transform: translate(-50%, -50%);
+	}
+
+	to {
+		transform: translate(-50%, 50%);
+	}
+}
+
+/*----------------------------------------------Edit-Whatsapp-LeaveGP------------------------------------------------*/
+
+.Edit-Whatsapp-LeaveGP-Show {
+	animation: Edit-Whatsapp-LeaveGP-Show-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-LeaveGP-Show-frames {
+	from {
+		transform: translate(-50%, 50%);
+	}
+
+	to {
+		transform: translate(-50%, -50%);
+	}
+}
+
+.Edit-Whatsapp-LeaveGP-Hide {
+	animation: Edit-Whatsapp-LeaveGP-Hide-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-LeaveGP-Hide-frames {
+	from {
+		transform: translate(-50%, -50%);
+	}
+
+	to {
+		transform: translate(-50%, 50%);
+	}
+}
+
+/*----------------------------------------------Edit-Whatsapp-Option------------------------------------------------*/
+
+.Edit-Whatsapp-Option-Show {
+	animation: Edit-Whatsapp-Option-Show-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-Option-Show-frames {
+	from {
+		transform: translate(-50%, -0%) scale(1, 0);
+		opacity: 0;
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1, 1);
+		opacity: 1;
+	}
+}
+
+.Edit-Whatsapp-Option-Hide {
+	animation: Edit-Whatsapp-Option-Hide-frames forwards 0.3s;
+	display: flex;
+}
+
+@keyframes Edit-Whatsapp-Option-Hide-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1, 1);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate(-50%, -0%) scale(1, 0);
+		opacity: 0;
+	}
+}
+
+/*----------------------------------------------Edit-Whatsapp-Option-Blur-Back------------------------------------------------*/
+
+.Edit-Whatsapp-Option-Blur-Back-Show {
+	animation: Edit-Whatsapp-Option-Blur-Back-Show-frames forwards 0.3s;
+}
+
+@keyframes Edit-Whatsapp-Option-Blur-Back-Show-frames {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Edit-Whatsapp-Option-Blur-Back-Hide {
+	animation: Edit-Whatsapp-Option-Blur-Back-Hide-frames forwards 0.3s;
+}
+
+@keyframes Edit-Whatsapp-Option-Blur-Back-Hide-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(0);
+	}
+}
+
+/*-----------------------------------------------Add-Whatsapp--------------------------------------------------*/
+
+@keyframes Add-Whatsapp-Show-frames {
+	from {
+		transform: translate(-50%, -150%) scale(0);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.Show-Add-Whatsapp {
+	animation: Add-Whatsapp-Show-frames;
+}
+
+@keyframes Add-Whatsapp-Hide-frames {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	to {
+		transform: translate(-50%, -150%) scale(1);
+	}
+}
+
+.Hide-Add-Whatsapp {
+	animation: Add-Whatsapp-Hide-frames;
+}
+
+/*----------------------------------------------Business-Action-Box------------------------------------------------*/
+
+.Business-Action-Box-Show {
+    animation: Business-Action-Box-Show-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Business-Action-Box-Show-frames {
+    from {
+        display: flex;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.Business-Action-Box-Hide {
+    animation: Business-Action-Box-Hide-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Business-Action-Box-Hide-frames {
+    from {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    99% {
+        display: flex;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        display: none;
+    }
+}
+
+/*----------------------------------------------Business-Caption-Edit------------------------------------------------*/
+
+.Business-Caption-Edit-Show {
+    animation: Business-Caption-Edit-Show-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Business-Caption-Edit-Show-frames {
+    from {
+        transform: translate(-50%, 50%);
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.Business-Caption-Edit-Hide {
+    animation: Business-Caption-Edit-Hide-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Business-Caption-Edit-Hide-frames {
+    from {
+        transform: translate(-50%, -50%);
+    }
+
+    to {
+        transform: translate(-50%, 50%);
+    }
+}
+
+/*----------------------------------------------Business-Settings------------------------------------------------*/
+
+.Business-Settings-Show {
+    animation: Business-Settings-Show-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Business-Settings-Show-frames {
+    from {
+        transform: translate(-50%, -0%) scale(1, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -100%) scale(1, 1);
+        opacity: 1;
+    }
+}
+
+.Business-Settings-Hide {
+    animation: Business-Settings-Hide-frames forwards 0.3s;
+    display: flex;
+}
+
+@keyframes Business-Settings-Hide-frames {
+    from {
+        transform: translate(-50%, -100%) scale(1, 1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(-50%, -0%) scale(1, 0);
+        opacity: 0;
+    }
+}
+
+/*----------------------------------------------Business-Settings-Blur-Back------------------------------------------------*/
+
+.Business-Settings-Blur-Back-Show {
+    animation: Business-Settings-Blur-Back-Show-frames forwards 0.3s;
+}
+
+@keyframes Business-Settings-Blur-Back-Show-frames {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.Business-Settings-Blur-Back-Hide {
+    animation: Business-Settings-Blur-Back-Hide-frames forwards 0.3s;
+}
+
+@keyframes Business-Settings-Blur-Back-Hide-frames {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+/*----------------------------------------------Business-ActionBox Show------------------------------------------------*/
+
+.Business-Content-Box-Activate {
+    height: 50px;
+}
+
+.Business-Content-Box-Name-Show {
+    transform: translateY(-50%);
+}
+
+.Business-Content-Box-Btn-Show {
+    width: 62%;
+}
+
+.Business-Content-Box-Num-Show {
+    opacity: 1;
+}
+
+.Disabled-Text-Field:hover {
+    filter: none;
+}
+
+/*----------------------------------------------Call-PopUp------------------------------------------------*/
+
+@keyframes Call-PopUp-Show-frames {
+    from {
+        transform: translate(-50%, -150%);
+    }
+
+    to {
+        transform: translate(-50%, 0%);
+    }
+}
+
+.Show-Call-PopUp {
+    animation: Call-PopUp-Show-frames;
+}
+
+@keyframes Call-PopUp-Hide-frames {
+    from {
+        transform: translate(-50%, 0%);
+    }
+
+    to {
+        transform: translate(-50%, -150%);
+    }
+}
+
+.Hide-Call-PopUp {
+    animation: Call-PopUp-Hide-frames;
+}
+
+/*----------------------------------------------Notification-PopUp------------------------------------------------*/
+
+@keyframes Notification-PopUp-Show-frames {
+    from {
+        transform: translate(-50%, -150%);
+    }
+
+    to {
+        transform: translate(-50%, 0%);
+    }
+}
+
+.Show-Notification-PopUp {
+    animation: Notification-PopUp-Show-frames;
+}
+
+@keyframes Notification-PopUp-Hide-frames {
+    from {
+        transform: translate(-50%, 0%);
+    }
+
+    to {
+        transform: translate(-50%, -150%);
+    }
+}
+
+.Hide-Notification-PopUp {
+    animation: Notification-PopUp-Hide-frames;
+}

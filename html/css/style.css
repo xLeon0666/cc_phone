@@ -1,0 +1,7866 @@
+/*--------------------------------------Global Variables-------------------------------------*/
+
+:root {
+	/*----------Dementions----------*/
+
+  --Main-radius: 4vh;
+  --Main-width: 27vh;
+  --Main-height: 56.2vh;
+
+	/*----------Menu-Lines----------*/
+
+	--App-Col-1: -88.3%;
+	--App-Col-2: -68.8%;
+	--App-Col-3: -47.2%;
+	--App-Col-4: -25.7%;
+    --App-Col-5: -8.7%;
+
+	--App-Row-1: -89.5%;
+	--App-Row-2: -75.3%;
+	--App-Row-3: -64.1%;
+	--App-Row-4: -52.8%;
+	--App-Row-5: -41.6%;
+	--App-Row-6: -30.4%;
+	--App-Row-7: -19.1%;
+	--App-Row-D: -6%;
+
+	/*----------Effects----------*/
+
+	--Main-Hover-Filter: brightness(0.5);
+}
+
+@font-face {
+  font-family: "SF";
+  src: url(../fonts/handy/SFUIDisplay-Regular.otf);
+}
+
+@font-face {
+  font-family: "SF-BO";
+  src: url(../fonts/handy/SFUIDisplay-Bold.ttf);
+}
+
+@font-face {
+  font-family: "SF-LI";
+  src: url(../fonts/handy/SFUIDisplay-Light.ttf);
+}
+
+@font-face {
+  font-family: "SF-MI";
+  src: url(../fonts/handy/SFUIDisplay-Medium.otf);
+}
+
+/*--------------------------------------------------Slide Up--------------------------------------------------*/
+body {
+  margin: 0vh;
+  overflow: hidden;
+}
+
+* {
+  margin: 0vh;
+  padding: 0vh;
+  transition: all 0.3s ease-in-out 0s;
+  user-select: none;
+}
+
+/*----------Text Fields----------*/
+
+textarea {
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/*----------Search Bar----------*/
+
+.Search-Bar {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 3vh;
+  left: 50%;
+  top: 6.2vh;
+}
+
+.Search-Bar-Textbox {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 24.3vh;
+  height: 3vh;
+  left: 50%;
+  top: 50%;
+  border: 0;
+  border-radius: 1vh;
+  color: var(--Texts-C);
+  background-color: var(--Back-S-C);
+  font-family: "SF";
+  resize: none;
+  text-align: left;
+  line-height: 3vh;
+  font-size: 1.5vh;
+  text-indent: 3vh;
+  overflow: hidden;
+}
+
+/*----------Range-Slider----------*/
+.Range-Slider {
+	--color-1: #4bd663;
+	appearance: none;
+	outline: none;
+	width: 70%;
+	height: 0.3vh;
+	border-radius: 3vh;
+	background-color: var(--NumBub-C);
+}
+.Range-Slide::-webkit-slider-runnable-track {
+	background-color: var(--Back-W-C);
+}
+.Range-Slider::-webkit-slider-thumb {
+	background: var(--Slider-C);
+	appearance: none;
+	box-shadow: 0.1vh 0.2vh 2.6vh 1vh var(--NumBub-C);
+	width: 1.5vh;
+	height: 1.5vh;
+	border-radius: 50%;
+}
+
+/*----------Scroll Bar----------*/
+
+::-webkit-scrollbar {
+  width: 0.6vh;
+  border-radius: 3vh;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0.6vh 0.6vh var(--Back-C);
+  border-radius: 3vh;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0.6vh 0.6vh var(--Back-A-C);
+  border-radius: 3vh;
+}
+
+#Phone-Recents-Content::-webkit-scrollbar-track {
+  margin-top: 0.2vh;
+  margin-bottom: -0.2vh;
+}
+
+#Phone-Favorites-Content::-webkit-scrollbar-track {
+  margin-top: 0.2vh;
+  margin-bottom: -0.2vh;
+}
+
+#Contacts-Contents::-webkit-scrollbar-track {
+  margin-top: 7.8vh;
+  margin-bottom: 3vh;
+}
+
+#Photos-Contents::-webkit-scrollbar {
+  width: 0vh;
+}
+
+#Messages-Contents::-webkit-scrollbar-track {
+  margin-top: 0.1vh;
+  margin-bottom: 3vh;
+}
+
+#Messaging-Contents::-webkit-scrollbar {
+  width: 0vh;
+}
+
+#Dispatching-Contents::-webkit-scrollbar {
+  width: 0vh;
+}
+
+#Business-Contents::-webkit-scrollbar-track {
+  margin-top: 0.1vh;
+  margin-bottom: 3vh;
+}
+
+#Dispatch-Inbox-Contents::-webkit-scrollbar-track {
+    margin-top: 0vh;
+    margin-bottom: 0.1vh;
+}
+
+#Whatsapp-Contents::-webkit-scrollbar-track {
+	margin-bottom: 3vh;
+}
+#Whatsapping-Contents::-webkit-scrollbar {
+	width: 0vh;
+}
+#Edit-Whatsapp-Contents::-webkit-scrollbar-track {
+	margin-top: 6.3vh;
+	margin-bottom: 3vh;
+}
+
+#Add-Whatsapp-Contents::-webkit-scrollbar-track {
+	margin-top: 15.3vh;
+	margin-bottom: 3vh;
+}
+
+/*----------Bottom Back Botton----------*/
+
+.Back-BTN {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 11vh;
+  height: 0.5vh;
+  left: 50%;
+  top: 50%;
+  background-color: var(--Back-Btn-C);
+  border-radius: 1vh;
+}
+
+.Click-Back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 2vh;
+  left: 50%;
+  top: 98%;
+  border-radius: 1vh;
+  z-index: 5;
+}
+
+.Click-Back:hover .Back-BTN {
+  background-color: rgb(0, 132, 255);
+}
+
+/*----------Switches----------*/
+
+/* Normal Switches */
+.switch-Box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 42%;
+  width: var(--Main-width);
+  height: 4vh;
+}
+
+.switch-Box-Title {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: 2vh;
+  left: 10%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  font-size: 1.5vh;
+  text-align: left;
+  line-height: 2vh;
+}
+
+.switch-Container {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.4);
+  left: 75%;
+  top: 50%;
+  width: 13vh;
+}
+
+.switch {
+  visibility: hidden;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.switch+label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+.switch--shadow+label {
+  padding: 0.2vh;
+  width: 12vh;
+  height: 6vh;
+  background-color: #949494;
+  border-radius: 6vh;
+}
+
+.switch--shadow+label:before {
+  display: block;
+  position: absolute;
+  top: 0.1vh;
+  left: 0.1vh;
+  bottom: 0.1vh;
+  content: "";
+}
+
+.switch--shadow+label:after {
+  display: block;
+  position: absolute;
+  top: 0.1vh;
+  left: 1vh;
+  bottom: 0.1vh;
+  content: "";
+}
+
+.switch--shadow+label:before {
+  right: 0.1vh;
+  background-color: #949494;
+  border-radius: 6vh;
+  transition: background 0.4s;
+}
+
+.switch--shadow+label:after {
+  left: 0.4vh;
+  width: 6.2vh;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0.2vh 0.5vh rgba(0, 0, 0, 0.3);
+  transition: all 0.4s;
+}
+
+.switch--shadow:checked+label:before {
+  background-color: #31da5b;
+}
+
+.switch--shadow:checked+label:after {
+  transform: translateX(6vh);
+}
+
+
+
+/*------------------------------------------Main Phone---------------------------------------*/
+
+#Frame {
+  position: absolute;
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 100%;
+  top: 100%;
+  animation-duration: 1.0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.38, 1.33);
+  transition: none;
+}
+
+div#Frame {
+  display: block;
+}
+
+#IPhone {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 28.5vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Notch {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 48%;
+  width: 14vh;
+}
+
+#Main {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  overflow: hidden;
+}
+
+/*-------------------------------------------Top Bar-----------------------------------------*/
+
+#Top-Bar {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 100%;
+  height: 2.8vh;
+  left: 50%;
+  top: 0%;
+  background-color: var(--Top-Bar-C);
+  z-index: 12;
+}
+
+#Top-Bar-Right-Icons {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 82%;
+  top: 50%;
+  width: 7vh;
+}
+
+#T-Sig {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  left: 25%;
+  top: 50%;
+}
+
+#T-Sig-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 1.5vh;
+}
+
+#T-Net {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+#T-Net-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 2.5vh;
+  height: 2vh;
+}
+
+#T-Bat {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2.5vh;
+  height: 2vh;
+  left: 79%;
+  top: 50%;
+}
+
+#T-Bat-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 2.5vh;
+  height: 2vh;
+}
+
+#T-Time {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2.5vh;
+  height: 2vh;
+  left: 14%;
+  top: 50%;
+}
+
+#T-Time-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  left: 50%;
+  top: 50%;
+  color: var(--Texts-C);
+  text-align: center;
+  font-family: "SF-MI";
+  font-size: 1.2vh;
+}
+
+/*-------------------------------------------Bottom-Bar-----------------------------------------*/
+
+.Bottom-Bar {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: 7.2vh;
+  top: 100%;
+  left: 50%;
+  background-color: var(--Bottom-Bar-C);
+}
+
+.Bottom-Bar-Content {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  width: var(--Main-width);
+  height: 4vh;
+  top: 0%;
+  left: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Bottom-Bar-Button {
+  position: relative;
+  width: 5vh;
+}
+
+.Bottom-Bar-Button:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Bottom-Bar-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 5vh;
+  height: 1vh;
+  top: 85%;
+  left: 50%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: center;
+  color: var(--Texts-C);
+}
+
+.Bottom-Bar-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 2vh;
+  top: 40%;
+  left: 50%;
+}
+
+.Bottom-Bar-Icon-Color {
+  fill: var(--Icons-C);
+  transition: all 0.05s ease-in-out 0s;
+}
+
+/*-------------------------------------------Top Field-----------------------------------------*/
+
+.Top-Field {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 6.5vh;
+  left: 50%;
+  top: 0%;
+  background-color: var(--Top-Field-C);
+}
+
+.Top-Field-Title {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  left: 50%;
+  top: 73%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  font-size: 1.5vh;
+  text-align: center;
+  height: 1.7vh;
+  line-height: 1.7vh;
+}
+
+.Camera-Top-Title {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    left: 50%;
+    top: 10%;
+    color: var(--Texts-C);
+    font-family: "SF";
+    font-size: 1.2vh;
+    text-align: center;
+    height: 1.7vh;
+    line-height: 1.7vh;
+}
+
+.Top-Field-Back {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 7vh;
+  height: 3vh;
+  top: 47%;
+  left: 15%;
+}
+
+.Top-Field-Back:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Top-Field-Back-Btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 0.8vh;
+  left: 10%;
+  top: 50%;
+}
+
+.Top-Field-Back-Btn-Img {
+  fill: var(--Icons-A-C);
+  fill-rule: evenodd;
+}
+
+.Top-Field-Back-Text {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: 2vh;
+  left: 20%;
+  top: 50%;
+  color: var(--Texts-A-C);
+  border-radius: 2vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2vh;
+}
+
+.Top-Field-Left {
+  position: absolute;
+  transform: translate(-0%, -0%);
+  height: 3vh;
+  top: 47%;
+  left: 3%;
+}
+
+.Top-Field-Left:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Top-Field-Left-Text {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  left: 0%;
+  top: 50%;
+  color: var(--Texts-A-C);
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: left;
+  height: 1.5vh;
+  line-height: 1.5vh;
+}
+
+.Top-Field-Left-Icon {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  left: 0%;
+  top: 50%;
+}
+
+.Top-Field-Right {
+  position: absolute;
+  transform: translate(-100%, -0%);
+  width: 6vh;
+  height: 3vh;
+  top: 47%;
+  left: 97%;
+}
+
+.Top-Field-Right:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Top-Field-Right-Text {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  left: 100%;
+  top: 50%;
+  color: var(--Texts-A-C);
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: right;
+  height: 1.5vh;
+  line-height: 1.5vh;
+}
+
+/* .Top-Field-Right-Icon {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  left: 100%;
+  top: 50%;
+}*/
+
+.Top-Field-Right-Icon {
+	position: relative;
+	width: 0.9vh;
+}
+
+.Top-Field-Right-Img {
+	fill: var(--Icons-A-C);
+	fill-rule: evenodd;
+}
+
+/*--------------------------------------------Menu-------------------------------------------*/
+
+#Menu {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+}
+
+#Menu-Back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+}
+
+#Deck-Apps {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: calc(var(--Main-width) - 2.5vh);
+  height: 6.5vh;
+  left: 50%;
+  top: 91%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3vh;
+  padding: 0.6vh;
+  display: flex;
+  flex-direction: inherit;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.D-App {
+  position: relative;
+  width: 5vh;
+  background-color: rgba(255, 0, 0, 0.8);
+  background-color: var(--Back-I-C);
+}
+
+.D-App:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.D-App-Icon-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  left: 50%;
+  top: 50%;
+}
+
+#Main-Apps {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: calc(var(--Main-width) - 2vh);
+  left: 52%;
+  top: 6%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+}
+
+.M-App {
+  position: relative;
+  width: 5vh;
+  height: 8vh;
+}
+
+.M-App:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.M-App-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4vh;
+  left: 50%;
+  top: 40%;
+  background-color: rgba(238, 255, 0, 0.8);
+  border-radius: 3vh;
+  background-color: var(--Back-I-C);
+}
+
+.M-App-Icon-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  left: 50%;
+  top: 50%;
+}
+
+.M-App-Title {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 5vh;
+  left: 50%;
+  top: 80%;
+  border-radius: 3vh;
+}
+
+.M-App-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  color: var(--M-App-Texts-C);
+  font-family: "SF-LI";
+  font-size: 1vh;
+  text-align: center;
+  line-height: 1vh;
+}
+
+/*--------------------------------------------Radio------------------------------------------*/
+
+#Radio {
+    --Col: var(--App-Col-1);
+    --Row: var(--App-Row-1);
+    position: absolute;
+    transform: translate(-81%, -89%) scale(0);
+    opacity: 1;
+    width: var(--Main-width);
+    height: var(--Main-height);
+    left: 50%;
+    top: 50%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+#Radio-Textbox {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 4.2vh;
+  top: 21%;
+  left: 50%;
+  border: 0;
+  color: var(--Texts-C);
+  background-color: var(--Back-S-C);
+  font-family: "SF";
+  resize: none;
+  text-align: left;
+  line-height: 4.2vh;
+  font-size: 1.5vh;
+  text-indent: 1.5vh;
+  overflow: hidden;
+}
+
+.Radio-Btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 10vh;
+  height: 3vh;
+  border-radius: 1vh;
+}
+
+.Radio-Btn:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Radio-Join {
+  left: 73%;
+  top: 32%;
+  background-color: var(--Back-A-C);
+}
+
+#Radio-Join-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Radio-Join-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  height: 2vh;
+  left: 60%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  font-size: 1.5vh;
+  text-align: center;
+}
+
+#Radio-Leave {
+  left: 28%;
+  top: 32%;
+  background-color: var(--Back-S-C);
+}
+
+#Radio-Leave-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Radio-Leave-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 2vh;
+  left: 60%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+  font-size: 1.5vh;
+}
+
+/*--------------------------------------------Dispatch------------------------------------------*/
+#Dispatch {
+  --Col: var(--App-Col-3);
+	--Row: var(--App-Row-1);
+  position: absolute;
+  transform: translate(-18%, -89%) scale(0);
+  opacity: 1;
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+
+
+/*----------Dispatch-Send----------*/
+#Dispatch-Send-Contents {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 39.4vh;
+  left: 50%;
+  top: 6.3vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1vh;
+  overflow: auto;
+  align-content: flex-start;
+}
+
+.Dispatch-Send-Contents-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 4vh;
+}
+
+.Dispatch-Send-Contents-Box:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Dispatch-Send-Contents-Title {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: fit-content;
+  left: 10%;
+  top: 50%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: left;
+  color: var(--Texts-C);
+}
+
+.Dispatch-Send-Contents-Text {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  height: fit-content;
+  left: 90%;
+  top: 50%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: right;
+  color: var(--Texts-C);
+}
+
+.Dispatch-switch-Container {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.4);
+  left: 80%;
+  top: 50%;
+  width: 13vh;
+}
+
+.Dispatch-Send-Content-Box-Line {
+  position: relative;
+  width: 100%;
+  height: 0.1vh;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#Dispatch-Form {
+  position: absolute;
+  transform: translate(50%, -0%);
+  opacity: 0;
+  width: var(--Main-width);
+  height: 53.5vh;
+  left: 50%;
+  top: 6.3vh;
+  background-color: var(--Back-C);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  align-content: flex-start;
+  gap: 1vh;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Dispatch-Form-Textbox {
+  position: relative;
+  width: var(--Main-width);
+  height: 10vh;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  border: 0;
+  color: var(--Texts-C);
+  background-color: var(--Back-S-C);
+  font-family: "SF";
+  resize: none;
+  text-align: left;
+  line-height: 4vh;
+  padding: 1vh 1.5vh 1vh 1.5vh;
+  font-size: 1.5vh;
+  overflow: hidden;
+}
+
+.Dispatch-Form-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 4vh;
+}
+
+.Dispatch-Form-Box-Line {
+  position: relative;
+  width: 100%;
+  height: 0.1vh;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Dispatch-Form-Btn {
+  position: relative;
+  transform: translatex(-50%);
+  left: 50%;
+  width: 10vh;
+  height: 3vh;
+  border-radius: 1vh;
+  margin-top: 2vh;
+}
+
+.Dispatch-Form-Btn:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Dispatch-Form-Send {
+  background-color: var(--Back-A-C);
+}
+
+#Dispatch-Form-Send-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Dispatch-Form-Send-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  height: 1.8vh;
+  left: 60%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+}
+
+#Dispatch-Form-Address {
+  display: none;
+}
+
+/*----------Dispatch-Inbox----------*/
+#Dispatch-Inbox-Section {
+    position: absolute;
+    opacity: 0;
+    transform: translate(50%, -50%);
+    width: var(--Main-width);
+    height: calc(var(--Main-height) - 14.7vh);
+    left: 50%;
+    top: 49%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    z-index: 2;
+}
+
+#Dispatch-Inbox-Type-Contents {
+    position: relative;
+    transform: translate(-50%, -0%);
+    width: var(--Main-width);
+    height: calc(var(--Main-height) - 13.4vh);
+    left: 50%;
+    top: 6.2vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.1vh;
+    overflow: auto;
+    align-content: flex-start;
+}
+
+.Dispatch-Inbox-Content-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+}
+
+.Dispatch-Inbox-Content-Box:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Dispatch-Inbox-Content-Box-NotRead {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 3%;
+  width: 1vh;
+  height: 1vh;
+  border-radius: 3vh;
+  background-color: var(--Icons-A-C);
+}
+
+.Dispatch-Inbox-Content-Box-Read {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 3%;
+  width: 1vh;
+  height: 1vh;
+  border-radius: 3vh;
+  background-color: var(--Icons-A-C);
+  display: none;
+}
+
+.Dispatch-Inbox-Content-Box-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 14%;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 10vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Dispatch-Inbox-Content-Box-Avatar-Img {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 70%;
+  left: 50%;
+  top: 95%;
+  border-radius: 10vh;
+}
+
+.Dispatch-Inbox-Content-Box-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  top: 25%;
+  left: 22%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+  text-align: left;
+}
+
+.Dispatch-Inbox-Content-Box-Last {
+  position: absolute;
+  transform: translate(-0%, -0%);
+  width: 75%;
+  top: 40%;
+  left: 22%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Dispatch-Inbox-Content-Box-Time {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  top: 25%;
+  left: 95%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+  text-align: left;
+}
+
+.Dispatch-Inbox-Content-Box-Icon {
+  position: absolute;
+  transform: translate(-100%, -50%) scale(-1, 1);
+  height: 0.5vh;
+  width: fit-content;
+  left: 98%;
+  top: 25%;
+}
+
+.Dispatch-Inbox-Content-Box-Img {
+  fill: var(--Icons-L-C);
+}
+
+.Dispatch-Inbox-Content-Box-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 22.5vh;
+  height: 1.1vh;
+  left: 100%;
+  top: 90%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Dispatch-Inbox-Content-Box-DataId {
+  display: none;
+}
+
+#Dispatch-Inbox-Space-From-Bottom {
+  position: relative;
+  width: var(--Main-width);
+  height: 0.5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+  opacity: 0;
+}
+
+/*----------Dispatching----------*/
+#Dispatching {
+    position: absolute;
+    opacity: 1;
+    transform: translate(50%, -50%);
+    width: var(--Main-width);
+    height: var(--Main-height);
+    left: 50%;
+    top: 50%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    z-index: 2;
+}
+
+#Dispatching-Top-Field {
+  background-color: #121212f0;
+  z-index: 5;
+  height: 10vh;
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  left: 50%;
+  top: -0.1vh;
+}
+
+#Dispatching-Top-Field-Back {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 3vh;
+  height: 3vh;
+  top: 47%;
+  left: 9%;
+}
+
+#Dispatching-Top-Field-Back-Text {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: 1vh;
+  left: 30%;
+  top: 50%;
+  color: var(--Texts-C);
+  background-color: var(--Icons-A-C);
+  border-radius: 2vh;
+  padding: 0.4vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Dispatching-Top-Field-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 63%;
+  left: 50%;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 10vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Dispatching-Top-Field-Avatar-Img {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 70%;
+  left: 50%;
+  top: 95%;
+  border-radius: 10vh;
+}
+
+#Dispatching-Top-Field-Name {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 90%;
+  left: 50%;
+  width: fit-content;
+  color: var(--Texts-C);
+  font-family: "SF-LI";
+  font-size: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Dispatching-Bottom-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 100%;
+  left: 50%;
+  top: 0%;
+}
+
+#Dispatching-Contents {
+  position: relative;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  max-height: var(--Main-height);
+  left: 50%;
+  top: 97%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5vh;
+  overflow: auto;
+}
+
+.Dispatching-Box {
+  position: relative;
+  width: var(--Main-width);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.Dispatching-Send-Txt {
+  position: relative;
+  margin-right: 0.7vh;
+  padding: 1vh 2vh;
+  max-width: 60%;
+  border-radius: 2.5vh;
+  background-color: var(--Msg-Send-C);
+  word-wrap: break-word;
+  line-height: 2vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+  text-align: left;
+  align-self: flex-end;
+}
+
+.Dispatching-Send-Time {
+  display: none;
+}
+
+.Dispatching-Send-DataId {
+  display: none;
+}
+
+.Dispatching-Send-Arrow {
+  position: absolute;
+  transform: translate(-100%, -100%);
+  left: 100%;
+  top: 100%;
+  color: var(--Msg-Send-C);
+  width: fit-content;
+}
+
+.Dispatching-Send-Loc {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 90%;
+  top: 50%;
+}
+
+.Dispatching-Send-Loc-Address {
+  display: none;
+}
+
+#Dispatching-Send-Loc-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 1.7vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Dispatching-Send-Loc-Img {
+  fill: var(--Icons-C);
+}
+
+.Dispatching-Send-Arrow-Icon {
+  width: 2vh;
+}
+
+.Dispatching-Send-Arrow-Img {
+  fill: var(--Msg-Send-C);
+}
+
+.Dispatching-Recive-Txt {
+  position: relative;
+  margin-left: 0.7vh;
+  padding: 1vh 2vh;
+  max-width: 60%;
+  border-radius: 2.5vh;
+  background-color: var(--Msg-Recive-C);
+  word-wrap: break-word;
+  line-height: 2vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+  text-align: left;
+  align-self: flex-start;
+}
+
+.Dispatching-Recive-Time {
+  display: none;
+}
+
+.Dispatching-Recive-DataId {
+  display: none;
+}
+
+.Dispatching-Recive-Arrow {
+  position: absolute;
+  transform: translate(0%, -100%);
+  left: 0;
+  top: 100%;
+  color: var(--Msg-Recive-C);
+  width: fit-content;
+}
+
+.Dispatching-Recive-Loc {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 31%;
+  top: 50%;
+}
+
+.Dispatching-Recive-Loc-Address {
+  display: none;
+}
+
+#Dispatching-Recive-Loc-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 1.7vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Dispatching-Recive-Loc-Img {
+  fill: var(--Icons-C);
+}
+
+.Dispatching-Recive-Arrow-Icon {
+  width: 2vh;
+  transform: scale(-1, 1);
+}
+
+.Dispatching-Recive-Arrow-Img {
+  fill: var(--Msg-Recive-C);
+}
+
+.Dispatching-Content-Box-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 22.5vh;
+  height: 1.1vh;
+  left: 100%;
+  top: 100%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#Dispatching-Space-From-Top {
+  position: relative;
+  width: var(--Main-width);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  height: 10vh;
+}
+
+#Dispatching-Space-From-Bottom {
+  position: relative;
+  width: var(--Main-width);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  height: 7vh;
+}
+
+#Dispatching-Bar {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: 13vh;
+  top: calc(var(--Main-height) + 5.1vh);
+  left: 50%;
+  background-color: #000000e0;
+}
+
+#Dispatching-Top-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -1000%);
+  width: var(--Main-width);
+  height: 100%;
+  left: 50%;
+  top: 0%;
+}
+
+#Dispatching-Bar-Buttons {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 3vh;
+    left: 50%;
+    top: 25%;
+}
+
+.Dispatching-Bar-Btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 12vh;
+    height: 3vh;
+    border-radius: 1vh;
+}
+
+.Dispatching-Bar-Btn:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+#Dispatching-Bar-Accept {
+  left: 25%;
+  top: 50%;
+  background-color: var(--Back-A-C);
+}
+
+#Dispatching-Bar-Accept-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Dispatching-Bar-Label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 28.7vh;
+    height: 1.8vh;
+    left: 50%;
+    color: var(--Texts-C);
+    font-family: "SF";
+    text-align: center;
+    font-size: 1.1vh;
+    top: -5%;
+}
+
+#Dispatching-Bar-Accept-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  height: 1.8vh;
+  left: 53%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+}
+
+#Dispatching-Bar-Decline {
+  left: 75%;
+  top: 50%;
+  background-color: var(--Back-R-C);
+}
+
+#Dispatching-Bar-Decline-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Dispatching-Bar-Decline-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  height: 1.8vh;
+  left: 53%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+}
+
+.Dispatching-Button {
+    position: relative;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 3vh;
+    left: 50%;
+    top: 19%;
+    background-color: var(--Back-A-C);
+    border-radius: 1vh;
+    margin-top: 0.5vh;
+}
+
+.Dispatching-Button:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+.Dispatching-Label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-family: "SF";
+    text-align: center;
+}
+
+.Dispatching-Title-Label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 8%;
+    left: 50%;
+    font-size: 1.8vh;
+    font-family: "SF";
+    text-align: center;
+    color: white;
+}
+
+#Dispatching-Bar-Textbox {
+    position: absolute;
+    transform: translate(-100%, -0%);
+    width: 95%;
+    height: 3.5vh;
+    left: 98%;
+    top: 51%;
+    border: 0.1vh solid white;
+    border-radius: 2vh;
+    color: var(--Texts-C);
+    background-color: var(--Back-I-C);
+    font-family: "SF";
+    resize: none;
+    text-align: left;
+    line-height: 2.5vh;
+    padding: 0.5vh 3.5vh 0.5vh 1vh;
+    font-size: 1.5vh;
+    text-indent: 1vh;
+    overflow: hidden;
+}
+
+/*--------------------------------------------Camera------------------------------------------*/
+#Camera {
+	--Col: var(--App-Col-1);
+	--Row: var(--App-Row-2);
+	position: absolute;
+	transform: translate(var(--Col), var(--Row)) scale(0);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	opacity: 1;
+	border-radius: var(--Main-radius);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background-color: var(--Back-C);
+}
+
+[data-OpenAppMode="true"]{
+	z-index: 10;
+}
+
+#Camera-Stream {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: calc(var(--Main-width) - 0.4vh);
+	aspect-ratio: 1/1.34;
+	left: 50%;
+	top: 44.3%;
+}
+#Camera-Preview {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 15%;
+	aspect-ratio: 1;
+	left: 11%;
+	top: 85.7%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+}
+#Camera-Preview-Img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#Camera-Flash-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 8%;
+	aspect-ratio: 1;
+	left: 6%;
+	top: 6%;
+	border-radius: var(--Main-radius);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#Camera-Flash-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+#Camera-Flash-Btn-Icon {
+	position: relative;
+	height: 100%;
+	aspect-ratio: 1;
+}
+
+#Camera-Tags {
+	--Tags: 1.7vh;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: calc(var(--Main-width) - 0.4vh);
+	aspect-ratio: 1/1.35;
+	left: 50%;
+	top: 44.2%;
+	border: 0.1vh solid white;
+	box-sizing: border-box;
+	clip-path: polygon(
+		var(--Tags) 0,
+		var(--Tags) var(--Tags),
+		0 var(--Tags),
+		0 calc(100% - var(--Tags)),
+		var(--Tags) calc(100% - var(--Tags)),
+		var(--Tags) 100%,
+		50% 100%,
+		calc(100% - var(--Tags)) 100%,
+		calc(100% - var(--Tags)) calc(100% - var(--Tags)),
+		100% calc(100% - var(--Tags)),
+		100% var(--Tags),
+		calc(100% - var(--Tags)) var(--Tags),
+		calc(100% - var(--Tags)) 0,
+		100% 0,
+		100% 100%,
+		0% 100%,
+		0 0,
+		100% 0
+	);
+}
+
+.Camera-Flash-Off #Flash-Circle {
+	fill: #010100;
+	stroke: #676767;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 5%;
+}
+.Camera-Flash-Off #Flash-Path {
+	fill: #fff;
+	fill-rule: evenodd;
+}
+.Camera-Flash-Off #Flash-Line {
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 20%;
+	stroke: #010100;
+	fill: #fff;
+	fill-rule: evenodd;
+}
+.Camera-Flash-Off #Flash-Line2 {
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 0.1vh;
+	stroke: #fff;
+	fill: #fff;
+	fill-rule: evenodd;
+}
+
+.Camera-Flash-On #Flash-Circle {
+	fill: #ffd118;
+}
+.Camera-Flash-On #Flash-Path {
+	fill: #010100;
+	fill-rule: evenodd;
+}
+.Camera-Flash-On #Flash-Line {
+	opacity: 0;
+}
+.Camera-Flash-On #Flash-Line2 {
+	opacity: 0;
+}
+
+.Camera-Flash-Auto #Flash-Circle {
+	fill: #010100;
+	stroke: #676767;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 5%;
+}
+.Camera-Flash-Auto #Flash-Path {
+	fill: #fff;
+	fill-rule: evenodd;
+}
+.Camera-Flash-Auto #Flash-Line {
+	opacity: 0;
+}
+.Camera-Flash-Auto #Flash-Line2 {
+	opacity: 0;
+}
+
+#Camera-Rotate-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 12%;
+	aspect-ratio: 1;
+	left: 89%;
+	top: 85.7%;
+	border-radius: var(--Main-radius);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+}
+#Camera-Rotate-Btn-Icon {
+	position: relative;
+	height: 100%;
+	aspect-ratio: 1;
+}
+#Camera-Rotate-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Rotate-Circle {
+	fill: #1c1c1c;
+}
+#Rotate-Path {
+	fill: #fff;
+	fill-rule: evenodd;
+}
+#Camera-Shot-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 18.1%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 85.7%;
+	border-radius: var(--Main-radius);
+}
+#Camera-Shot-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+.Camera-Shot-Btn-Circle {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 50%;
+	border-radius: 100%;
+}
+#Camera-Shot-Btn-Circle1 {
+	width: 100%;
+	background: var(--Back-Btn-C);
+}
+#Camera-Shot-Btn-Circle2 {
+	width: 90%;
+	background: var(--Back-C);
+}
+#Camera-Shot-Btn-Circle3 {
+	width: 80%;
+	background: var(--Back-Btn-C);
+}
+
+/*--------------------------------------------Notes-------------------------------------------*/
+
+#Notes {
+	--Col: var(--App-Col-3);
+	--Row: var(--App-Row-2);
+	position: absolute;
+	transform: translate(var(--Col), var(--Row)) scale(0);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	opacity: 1;
+	border-radius: var(--Main-radius);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background-color: var(--Back-C);
+}
+
+#Notes-Textbox {
+	position: absolute;
+	padding: 2%;
+	transform: translate(-50%, -0%);
+	width: var(--Main-width);
+	height: 83%;
+	top: 11.5%;
+	left: 50%;
+	border: 0;
+	color: var(--Texts-C);
+	background-color: var(--Back-S-C);
+	font-family: "SF";
+	resize: none;
+	text-align: left;
+	line-height: 2vh;
+	font-size: 1.5vh;
+	overflow: hidden;
+	transition: none;
+}
+
+/*--------------------------------------------Calculator-------------------------------------------*/
+
+#Calculator {
+	--Col: var(--App-Col-3);
+	--Row: var(--App-Row-2);
+	position: absolute;
+	transform: translate(var(--Col), var(--Row)) scale(0);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	opacity: 1;
+	border-radius: var(--Main-radius);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background-color: var(--Back-C);
+}
+
+.Calculator-Container {
+    position: absolute;
+    top: 35%;
+}
+
+.Calculator-Value {
+    position: absolute;
+    transform: translate(-0%, -50%);
+    top: 31%;
+    right: 8.5%;
+    font-family: "SF-LI";
+    font-size: 5.2vh;
+    color: var(--Texts-C);
+}
+
+.Calculator-Grid-Container {
+    display: grid;
+    grid-gap: 0.6vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 1.2vh;
+}
+
+.Calculator-Container-Button {
+    align-items: center;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    font-family: "SF-MI";
+    font-size: 2.7vh;
+    height: 5.5vh;
+    justify-content: center;
+    transition: filter .3s;
+    width: 5.5vh;
+    color: white;
+}
+
+.Calculator-Container-Button:hover {
+  filter: brightness(120%);
+}
+
+.Calculator-Container-Button.function {
+	color: black;
+	background: #a5a5a5;
+}
+  
+.Calculator-Container-Button.operator {
+	background: #f1a33c;
+}
+  
+.Calculator-Container-Button.number-0 {
+	border-radius: 5.5vh;
+	grid-column: 1 / span 2;
+	justify-content: flex-start;
+	padding-left: 2vh;
+	width: 10vh;
+}
+
+/*--------------------------------------------Whatsapp-------------------------------------------*/
+
+#Whatsapp {
+	--Col: var(--App-Col-5);
+	--Row: var(--App-Row-2);
+	position: absolute;
+	transform: translate(var(--Col), var(--Row)) scale(0);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	opacity: 1;
+	border-radius: var(--Main-radius);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background-color: var(--Back-C);
+}
+
+#Whatsapp-Top-Field-Right {
+	width: unset;
+}
+
+#Whatsapp-Top-Field-Right-Icon {
+	width: 1.8vh;
+}
+
+#Whatsapp-Top-Field {
+	background-color: #0000;
+	z-index: 5;
+}
+
+#Whatsapp-Contents {
+	position: relative;
+	transform: translate(-50%, -100%);
+	width: var(--Main-width);
+	height: calc(var(--Main-height) - 10vh);
+	left: 50%;
+	top: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 0.1vh;
+	overflow: auto;
+	align-content: flex-start;
+}
+
+#Whatsapp-Search-Bar {
+    z-index: 4;
+}
+
+.Whatsapp-Content-Box {
+	position: relative;
+	width: var(--Main-width);
+	height: 5vh;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5vh;
+}
+
+.Whatsapp-Content-Box:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+.Whatsapp-Content-Box-NotRead {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 3%;
+	width: 1vh;
+	height: 1vh;
+	border-radius: 3vh;
+	background-color: var(--Icons-A-C);
+}
+
+.Whatsapp-Content-Box-Read {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 3%;
+	width: 1vh;
+	height: 1vh;
+	border-radius: 3vh;
+	background-color: var(--Icons-A-C);
+	display: none;
+}
+
+.Whatsapp-Content-Box-Avatar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 14%;
+	width: 4vh;
+	height: 4vh;
+	border-radius: 10vh;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Whatsapp-Content-Box-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: 70%;
+	left: 50%;
+	top: 95%;
+	border-radius: 10vh;
+}
+
+.Whatsapp-Content-Box-Avatar-Image {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 14%;
+	width: 4vh;
+	height: 4vh;
+	border-radius: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Whatsapp-Content-Box-Avatar-Image-Img {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 100%;
+    border-radius: 10vh;
+}
+
+.Whatsapp-Content-Box-Name {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 25%;
+	left: 22%;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+}
+
+.Whatsapp-Content-Box-Last {
+	position: absolute;
+	transform: translate(-0%, -0%);
+	width: 75%;
+	top: 40%;
+	left: 22%;
+	font-family: "SF-LI";
+	font-size: 1vh;
+	color: var(--Texts-L-C);
+	text-align: left;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.Whatsapp-Content-Box-Time {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: fit-content;
+	top: 25%;
+	left: 95%;
+	font-family: "SF-LI";
+	font-size: 1vh;
+	color: var(--Texts-L-C);
+	text-align: left;
+	white-space: nowrap;
+}
+
+.Whatsapp-Content-Box-Icon {
+	position: absolute;
+	transform: translate(-100%, -50%) scale(-1, 1);
+	height: 0.5vh;
+	width: fit-content;
+	left: 98%;
+	top: 25%;
+}
+
+.Whatsapp-Content-Box-Img {
+	fill: var(--Icons-L-C);
+}
+
+.Whatsapp-Content-Box-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 22.5vh;
+	height: 1.1vh;
+	left: 100%;
+	top: 90%;
+	border-bottom: solid 0.1vh var(--Line-C);
+	opacity: 0.2;
+}
+
+#Whatsapp-Space-From-Bottom {
+	position: relative;
+	width: var(--Main-width);
+	height: 2.5vh;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5vh;
+	opacity: 0;
+}
+
+/*--------------------------------------------Whatsapping------------------------------------------*/
+#Whatsapping {
+	position: absolute;
+	opacity: 1;
+	transform: translate(50%, -50%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: var(--Main-radius);
+	background-color: var(--Back-C);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	z-index: 1;
+}
+
+#Whatsapping-Top-Field {
+	background-color: var(--Back-DI-C);
+	z-index: 5;
+	height: 10vh;
+	position: absolute;
+	transform: translate(-50%, -0%);
+	width: var(--Main-width);
+	left: 50%;
+	top: -0.1vh;
+}
+
+#Whatsapping-Top-Field-Avatar {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 63%;
+    left: 50%;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10vh;
+    background-color: var(--Avatar-Back-C);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Whatsapping-Title {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 90%;
+    left: 50%;
+    width: fit-content;
+    color: var(--Texts-C);
+    font-family: "SF-LI";
+    font-size: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+#Whatsapping-Top-Field-Avatar-Img {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 70%;
+    left: 50%;
+    top: 95%;
+    border-radius: 10vh;
+}
+
+.Whatsapping-Top-Field-Avatar-Image {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 63%;
+    left: 50%;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Whatsapping-Top-Field-Avatar-Image-Img {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 100%;
+	height: 100%;
+    left: 50%;
+    top: 100%;
+    border-radius: 10vh;
+}
+
+#Whatsapping-Top-Field-Back {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 73%;
+	left: 9%;
+}
+
+#Whatsapping-Top-Field-Back-Text {
+	width: fit-content;
+	height: 1vh;
+	color: var(--Texts-C);
+	background-color: var(--Icons-A-C);
+	border-radius: 2vh;
+	padding: 0.4vh;
+	font-family: "SF";
+	font-size: 1.2vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#Whatsapping-Top-Field-Right {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: fit-content;
+	height: 3vh;
+	top: 73%;
+	left: 98%;
+	width: 3%;
+	display: flex;
+	justify-content: center;
+}
+
+#Whatsapping-Top-Field-Right-Icon {
+	height: 60%;
+	width: unset;
+}
+
+#Whatsapping-Bottom-Blur-Back {
+	position: absolute;
+	transform: translate(-50%, -0%);
+	width: var(--Main-width);
+	height: 100%;
+	left: 50%;
+	top: 0%;
+}
+
+#Whatsapping-Contents {
+	position: relative;
+	transform: translate(-50%, -100%);
+	width: var(--Main-width);
+	max-height: var(--Main-height);
+	left: 50%;
+	top: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1.5vh;
+	overflow: auto;
+}
+
+.Whatsapping-Box {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.Whatsapping-Send-Txt {
+	position: relative;
+	margin-right: 0.7vh;
+	padding: 1vh 2vh;
+	max-width: 60%;
+	border-radius: 2.5vh;
+	background-color: var(--Msg-Send-C);
+	word-wrap: break-word;
+	line-height: 2vh;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+	align-self: flex-end;
+}
+
+.Whatsapping-Send-Name {
+    font-family: "SF";
+    font-size: 1vh;
+    line-height: 1vh;
+    color: hsla(0deg 0% 75% /0.75);
+    line-height: 1vh;
+}
+
+.Whatsapping-Send-Txt::after {
+	content: attr(data-Whatsapping_Time);
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-family: "SF";
+	font-size: 1vh;
+	line-height: 1vh;
+	color: hsla(0deg 0% 75% /0.75);
+	position: absolute;
+	transform: translate(-150%, -120%);
+	left: 100%;
+	top: 100%;
+}
+
+.Whatsapping-Send-Icon {
+	position: relative;
+	margin-right: 0.7vh;
+	margin-bottom: 0.3vh;
+	padding: 0.2vh;
+	max-width: 60%;
+	border-radius: 1vh;
+	background-color: var(--Msg-Send-C);
+	align-self: flex-end;
+}
+
+.Whatsapping-Send-Icon::after {
+	content: attr(data-Whatsapping_Time);
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-family: "SF";
+	font-size: 1vh;
+	line-height: 1vh;
+	color: hsla(0deg 0% 100% /0.5);
+	position: absolute;
+	transform: translate(-140%, -140%);
+	left: 100%;
+	top: 100%;
+}
+
+.Whatsapping-Send-Img {
+	position: relative;
+	max-width: 100%;
+	border-radius: inherit;
+	align-self: flex-end;
+}
+
+.Whatsapping-Send-Arrow {
+	position: absolute;
+	transform: translate(-100%, -100%);
+	left: 100%;
+	top: 100%;
+	color: var(--Msg-Send-C);
+	width: fit-content;
+	z-index: -1;
+}
+
+.Whatsapping-Send-Loc {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	left: 90%;
+	top: 50%;
+}
+
+.Whatsapping-Send-Loc-Address {
+	display: none;
+}
+
+#Whatsapping-Send-Loc-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 1.7vh;
+	left: 50%;
+	top: 50%;
+}
+
+#Whatsapping-Send-Loc-Img {
+	fill: var(--Icons-C);
+}
+
+.Whatsapping-Send-Arrow-Icon {
+	width: 2vh;
+}
+
+.Whatsapping-Send-Arrow-Img {
+	fill: var(--Msg-Send-C);
+}
+
+.Whatsapping-Recive-Txt {
+	position: relative;
+	margin-left: 0.7vh;
+	padding: 1vh 2vh;
+	max-width: 60%;
+	border-radius: 2.5vh;
+	background-color: var(--Msg-Recive-C);
+	word-wrap: break-word;
+	line-height: 2vh;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+	align-self: flex-start;
+}
+
+.Whatsapping-Recive-Txt::after {
+	content: attr(data-Whatsapping_Time);
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-family: "SF";
+	font-size: 1vh;
+	line-height: 1vh;
+	color: hsla(0deg 0% 50% /0.75);
+	position: absolute;
+	transform: translate(-150%, -120%);
+	left: 100%;
+	top: 100%;
+}
+
+.Whatsapping-Recive-Icon {
+	position: relative;
+	margin-left: 0.7vh;
+	margin-bottom: 0.3vh;
+	padding: 0.2vh;
+	max-width: 60%;
+	border-radius: 1vh;
+	background-color: var(--Msg-Recive-C);
+	align-self: flex-start;
+}
+
+.Whatsapping-Recive-Icon::after {
+	content: attr(data-Whatsapping_Time);
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-family: "SF";
+	font-size: 1vh;
+	line-height: 1vh;
+	color: hsla(0deg 0% 100% /0.5);
+	position: absolute;
+	transform: translate(-140%, -140%);
+	left: 100%;
+	top: 100%;
+}
+
+.Whatsapping-Recive-Img {
+	position: relative;
+	max-width: 100%;
+	border-radius: inherit;
+	align-self: flex-end;
+}
+
+.Whatsapping-Recive-Arrow {
+	position: absolute;
+	transform: translate(0%, -100%);
+	left: 0;
+	top: 100%;
+	color: var(--Msg-Recive-C);
+	width: fit-content;
+	z-index: -1;
+}
+
+.Whatsapping-Recive-Loc {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	left: 31%;
+	top: 50%;
+}
+
+.Whatsapping-Recive-Loc-Address {
+	display: none;
+}
+
+#Whatsapping-Recive-Loc-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 1.7vh;
+	left: 50%;
+	top: 50%;
+}
+
+#Whatsapping-Recive-Loc-Img {
+	fill: var(--Icons-C);
+}
+.Whatsapping-Recive-Arrow-Icon {
+	width: 2vh;
+	transform: scale(-1, 1);
+}
+
+.Whatsapping-Recive-Arrow-Img {
+	fill: var(--Msg-Recive-C);
+}
+
+.Whatsapping-Content-Box-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 22.5vh;
+	height: 1.1vh;
+	left: 100%;
+	top: 100%;
+	border-bottom: solid 0.1vh var(--Line-C);
+	opacity: 0.2;
+}
+
+#Whatsapping-Space-From-Top {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 9vh;
+}
+
+#Whatsapping-Space-From-Bottom {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 7vh;
+}
+
+#Whatsapping-Bar {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: var(--Main-width);
+	height: 7vh;
+	top: calc(var(--Main-height) + 0.1vh);
+	left: 50%;
+	background-color: #000000e0;
+}
+
+#Whatsapping-Top-Blur-Back {
+	position: absolute;
+	transform: translate(-50%, -1000%);
+	width: var(--Main-width);
+	height: 100%;
+	left: 50%;
+	top: 0%;
+}
+
+#Whatsapping-Bar-Textbox {
+    position: absolute;
+    transform: translate(-100%, -0%);
+    width: 68%;
+    height: 3.5vh;
+    left: 98%;
+    top: 10%;
+    border: 0.1vh solid white;
+    border-radius: 2vh;
+    color: var(--Texts-C);
+    background-color: var(--Back-I-C);
+    font-family: "SF";
+    resize: none;
+    text-align: left;
+    line-height: 2.5vh;
+    padding: 0.5vh 3.5vh 0.5vh 1vh;
+    font-size: 1.5vh;
+    text-indent: 1vh;
+    overflow: hidden;
+}
+
+#Whatsapping-Bar-Camera {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	left: 23%;
+	top: 36%;
+	border: 0.01vh solid white;
+	border-radius: 3vh;
+}
+
+#Whatsapping-Bar-Camera:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+.Edit-Whatsapp-Avatar-Image:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+#Whatsapping-Bar-Camera-Icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 2.7vh;
+    left: 50%;
+    top: 50%;
+}
+
+#Whatsapping-Bar-Camera-Img {
+	fill: var(--Icons-L-C);
+}
+
+#Whatsapping-Bar-Location {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	left: 10%;
+	top: 36%;
+	border: 0.01vh solid white;
+	border-radius: 3vh;
+}
+
+#Whatsapping-Bar-Location:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Whatsapping-Bar-Location-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 2.3vh;
+	left: 50%;
+	top: 50%;
+}
+
+#Whatsapping-Bar-Location-Img {
+	fill: var(--Icons-L-C);
+}
+
+/*-----------------------------------------Edit-Whatsapp-----------------------------------------*/
+#Edit-Whatsapp {
+	position: absolute;
+	transform: translate(-50%, -150%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: var(--Main-radius);
+	background-color: var(--Back-C);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	z-index: 4;
+}
+
+#Edit-Whatsapp-Top-Field {
+	z-index: 1;
+}
+
+#Edit-Whatsapp-Top-Field-Right {
+	width: 5.4vh;
+}
+
+#Edit-Whatsapp-Top-Field-Right:hover {
+	filter: none;
+}
+
+#Edit-Whatsapp-Top-Field-Right-Text {
+	color: var(--Texts-D-C);
+}
+
+.Edit-Whatsapp-GPName-Edit-Content {
+	position: absolute;
+	transform: translate(-50%, 50%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: 0vh;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background: var(--BackDrop-Back-C);
+	z-index: 5;
+}
+
+#Edit-Whatsapp-GPName-Edit-Textbox {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 27vh;
+	height: 4vh;
+	top: 30%;
+	left: 50%;
+	border: 0;
+	color: var(--Texts-C);
+	background-color: var(--Back-S-C);
+	font-family: "SF";
+	text-align: left;
+	line-height: 4vh;
+	font-size: 1.5vh;
+	overflow: hidden;
+	resize: none;
+	padding: 0vh 2vh;
+	border-radius: 1.5vh;
+}
+
+.Edit-Whatsapp-GPName-Edit-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 10vh;
+	height: 3vh;
+	top: 40%;
+	border-radius: 1vh;
+}
+
+.Edit-Whatsapp-GPName-Edit-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Edit-Whatsapp-GPName-Edit-Apply {
+	left: 73%;
+	background-color: var(--Back-A-C);
+}
+
+#Edit-Whatsapp-GPName-Edit-Apply-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-GPName-Edit-Apply-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+#Edit-Whatsapp-GPName-Edit-Cancel {
+	left: 28%;
+	background-color: var(--Back-S-C);
+}
+
+#Edit-Whatsapp-GPName-Edit-Cancel-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-GPName-Edit-Cancel-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+.Edit-Whatsapp-Avatar-Edit-Content {
+	position: absolute;
+	transform: translate(-50%, 50%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: 0vh;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background: var(--BackDrop-Back-C);
+	z-index: 5;
+}
+
+#Edit-Whatsapp-Avatar-Edit-Textbox {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 27vh;
+	height: 4vh;
+	top: 30%;
+	left: 50%;
+	border: 0;
+	color: var(--Texts-C);
+	background-color: var(--Back-S-C);
+	font-family: "SF";
+	text-align: left;
+	line-height: 4vh;
+	font-size: 1.5vh;
+	overflow: hidden;
+	resize: none;
+	padding: 0vh 2vh;
+	border-radius: 1.5vh;
+}
+
+.Edit-Whatsapp-Avatar-Edit-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 10vh;
+	height: 3vh;
+	top: 40%;
+	border-radius: 1vh;
+}
+
+.Edit-Whatsapp-Avatar-Edit-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Edit-Whatsapp-Avatar-Edit-Apply {
+	left: 73%;
+	background-color: var(--Back-A-C);
+}
+
+#Edit-Whatsapp-Avatar-Edit-Apply-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-Avatar-Edit-Apply-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+#Edit-Whatsapp-Avatar-Edit-Cancel {
+	left: 28%;
+	background-color: var(--Back-S-C);
+}
+
+#Edit-Whatsapp-Avatar-Edit-Cancel-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-Avatar-Edit-Cancel-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+#Edit-Whatsapp-Contents {
+	position: relative;
+	transform: translate(-50%, -0%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 0%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow: auto;
+	align-content: flex-start;
+	gap: 1vh;
+}
+
+#Edit-Whatsapp-Info-Container {
+	position: relative;
+	width: var(--Main-width);
+	height: 13.2vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5vh;
+}
+
+#Edit-Whatsapp-Avatar {
+	position: relative;
+	width: 8vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#Edit-Whatsapp-Avatar:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+#Edit-Whatsapp-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 85%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 95%;
+	border-radius: 60%;
+}
+
+.Edit-Whatsapp-Avatar-Image {
+	position: relative;
+	width: 8vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Edit-Whatsapp-Avatar-Image-Img {
+    position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 100%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 100%;
+	border-radius: 60%;
+}
+
+#Edit-Whatsapp-Name {
+	position: relative;
+	width: fit-content;
+	color: var(--Texts-C);
+	font-family: "SF";
+	font-size: 2.4vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#Edit-Whatsapp-Numbers {
+	position: relative;
+	width: fit-content;
+	color: var(--Texts-L-C);
+	font-family: "SF-LI";
+	font-size: 1.1vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.3vh;
+}
+
+#Edit-Whatsapp-Users-Container {
+	position: relative;
+	width: 96%;
+	margin-left: 2%;
+	background: var(--Back-D-C);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1vh;
+}
+
+.Edit-Whatsapp-User-Box {
+	position: relative;
+	width: 100%;
+	height: 5vh;
+}
+
+.Edit-Whatsapp-Content-Box-Avatar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 10%;
+	width: 3vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Edit-Whatsapp-Content-Box-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 75%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 95%;
+	border-radius: 60%;
+}
+
+.Edit-Whatsapp-Content-Box-Avatar-Image,
+.Add-Whatsapp-Content-Box-Avatar-Image,
+.Photos-Contacts-Content-Box-Avatar-Image {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 10%;
+	width: 3vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Edit-Whatsapp-Content-Box-Avatar-Image-Img,
+.Add-Whatsapp-Content-Box-Avatar-Image-Img,
+.Photos-Contacts-Content-Box-Avatar-Image-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 100%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 100%;
+	border-radius: 60%;
+}
+
+.Edit-Whatsapp-User-Texts {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 37%;
+	left: 18%;
+	display: flex;
+	align-items: center;
+	gap: 0.2vh;
+}
+
+.Edit-Whatsapp-User-Name {
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+}
+
+.Edit-Whatsapp-User-Star-Icon {
+	position: relative;
+	width: 1.5vh;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.Edit-Whatsapp-User-Star-Img {
+	position: relative;
+	height: 70%;
+}
+
+.Edit-Whatsapp-User-Star-Img-Inner {
+	fill: var(--Fav-I-C);
+}
+
+.Edit-Whatsapp-User-Star-Img-Outer {
+	fill: var(--Fav-I-C);
+}
+
+.Edit-Whatsapp-User-Info {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 63%;
+	left: 18%;
+	font-family: "SF-LI";
+	font-size: 1vh;
+	color: var(--Texts-L-C);
+	text-align: left;
+}
+
+.Edit-Whatsapp-User-More {
+	position: absolute;
+	transform: translate(-100%, -50%) rotate(180deg);
+	top: 50%;
+	left: 97%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	align-content: center;
+	display: none;
+}
+
+[data-isadmin="2"]
+	.Edit-Whatsapp-User-Box[data-edit_whats_user_perm="1"]
+	.Edit-Whatsapp-User-More {
+	display: flex;
+}
+
+[data-isadmin="2"]
+	.Edit-Whatsapp-User-Box[data-edit_whats_user_perm="0"]
+	.Edit-Whatsapp-User-More {
+	display: flex;
+}
+
+[data-isadmin="1"]
+	.Edit-Whatsapp-User-Box[data-edit_whats_user_perm="0"]
+	.Edit-Whatsapp-User-More {
+	display: flex;
+}
+
+[data-isadmin="2"] #Edit-Whatsapp-Top-Field-Right:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+[data-isadmin="2"] #Edit-Whatsapp-Top-Field-Right-Text {
+	color: var(--Texts-A-C);
+}
+
+[data-isadmin="1"] #Edit-Whatsapp-Top-Field-Right-Text {
+	color: var(--Texts-A-C);
+}
+
+[data-isadmin="1"] #Edit-Whatsapp-Top-Field-Right:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+.Edit-Whatsapp-User-Box[data-edit_whats_user_perm="2"]
+	.Edit-Whatsapp-User-Name::after {
+	content: " (Owner)";
+}
+
+.Edit-Whatsapp-User-Box[data-edit_whats_user_perm="2"]
+	.Edit-Whatsapp-User-Star-Img-Inner {
+	fill: var(--Fav-Rec-R-C);
+}
+
+.Edit-Whatsapp-User-Box[data-edit_whats_user_perm="1"]
+	.Edit-Whatsapp-User-Star-Img-Inner {
+	fill: var(--Fav-Rec-O-C);
+}
+
+[data-isadmin="2"] #Edit-Whatsapp-Add-Container {
+	display: flex;
+}
+
+[data-isadmin="1"] #Edit-Whatsapp-Add-Container {
+	display: flex;
+}
+
+[data-isadmin="2"] #Edit-Whatsapp-Action-Remove {
+	display: flex;
+}
+
+[data-isadmin="2"] #Edit-Whatsapp-Action-Leave .Edit-Whatsapp-Action-Line {
+	display: block;
+}
+
+#Edit-Whatsapp-Action-Leave .Edit-Whatsapp-Action-Line {
+	display: none;
+}
+
+#Edit-Whatsapp-Action-Remove {
+	display: none;
+}
+
+.Edit-Whatsapp-User-More-Icon {
+	position: relative;
+	width: 0.9vh;
+}
+
+.Edit-Whatsapp-User-More-Img {
+	fill: var(--Icons-L-C);
+	fill-rule: evenodd;
+	transition: all 0.03s ease-in-out 0s;
+}
+
+.Edit-Whatsapp-User-More:hover .Edit-Whatsapp-User-More-Img {
+	fill: var(--Icons-A-C);
+}
+
+.Edit-Whatsapp-User-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 23.5vh;
+	height: 0.1vh;
+	left: 100%;
+	top: 100%;
+	border-bottom: solid 0.1vh var(--Line_C);
+	opacity: 0.2;
+}
+
+.Edit-Whatsapp-User-Box:last-child .Edit-Whatsapp-User-Line {
+	display: none;
+}
+
+#Edit-Whatsapp-Actions-Container {
+	position: relative;
+	width: 96%;
+	margin-left: 2%;
+	background: var(--Back-D-C);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1vh;
+}
+
+#Edit-Whatsapp-Add-Container {
+	position: relative;
+	width: 96%;
+	margin-left: 2%;
+	background: var(--Back-D-C);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1vh;
+	display: none;
+}
+
+.Edit-Whatsapp-Action-Box {
+	position: relative;
+	width: 100%;
+	height: 3.5vh;
+}
+
+.Edit-Whatsapp-Action-Title {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 50%;
+	left: 5%;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-R-C);
+	text-align: left;
+}
+
+.Clr-A {
+	color: var(--Texts-A-C);
+}
+
+.Edit-Whatsapp-Action-Box:hover .Edit-Whatsapp-Action-Title {
+	filter: var(--Main-Hover-Filter);
+}
+
+.Edit-Whatsapp-Action-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 95%;
+	height: 0.1vh;
+	left: 100%;
+	top: 100%;
+	border-bottom: solid 0.1vh var(--Line-C);
+	opacity: 0.2;
+}
+
+.Edit-Whatsapp-Action-Box:last-child .Edit-Whatsapp-Action-Line {
+	display: none;
+}
+
+#Edit-Whatsapp-AddUsers-Container {
+	position: relative;
+	width: 96%;
+	margin-left: 2%;
+	background: var(--Back-D-C);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1vh;
+	display: none;
+}
+
+.AddUsers-Show {
+	display: flex !important;
+}
+
+.AddUsers-Hide {
+	display: none !important;
+}
+
+.Edit-Whatsapp-AddUser-Box {
+	position: relative;
+	width: 100%;
+	height: 5vh;
+}
+
+.Edit-Whatsapp-AddUser-Box-Avatar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 10%;
+	width: 3vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Edit-Whatsapp-AddUser-Box-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 75%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 95%;
+	border-radius: 60%;
+}
+
+.Edit-Whatsapp-AddUser-Name {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 37%;
+	left: 18%;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+}
+
+.Edit-Whatsapp-AddUser-Number {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 63%;
+	left: 18%;
+	font-family: "SF-LI";
+	font-size: 1vh;
+	color: var(--Texts-L-C);
+	text-align: left;
+}
+
+.Edit-Whatsapp-AddUser-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 23.5vh;
+	height: 0.1vh;
+	left: 100%;
+	top: 100%;
+	border-bottom: solid 0.1vh var(--Line_C);
+	opacity: 0.2;
+}
+
+.Edit-Whatsapp-AddUser-Box:nth-last-child(2) .Edit-Whatsapp-AddUser-Line {
+	width: 100%;
+}
+
+#Edit-Whatsapp-AddUser-Box-Confirm {
+	height: 3.5vh;
+}
+
+#Edit-Whatsapp-AddUser-Box-Confirm .Edit-Whatsapp-Action-Title {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+}
+
+#Edit-Whatsapp-AddUser-Box-Confirm:hover .Edit-Whatsapp-Action-Title {
+	filter: var(--Main-Hover-Filter);
+}
+
+.Edit-Whatsapp-LeaveGP-Content {
+	position: absolute;
+	transform: translate(-50%, 50%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: 0vh;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background: var(--BackDrop-Back-C);
+	z-index: 5;
+}
+
+.Edit-Whatsapp-LeaveGP-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 10vh;
+	height: 3vh;
+	top: 40%;
+	border-radius: 1vh;
+}
+
+.Edit-Whatsapp-LeaveGP-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Edit-Whatsapp-LeaveGP-Confirm {
+	left: 73%;
+	background-color: var(--Back-A-C);
+}
+
+#Edit-Whatsapp-LeaveGP-Confirm-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-LeaveGP-Confirm-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+#Edit-Whatsapp-LeaveGP-Cancel {
+	left: 28%;
+	background-color: var(--Back-S-C);
+}
+
+#Edit-Whatsapp-LeaveGP-Cancel-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-LeaveGP-Cancel-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+.Edit-Whatsapp-RemoveGP-Content {
+	position: absolute;
+	transform: translate(-50%, 50%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: 0vh;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background: var(--BackDrop-Back-C);
+	z-index: 5;
+}
+
+.Edit-Whatsapp-RemoveGP-Btn {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 10vh;
+	height: 3vh;
+	top: 40%;
+	border-radius: 1vh;
+}
+
+.Edit-Whatsapp-RemoveGP-Btn:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Edit-Whatsapp-RemoveGP-Confirm {
+	left: 73%;
+	background-color: var(--Back-A-C);
+}
+
+#Edit-Whatsapp-RemoveGP-Confirm-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-RemoveGP-Confirm-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+#Edit-Whatsapp-RemoveGP-Cancel {
+	left: 28%;
+	background-color: var(--Back-S-C);
+}
+
+#Edit-Whatsapp-RemoveGP-Cancel-Icon {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	top: 50%;
+	left: 20%;
+}
+
+#Edit-Whatsapp-RemoveGP-Cancel-Text {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 4.7vh;
+	height: 1.8vh;
+	left: 60%;
+	top: 50%;
+	color: var(--Texts-C);
+	font-family: "SF";
+	text-align: center;
+}
+
+/*-----------Edit-Whatsapp-Option-Box--------------*/
+.Edit-Whatsapp-Option-Content {
+	position: absolute;
+	transform: translate(-50%, -100%) scale(0);
+	opacity: 0;
+	width: 15vh;
+	left: 65%;
+	top: 19.5vh;
+	background-color: #242426a0;
+	border-radius: 1.2vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	z-index: 11;
+}
+
+#Edit-Whatsapp-Option-Blur-Back {
+	position: absolute;
+	transform: translate(-50%, -50%) scale(0);
+	width: 100%;
+	height: 100%;
+	left: 50%;
+	top: 50%;
+	border-radius: 1.2vh;
+	z-index: 10;
+}
+
+.Edit-Whatsapp-Option-Line:first-child {
+	display: none;
+}
+
+.Edit-Whatsapp-Option-Line {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 100%;
+	left: 50%;
+	width: 100%;
+	height: 0.1vh;
+	border-bottom: solid 0.1vh var(--Line-C);
+	opacity: 0.2;
+}
+
+.Edit-Whatsapp-Option-Action:last-child .Edit-Whatsapp-Option-Line {
+	display: none;
+}
+
+.Edit-Whatsapp-Option-Action {
+	position: relative;
+	width: 100%;
+	height: 2.7vh;
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: center;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.3vh;
+}
+
+.Edit-Whatsapp-Option-Action:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+.Edit-Whatsapp-Option-Action-Icon {
+	position: relative;
+	width: 2vh;
+	height: 100%;
+	margin-right: 1vh;
+}
+
+.Edit-Whatsapp-Option-Action-Img {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 1.5vh;
+	left: 50%;
+	top: 50%;
+}
+
+.Edit-Whatsapp-Option-Text {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	line-height: 100%;
+	font-family: "SF";
+	font-size: 1vh;
+	text-align: left;
+	color: var(--Texts-C);
+	margin-left: 1vh;
+}
+
+#Edit-Whatsapp-Option-MakeAdmin {
+	display: none;
+}
+
+[data-isadmin="2"] #Edit-Whatsapp-Option-MakeAdmin {
+	display: flex;
+}
+
+#Edit-Whatsapp-Option-MakeAdmin-Text {
+	color: var(--Texts-A-C);
+}
+
+#Edit-Whatsapp-Option-Kick-Text {
+	color: var(--Texts-R-C);
+}
+
+#Edit-Whatsapp-Option-Close-Text {
+	color: var(--Texts-L-C);
+}
+
+#Edit-Whatsapp-Option-Close-Img {
+	width: 2.5vh;
+}
+
+#Edit-Whatsapp-Space-From-Top {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 6.2vh;
+}
+
+#Edit-Whatsapp-Space-From-Bottom {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 7vh;
+}
+
+/*-----------------------------------------Add-Whatsapp-----------------------------------------*/
+#Add-Whatsapp {
+	position: absolute;
+	transform: translate(-50%, -150%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	border-radius: var(--Main-radius);
+	background-color: var(--Back-C);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	z-index: 4;
+}
+
+#Add-Whatsapp-Top-Field {
+	z-index: 1;
+}
+
+#Add-Whatsapp-Top-Field-Right {
+	width: 23%;
+}
+
+#Add-Whatsapp-Contents {
+	position: relative;
+	transform: translate(-50%, -0%);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 0%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow: auto;
+	align-content: flex-start;
+	gap: 1vh;
+}
+
+#Add-Whatsapp-Name-Container {
+	position: relative;
+	width: var(--Main-width);
+	height: 7vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5vh;
+	justify-content: center;
+}
+
+#Add-Whatsapp-Textbox {
+	position: relative;
+	width: 100%;
+	height: 4vh;
+	border: 0;
+	color: var(--Texts-C);
+	background-color: var(--Back-S-C);
+	font-family: "SF";
+	resize: none;
+	text-align: left;
+	line-height: 4vh;
+	font-size: 1.5vh;
+	text-indent: 1.5vh;
+	overflow: hidden;
+}
+
+#Add-Whatsapp-Avatar {
+	position: relative;
+	width: 8vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#Add-Whatsapp-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 85%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 95%;
+	border-radius: 60%;
+}
+
+#Add-Whatsapp-Name {
+	position: relative;
+	width: fit-content;
+	color: var(--Texts-C);
+	font-family: "SF";
+	font-size: 2.4vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#Add-Whatsapp-Numbers {
+	position: relative;
+	width: fit-content;
+	color: var(--Texts-L-C);
+	font-family: "SF-LI";
+	font-size: 1.1vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.3vh;
+}
+
+#Add-Whatsapp-Users-Container {
+	position: relative;
+	width: 96%;
+	margin-left: 2%;
+	background: var(--Back-D-C);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1vh;
+}
+
+.Add-Whatsapp-User-Box {
+	position: relative;
+	width: 100%;
+	height: 5vh;
+}
+
+.Add-Whatsapp-Content-Box-Avatar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 10%;
+	width: 3vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Add-Whatsapp-Content-Box-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 75%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 95%;
+	border-radius: 60%;
+}
+
+.Add-Whatsapp-User-Name {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 37%;
+	left: 18%;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+}
+
+.Add-Whatsapp-User-Number {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 63%;
+	left: 18%;
+	font-family: "SF-LI";
+	font-size: 1vh;
+	color: var(--Texts-L-C);
+	text-align: left;
+}
+
+.Add-Whatsapp-User-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 23.5vh;
+	height: 0.1vh;
+	left: 100%;
+	top: 100%;
+	border-bottom: solid 0.1vh var(--Line-C);
+	opacity: 0.2;
+}
+
+.Add-Whatsapp-User-Box:last-child .Add-Whatsapp-User-Line {
+	display: none;
+}
+
+#Add-Whatsapp-Space-From-Top {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 6.2vh;
+}
+
+#Add-Whatsapp-Space-From-Bottom {
+	position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 2vh;
+}
+
+/*--------------------------------------------Photos-------------------------------------------*/
+
+#Photos {
+	--Col: var(--App-Col-2);
+	--Row: var(--App-Row-2);
+	position: absolute;
+	transform: translate(var(--Col), var(--Row)) scale(0);
+	width: var(--Main-width);
+	height: var(--Main-height);
+	left: 50%;
+	top: 50%;
+	opacity: 1;
+	border-radius: var(--Main-radius);
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	background-color: var(--Back-C);
+}
+
+#Photos-Contents {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  justify-content: right;
+  overflow: auto;
+  transform: translate(0%, 14.3%);
+  height: calc(var(--Main-height) - 10.5vh);
+  align-content: flex-end;
+}
+
+#Photos-Content {
+  width: 32.75%;
+  margin-right: 0.5%;
+  height: 9vh;
+  margin-bottom: 0.5%;
+  display: flex;
+}
+
+#Photos-Content:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Photos-Content img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    align-self: center;
+    object-fit: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+    image-rendering: crisp-edges;
+}
+
+#Photos-Form {
+    position: absolute;
+    transform: translate(50%, -0%);
+    opacity: 0;
+    width: var(--Main-width);
+    height: 53.5vh;
+    left: 50%;
+    top: 6.3vh;
+    background-color: var(--Back-C);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    align-content: flex-start;
+    gap: 1vh;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+#Photos-Form-Contacts {
+    position: absolute;
+    transform: translate(50%, -0%);
+    opacity: 0;
+    width: var(--Main-width);
+    height: 53.5vh;
+    left: 50%;
+    top: 6.3vh;
+    background-color: var(--Back-C);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    align-content: flex-start;
+    gap: 1vh;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+#Photos-Form-Img-Content {
+    position: relative;
+    width: var(--Main-width);
+    height: 5vh;
+    top: 12%;
+    left: 8.2%;
+    border: 0;
+}
+
+#Photos-Form-Img {
+    height: 13vh;
+}
+
+.Photos-Form-Btn {
+    position: relative;
+	transform: translatex(-50%);
+	left: 50%;
+	width: 22vh;
+	height: 3vh;
+	border-radius: 1vh;
+	margin-top: 2vh;
+	background-color: var(--Back-A-C);
+}
+
+#Photos-Form-Send-1 {
+    top: 43%;
+}
+
+#Photos-Form-Send-2 {
+    top: 39%;
+}
+
+#Photos-Form-Send-3 {
+    top: 35%;
+}
+
+#Photos-Form-Send-Text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 17.7vh;
+    height: 1.8vh;
+    left: 50%;
+    top: 50%;
+    color: var(--Texts-C);
+    font-family: "SF";
+    text-align: center;
+}
+
+.Photos-Box-Title {
+    position: absolute;
+	transform: translate(-50%, -50%);
+	width: 10vh;
+	height: 4vh;
+	left: 50%;
+	top: 40%;
+	color: var(--Texts-C);
+	font-family: "SF-BO";
+	font-size: 1.4vh;
+	text-align: center;
+	line-height: 4vh;
+}
+
+.Photos-Form-Btn:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+#Photos-Contacts-Container {
+	position: relative;
+	width: 96%;
+	margin-left: 2%;
+	background: var(--Back-D-C);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1vh;
+    top: 6%;
+}
+
+.Photos-Contacts-Box {
+	position: relative;
+	width: 100%;
+	height: 5vh;
+}
+
+.Photos-Contacts-Box-Avatar {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 10%;
+	width: 3vh;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--Avatar-Back-C);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Photos-Contacts-Box-Avatar-Img {
+	position: absolute;
+	transform: translate(-50%, -100%);
+	width: unset;
+	height: 75%;
+	aspect-ratio: 1;
+	left: 50%;
+	top: 95%;
+	border-radius: 60%;
+}
+
+.Photos-Contacts-Name {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 37%;
+	left: 18%;
+	font-family: "SF";
+	font-size: 1.2vh;
+	color: var(--Texts-C);
+	text-align: left;
+}
+
+.Photos-Contacts-Number {
+	position: absolute;
+	transform: translate(-0%, -50%);
+	top: 63%;
+	left: 18%;
+	font-family: "SF-LI";
+	font-size: 1vh;
+	color: var(--Texts-L-C);
+	text-align: left;
+}
+
+.Photos-Contacts-Line {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: 23.5vh;
+	height: 0.1vh;
+	left: 100%;
+	top: 100%;
+	border-bottom: solid 0.1vh var(--Line-C);
+	opacity: 0.2;
+}
+
+.Photos-Contacts-Box:last-child .Photos-Contacts-Line {
+	display: none;
+}
+
+.Photos-Contacts-Checkbox {
+    position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 90%;
+	width: 6%;
+	aspect-ratio: 1;
+}
+
+.Edit-Whatsapp-AddUser-Checkbox {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 90%;
+	width: 6%;
+	aspect-ratio: 1;
+}
+
+.Add-Whatsapp-User-Checkbox {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 90%;
+	width: 6%;
+	aspect-ratio: 1;
+}
+
+.Checkbox {
+	visibility: hidden;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.Checkbox + label {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	user-select: none;
+}
+
+.Checkbox--shadow + label {
+	height: 100%;
+	aspect-ratio: 1;
+	background: white;
+	border-radius: 20%;
+}
+
+.Checkbox--shadow + label::before {
+	content: "";
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	height: calc(100% + 0.2vh);
+	width: calc(100% + 0.2vh);
+	border-radius: inherit;
+	background-color: var(--Back-A-C);
+	background-image: url("data:image/svg+xml,%3Csvg id='Radio-Join-Icon' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 29 29' xml:space='preserve'%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='2' d='M22 9.827l-9.345 9.346L7 13.518'%3E%3C/path%3E%3C/svg%3E");
+	opacity: 0;
+}
+
+.Checkbox--shadow:checked + label::before {
+	opacity: 1;
+}
+
+#Photos-Form-Photo-Container {
+    position: relative;
+	width: var(--Main-width);
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5vh;
+	justify-content: center;
+    top: 5%;
+}
+
+#Photos-Contacts-Space-From-Bottom {
+    position: relative;
+	width: var(--Main-width);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	opacity: 0;
+	height: 7vh;
+}
+
+/*--------------------------------------------Phone-------------------------------------------*/
+#Phone {
+    --Col: var(--App-Col-1);
+    --Row: var(--App-Row-D);
+    position: absolute;
+    opacity: 1;
+    transform: translate(-81%, -9%) scale(0);
+    width: var(--Main-width);
+    height: var(--Main-height);
+    left: 50%;
+    top: 50%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.Phone-Section {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Phone-Bottom-Bar-Text-Numpad {
+  color: var(--Text-A-C);
+}
+
+#Phone-Bottom-Bar-Icon-Numpad {
+  fill: var(--Icons-A-C);
+}
+
+#Phone-Favorites-Section {
+  display: none;
+}
+
+#Phone-Dial-Section {
+  display: block;
+}
+
+#Phone-Recents-Section {
+  display: none;
+}
+
+/*----------------------Dial----------------------*/
+#Dial-Number {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 7vh;
+  left: 50%;
+  top: 12%;
+  border-radius: 0vh;
+}
+
+#Dial-Number-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 3vh;
+  left: 50%;
+  top: 50%;
+  font-family: "SF";
+  text-align: center;
+  font-size: 3vh;
+  line-height: 3vh;
+  color: var(--Texts-C);
+}
+
+#Numpad {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 30vh;
+  left: 50%;
+  top: 25%;
+  border-radius: 0vhinherit;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.1vh;
+  align-content: center;
+}
+
+.Num-Bubble {
+  position: relative;
+  width: 6.1vh;
+  height: 6.1vh;
+  border-radius: 10vh;
+  background-color: var(--NumBub-C);
+}
+
+.Num-Bubble:hover {
+  background-color: var(--NumBub-H-C);
+}
+
+.Num-Text-N {
+  /*Numbers that Don't have Characters*/
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  height: 3vh;
+  left: 50%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+  font-size: 3vh;
+  line-height: 3vh;
+}
+
+.Num-Text-U {
+  /*Numbers that have Characters*/
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  height: 3vh;
+  left: 50%;
+  top: 40%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+  font-size: 3vh;
+  line-height: 3vh;
+}
+
+.Num-Info {
+  /*Characters themselfs*/
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 1vh;
+  left: 50%;
+  top: 71%;
+  color: var(--Texts-C);
+  font-family: "SF-LI";
+  text-align: center;
+  font-size: 1vh;
+  line-height: 1vh;
+}
+
+#Num-A {
+  border-radius: 1.5vh;
+  background-color: var(--Back-I-C);
+}
+
+#Num-A:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Num-C:hover #Num-C-Img {
+  background-color: var(--Back-I-C);
+  filter: none;
+  fill: #00ff33;
+}
+
+#Num-C {
+  background-color: var(--Back-I-C);
+}
+
+#Num-C-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 7vh;
+  border-radius: 5vh;
+}
+
+#Num-C-Icon-Back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 5vh;
+  background-color: #fff;
+}
+
+#Num-N {
+  border-radius: 1.5vh;
+  background-color: var(--Back-I-C);
+  opacity: 0;
+  transform: scale(0);
+}
+
+#Num-N:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Num-Text-A {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 7.5vh;
+  height: 2.5vh;
+  left: 50%;
+  top: -15%;
+  color: var(--Texts-A-C);
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: center;
+  line-height: 1.5vh;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+#Num-Text-A:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Num-A-Img {
+  width: 3vh;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+#Num-N-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 3vh;
+}
+
+
+/*----------------------Recents----------------------*/
+#Recents-Top-Field {
+  background-color: #0000;
+}
+
+#Recents-Top-Field-Right {
+  width: 2vh;
+}
+
+#Recents-Top-Field-Left {
+  width: 3vh;
+}
+
+#Phone-Recents-Title {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 10vh;
+  height: 4vh;
+  left: 30%;
+  top: 15%;
+  color: var(--Texts-C);
+  font-family: "SF-BO";
+  font-size: 3.2vh;
+  text-align: center;
+  line-height: 4vh;
+}
+
+#Phone-Recents-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 25vh;
+  height: 0.1vh;
+  left: 100%;
+  top: 19%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#Phone-Recents-Content {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  width: var(--Main-width);
+  height: 43vh;
+  left: 50%;
+  top: 19%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1vh;
+  overflow: auto;
+  align-content: flex-start;
+}
+
+.Phone-Recents-Content-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 5.1vh;
+}
+
+.Phone-Recents-Content-Box:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Recents-Content-Box-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 17vh;
+  height: 2vh;
+  left: 8%;
+  top: 30%;
+  font-family: "SF";
+  font-size: 1.7vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-C);
+}
+
+.Recents-Content-Box-Type {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 4.5vh;
+  height: 2vh;
+  left: 8%;
+  top: 65%;
+  font-family: "SF-LI";
+  font-size: 1.2vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-L-C);
+}
+
+.Recents-Content-Box-Time {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  height: 2vh;
+  left: 86%;
+  top: 50%;
+  font-family: "SF-LI";
+  font-size: 1.2vh;
+  text-align: right;
+  line-height: 2vh;
+  color: var(--Texts-L-C);
+}
+
+.Recents-Content-Box-Info {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 92%;
+  top: 50%;
+}
+
+.Recents-Content-Box-Info-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  height: 2vh;
+  left: 50%;
+  top: 50%;
+}
+
+.Recents-Content-Box-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 24.3vh;
+  height: 0.1vh;
+  left: 100%;
+  top: 100%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Recents-Content-Box-IsCon {
+  display: none;
+}
+
+.Recents-Content-Box-IsFav {
+  display: none;
+}
+
+.Recents-Content-Box-DataId {
+  display: none;
+}
+
+.Recents-Content-Box-DbId {
+    display: none;
+}
+
+/*-----------Phone-Recents-Option-Box--------------*/
+.Phone-Recents-Option-Content {
+  position: absolute;
+  transform: translate(-50%, -100%) scale(0);
+  opacity: 0;
+  width: 15vh;
+  height: 10vh;
+  left: 65%;
+  top: 19.5vh;
+  background-color: #242426a0;
+  border-radius: 1.2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 11;
+}
+
+#Phone-Recents-Option-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  border-radius: 1.2vh;
+  z-index: 10;
+}
+
+.Phone-Recents-Option-Line {
+  position: relative;
+  width: 100%;
+  height: 0.1vh;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Phone-Recents-Option-Action {
+  position: relative;
+  width: 100%;
+  height: 2.344vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3vh;
+}
+
+.Phone-Recents-Option-Action:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Phone-Recents-Option-Add-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  line-height: 100%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: left;
+  margin-left: 1vh;
+}
+
+#Phone-Recents-Option-Add-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  top: 50%;
+  width: 2.5vh;
+  height: 100%;
+  margin-right: 1vh;
+}
+
+#Phone-Recents-Option-Fav-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  line-height: 100%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: left;
+  margin-left: 1vh;
+}
+
+#Phone-Recents-Option-Fav-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  top: 50%;
+  width: 1.5vh;
+  height: 100%;
+  margin-right: 1vh;
+}
+
+#Phone-Recents-Option-Del-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  line-height: 100%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: left;
+  color: var(--Texts-R-C);
+  margin-left: 1vh;
+}
+
+#Phone-Recents-Option-Del-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  top: 50%;
+  width: 1.5vh;
+  height: 100%;
+  margin-right: 1vh;
+}
+
+#Phone-Recents-Option-Del-Img {
+  fill: var(--Icons-R-C);
+}
+
+#Phone-Recents-Option-Close-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  line-height: 100%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: left;
+  color: var(--Texts-L-C);
+  margin-left: 1vh;
+}
+
+#Phone-Recents-Option-Close-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 90%;
+  top: 50%;
+  width: 2.5vh;
+  height: 100%;
+  margin-right: 1vh;
+}
+
+#Phone-Recents-Option-Close-Img {
+  stroke: var(--Icons-L-C);
+}
+
+/*----------------------Favorites----------------------*/
+#Favorites-Top-Field {
+  background-color: #0000;
+}
+
+#Favorites-Top-Field-Right {
+  width: 2vh;
+}
+
+#Favorites-Top-Field-Left {
+  width: 3vh;
+}
+
+#Phone-Favorites-Title {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 10vh;
+  height: 4vh;
+  left: 30%;
+  top: 15%;
+  color: var(--Texts-C);
+  font-family: "SF-BO";
+  font-size: 3.2vh;
+  text-align: center;
+  line-height: 4vh;
+}
+
+#Phone-Favorites-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 25vh;
+  height: 0.1vh;
+  left: 100%;
+  top: 19%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#Phone-Favorites-Content {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  width: var(--Main-width);
+  height: 43vh;
+  left: 50%;
+  top: 19%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1vh;
+  overflow: auto;
+  align-content: flex-start;
+}
+
+.Phone-Favorites-Content-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 5.1vh;
+}
+
+.Phone-Favorites-Content-Box-Tele {
+  position: relative;
+  width: 23vh;
+  height: 5.1vh;
+  z-index: 3;
+}
+
+.Phone-Recents-Content-Box-Tele {
+  position: absolute;
+  width: 20vh;
+  height: 5.1vh;
+  z-index: 3;
+}
+
+.Phone-Favorites-Content-Box:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Favorites-Content-Box-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.5vh;
+  height: 3.5vh;
+  left: 12%;
+  top: 48%;
+  border-radius: 3vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Favorites-Content-Box-Avatar-Text {
+  font-family: "SF";
+  font-size: 2.5vh;
+  color: var(--Texts-C);
+}
+
+.Favorites-Content-Box-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 17vh;
+  height: 2vh;
+  left: 21%;
+  top: 30%;
+  font-family: "SF";
+  font-size: 1.7vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-C);
+}
+
+.Favorites-Content-Box-Type {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 4.5vh;
+  height: 2vh;
+  left: 26%;
+  top: 65%;
+  font-family: "SF-LI";
+  font-size: 1.2vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-L-C);
+}
+
+.Favorites-Content-Box-Call {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 1vh;
+  height: 1vh;
+  left: 23%;
+  top: 65%;
+}
+
+.Favorites-Content-Box-Call-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 1vh;
+  height: 1vh;
+  left: 50%;
+  top: 50%;
+}
+
+.Favorites-Content-Box-Info {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 92%;
+  top: 50%;
+}
+
+.Favorites-Content-Box-Info-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  height: 2vh;
+  left: 50%;
+  top: 50%;
+}
+
+.Favorites-Content-Box-DataId {
+  display: none;
+}
+
+.Favorites-Content-Box-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 24.3vh;
+  height: 0.1vh;
+  left: 100%;
+  top: 100%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+/*-----------Phone-Favorites-Option-Box--------------*/
+.Phone-Favorites-Option-Content {
+  position: absolute;
+  transform: translate(-50%, -100%) scale(0);
+  opacity: 0;
+  width: 15vh;
+  height: 5.312vh;
+  left: 65%;
+  top: 19.5vh;
+  background-color: #242426a0;
+  border-radius: 1.2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 11;
+}
+
+#Phone-Favorites-Option-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  border-radius: 1.2vh;
+  z-index: 10;
+}
+
+.Phone-Favorites-Option-Line {
+  position: relative;
+  width: 100%;
+  height: 0.1vh;
+  border-bottom: solid 0.1vhidden var(--Line-C);
+  opacity: 0.2;
+}
+
+.Phone-Favorites-Option-Action {
+  position: relative;
+  width: 100%;
+  height: 2.344vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3vh;
+}
+
+.Phone-Favorites-Option-Action:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Phone-Favorites-Option-Action-Icon {
+  position: relative;
+  width: 2vh;
+  height: 100%;
+  margin-right: 1vh;
+}
+
+.Phone-Favorites-Option-Action-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 1.5vh;
+  left: 50%;
+  top: 50%;
+}
+
+.Phone-Favorites-Option-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  line-height: 100%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: left;
+  color: var(--Texts-C);
+  margin-left: 1vh;
+}
+
+#Phone-Favorites-Option-Del-Text {
+  color: var(--Texts-R-C);
+}
+
+#Phone-Favorites-Option-Close-Text {
+  color: var(--Texts-L-C);
+}
+
+#Phone-Favorites-Option-Close-Img {
+  width: 2.5vh;
+}
+
+/*--------------------------------------------Call-------------------------------------------*/
+#Call-Back-Transition {
+  position: absolute;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  transition: none;
+  display: none;
+}
+
+#Call {
+  position: absolute;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(0);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Blur-Back-Img {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(1);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  filter: blur(3vh);
+}
+
+#Call-Number {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 7vh;
+  left: 50%;
+  top: 13%;
+  border-radius: 0vh;
+}
+
+#Call-Number-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 3vh;
+  left: 50%;
+  top: 50%;
+  font-family: "SF";
+  text-align: center;
+  font-size: 3vh;
+  line-height: 3vh;
+  color: var(--Texts-C);
+}
+
+#Call-Timer {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 1.5vh;
+  left: 50%;
+  top: 90%;
+  font-family: "SF-LI";
+  text-align: center;
+  font-size: 1.5vh;
+  line-height: 1.5vh;
+  color: var(--Texts-C);
+}
+
+#Call-Buttons {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 33vh;
+  left: 50%;
+  top: 30%;
+  border-radius: 0vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.9vh;
+}
+
+.Call-BTN {
+  position: relative;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 10vh;
+  background-color: rgba(166, 166, 166, 0.3);
+}
+
+.Call-BTN:hover {
+  background-color: rgba(166, 166, 166, 0.7);
+}
+
+.Call-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4vh;
+  left: 50%;
+  top: 50%;
+}
+
+.Call-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 7vh;
+  height: 1vh;
+  left: 50%;
+  top: 120%;
+  color: var(--Texts-C);
+  font-family: "SF-LI";
+  text-align: center;
+  font-size: 1.3vh;
+  line-height: 1vh;
+}
+
+#Call-PlaceHolder {
+  opacity: 0;
+}
+
+#Call-End {
+  background-color: var(--Back-I-C);
+}
+
+#Call-End:hover #Call-End-Img {
+  fill: Red;
+}
+
+#Call-End-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(137deg);
+  top: 50%;
+  left: 50%;
+  width: 7.6vh;
+  border-radius: 5vh;
+}
+
+#Call-End-Icon-Back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 5vh;
+  background-color: #fff;
+}
+
+#Call-Mute-On {
+  opacity: 1;
+}
+
+#Call-Mute-Off {
+  opacity: 0;
+}
+
+/*-----------------------------------------Contacts-----------------------------------------*/
+
+#Contacts {
+  --Col: var(--App-Col-3);
+	--Row: var(--App-Row-D);
+  position: absolute;
+  opacity: 1;
+  transform: translate(-39%, -9%) scale(0);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Contacts-Top-Field {
+  background-color: #0000;
+  z-index: 5;
+}
+
+#Contacts-Top-Field-Right-Icon {
+  width: 2.5vh;
+}
+
+#Contacts-Top-Field-Right {
+  width: 2.5vh;
+}
+
+#Contacts-Search-Bar {
+  z-index: 4;
+}
+
+#Contacts-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: 10vh;
+  left: 50%;
+  top: 120%;
+}
+
+.User-Field {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 6vh;
+  left: 50%;
+  top: 18%;
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.User-Field-Line {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 24vh;
+  height: 0.1vh;
+  left: 50%;
+  top: 0%;
+  border-bottom: solid 0.1vhidden var(--Line-C);
+  opacity: 0.2;
+}
+
+.User-Field-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.5vh;
+  height: 4.5vh;
+  left: 14%;
+  top: 48%;
+  border-radius: 3vh;
+  background-color: #d8d3d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.User-Field-Avatar-Text {
+  font-family: "SF";
+  font-size: 3vh;
+  color: var(--Texts-C);
+}
+
+.User-Field-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 17vh;
+  height: 2vh;
+  left: 27%;
+  top: 35%;
+  font-family: "SF";
+  font-size: 1.7vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-C);
+}
+
+.User-Field-Info {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 4.5vh;
+  height: 2vh;
+  left: 27%;
+  top: 67%;
+  font-family: "SF-LI";
+  font-size: 1.2vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-L-C);
+}
+
+#Contacts-User-Field {
+  position: relative;
+  width: var(--Main-width);
+  height: 6vh;
+  margin-top: 8vh;
+}
+
+#Contacts-Contents {
+  position: relative;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: calc(var(--Main-height) - 2vh);
+  left: 50%;
+  top: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1vh;
+  overflow: auto;
+  align-content: flex-start;
+}
+
+.Contacts-Content-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+}
+
+.Contacts-Content-Box:hover {
+  background-color: #ffffff05;
+}
+
+.Contacts-Content-Box:hover .Contacts-Content-Box-Name {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Contacts-Content-Box:hover .Contacts-Content-Box-Num {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Contacts-Content-Box-Btn {
+  position: absolute;
+  top: 0vh;
+  left: 0vh;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: none;
+}
+
+.Contacts-Content-Box-Name {
+  position: relative;
+  margin-left: 5%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+}
+
+.Contacts-Content-Box-Num {
+  opacity: 0;
+  position: absolute;
+  bottom: 1.1vh;
+  margin-left: 5%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+}
+
+.Contacts-Content-Box-Line {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 24.5vh;
+  height: 0.1vh;
+  left: 50%;
+  top: 100%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Contacts-Content-Box-IsFav {
+  display: none;
+}
+
+.Contacts-Content-Box-DataId {
+  display: none;
+}
+
+#Contacts-Space-From-Bottom {
+  position: relative;
+  width: var(--Main-width);
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+  opacity: 0;
+}
+
+.Contacts-Action-Box {
+  position: absolute;
+  width: 9.3vh;
+  height: 3.2vh;
+  padding: 0.5vh;
+  border-radius: 0.7vh;
+  right: 0.5vh;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Contacts-Action-Content {
+  position: relative;
+  width: 2vh;
+  height: 3.2vh;
+}
+
+.Contacts-Action-Content:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Contacts-Action-Call {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  max-width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.Contacts-Action-Message {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.Contacts-Action-Edit {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.Contacts-Action-Img {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 2vh;
+  height: 2vh;
+  left: 50%;
+  top: 0%;
+}
+
+.Contacts-Action-Text {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 3.15vh;
+  height: 1vh;
+  left: 50%;
+  top: 100%;
+  font-family: "SF";
+  font-size: 0.8vh;
+  text-align: center;
+  line-height: 1vh;
+  color: var(--Texts-A-C);
+}
+
+/*-----------------------------------------New-Contact-----------------------------------------*/
+
+#New-Contact {
+  position: absolute;
+  transform: translate(-50%, -150%) scale(0);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  z-index: 4;
+}
+
+#New-Contact-Top-Field {
+  background-color: #0000;
+}
+
+#New-Contact-Top-Field-Left {
+  width: 4vh;
+}
+
+#New-Contact-Top-Field-Right {
+  width: 3vh;
+}
+
+#New-Contact-Top-Field-Right-Text {
+  color: var(--Texts-D-C);
+}
+
+.New-Contact-Text-Box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 4vh;
+  left: 50%;
+  border: 0;
+  color: var(--Texts-C);
+  background-color: var(--Back-S-C);
+  font-family: "SF";
+  resize: none;
+  text-align: left;
+  line-height: 4vh;
+  font-size: 1.5vh;
+  text-indent: 1.5vh;
+  overflow: hidden;
+}
+
+#New-Contact-Name {
+  top: 50%;
+}
+
+#New-Contact-Num {
+  top: 70%;
+}
+
+#New-Contact-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 20vh;
+  height: 20vh;
+  left: 50%;
+  top: 27%;
+  border-radius: 10vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#New-Contact-Avatar-Text {
+  font-family: "SF-MI";
+  font-size: 11.6vh;
+  color: var(--Texts-C);
+}
+
+#New-Contact-Action-Box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 89%;
+  left: 50%;
+  width: var(--Main-width);
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+}
+
+#New-Contact-Fav-Switch {
+  position: relative;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
+
+#New-Contact-Fav-Switch-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 50%;
+}
+
+#New-Contact-Fav-Switch-State {
+  display: none;
+}
+
+#New-Contact-Fav-Box {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--Back-A-C-O1);
+  padding: 0vh 1.4vh;
+  border-radius: 0.8vh;
+}
+
+#New-Contact-Fav-Box:hover {
+  background: var(--Back-A-C-O2);
+}
+
+#New-Contact-Fav-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  text-align: left;
+  font-family: "SF-LI";
+  font-size: 2vh;
+  color: var(--Texts-C);
+  margin-left: 1vh;
+}
+
+/*-----------------------------------------Edit-Contact-----------------------------------------*/
+
+#Edit-Contact {
+  position: absolute;
+  transform: translate(-50%, -150%) scale(0);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  z-index: 4;
+}
+
+#Edit-Contact-Top-Field {
+  background-color: #0000;
+}
+
+#Edit-Contact-Top-Field-Left {
+  width: 4vh;
+}
+
+#Edit-Contact-Top-Field-Right {
+  width: 3vh;
+}
+
+#Edit-Contact-Top-Field-Right-Text {
+  color: var(--Texts-D-C);
+}
+
+.Edit-Contact-Text-Box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: var(--Main-width);
+  height: 4vh;
+  left: 50%;
+  border: 0;
+  color: var(--Texts-C);
+  background-color: var(--Back-S-C);
+  font-family: "SF";
+  resize: none;
+  text-align: left;
+  line-height: 4vh;
+  font-size: 1.5vh;
+  text-indent: 1.5vh;
+  overflow: hidden;
+}
+
+#Edit-Contact-Name {
+  top: 50%;
+}
+
+#Edit-Contact-Num {
+  top: 70%;
+}
+
+#Edit-Contact-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 20vh;
+  height: 20vh;
+  left: 50%;
+  top: 27%;
+  border-radius: 10vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Edit-Contact-Avatar-Text {
+  font-family: "SF-MI";
+  font-size: 11.6vh;
+  color: var(--Texts-C);
+}
+
+#Edit-Contact-Action-Box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 89%;
+  left: 50%;
+  width: var(--Main-width);
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+}
+
+#Edit-Contact-Fav-Switch {
+  position: relative;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
+
+#Edit-Contact-Fav-Switch-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 50%;
+}
+
+#Edit-Contact-Fav-Switch-State {
+  display: none;
+}
+
+#Edit-Contact-Fav-Box {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--Back-A-C-O1);
+  padding: 0vh 1.4vh;
+  border-radius: 0.8vh;
+}
+
+#Edit-Contact-Fav-Box:hover {
+  background: var(--Back-A-C-O2);
+}
+
+#Edit-Contact-Fav-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  text-align: left;
+  font-family: "SF-LI";
+  font-size: 2vh;
+  color: var(--Texts-C);
+  margin-left: 1vh;
+}
+
+#Edit-Contact-Delete-Box {
+  position: relative;
+  background: var(--Back-A-R-O1);
+  height: 4vh;
+  width: 4vh;
+  display: flex;
+  border-radius: 1vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#Edit-Contact-Delete-Box:hover {
+  background: var(--Back-A-R-O2);
+}
+
+#Edit-Contact-Delete-Box-Icon {
+  position: relative;
+  width: 2vh;
+}
+
+#Edit-Contact-Delete-Box-Img {
+  fill: var(--Icons-R-C);
+}
+
+/*-----------------------------------------Messages-----------------------------------------*/
+
+#Messages {
+  --Col: var(--App-Col-2);
+	--Row: var(--App-Row-D);
+  position: absolute;
+  opacity: 1;
+  transform: translate(-39%, -9%) scale(0);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Messages-Top-Field {
+  background-color: #0000;
+  z-index: 5;
+}
+
+#Messages-Top-Field-Right-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Messages-Top-Field-Right {
+  width: 2.5vh;
+  left: 99%;
+  display: none;
+}
+
+#Messages-Search-Bar {
+  z-index: 4;
+}
+
+#Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: 10vh;
+  left: 50%;
+  top: 120%;
+}
+
+#Messages-Contents {
+  position: relative;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: calc(var(--Main-height) - 10vh);
+  left: 50%;
+  top: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1vh;
+  overflow: auto;
+  align-content: flex-start;
+}
+
+.Messages-Content-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+}
+
+.Messages-Content-Box:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Messages-Content-Box-NotRead {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 3%;
+  width: 1vh;
+  height: 1vh;
+  border-radius: 3vh;
+  background-color: var(--Icons-A-C);
+}
+
+.Messages-Content-Box-Read {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 3%;
+  width: 1vh;
+  height: 1vh;
+  border-radius: 3vh;
+  background-color: var(--Icons-A-C);
+  display: none;
+}
+
+.Messages-Content-Box-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 14%;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 10vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Messages-Content-Box-Avatar-Img {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 70%;
+  left: 50%;
+  top: 95%;
+  border-radius: 10vh;
+}
+
+.Messages-Content-Box-Avatar-Image {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 14%;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Messages-Content-Box-Avatar-Image-Img {
+    width: 100%;
+    left: 50%;
+    border-radius: 10vh;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.Messages-Content-Box-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  top: 25%;
+  left: 22%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+  text-align: left;
+}
+
+.Messages-Content-Box-Last {
+  position: absolute;
+  transform: translate(-0%, -0%);
+  width: 75%;
+  top: 40%;
+  left: 22%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Messages-Content-Box-Time {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  top: 25%;
+  left: 95%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+  text-align: left;
+}
+
+.Messages-Content-Box-Icon {
+  position: absolute;
+  transform: translate(-100%, -50%) scale(-1, 1);
+  height: 0.5vh;
+  width: fit-content;
+  left: 98%;
+  top: 25%;
+}
+
+.Messages-Content-Box-Img {
+  fill: var(--Icons-L-C);
+}
+
+.Messages-Content-Box-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 22.5vh;
+  height: 1.1vh;
+  left: 100%;
+  top: 90%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Messages-Content-Box-DataId {
+  display: none;
+}
+
+#Messages-Space-From-Bottom {
+  position: relative;
+  width: var(--Main-width);
+  height: 2.5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+  opacity: 0;
+}
+
+/*-----------------------------------------Messaging-----------------------------------------*/
+
+#Messaging {
+  position: absolute;
+  opacity: 1;
+  transform: translate(50%, -50%);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+
+#Messaging-Top-Field {
+  background-color: #121212f0;
+  z-index: 5;
+  height: 10vh;
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  left: 50%;
+  top: -0.1vh;
+}
+
+#Messaging-Top-Field-Right {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	width: fit-content;
+	height: 3vh;
+	top: 73%;
+	left: 98%;
+	width: 3%;
+	display: flex;
+	justify-content: center;
+}
+
+#Messaging-Top-Field-Right-Icon {
+	height: 60%;
+	width: unset;
+}
+
+#Messaging-Top-Field-Back {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 3vh;
+  height: 3vh;
+  top: 47%;
+  left: 9%;
+}
+
+#Messaging-Top-Field-Back-Text {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: 1vh;
+  left: 30%;
+  top: 50%;
+  color: var(--Texts-C);
+  background-color: var(--Icons-A-C);
+  border-radius: 2vh;
+  padding: 0.4vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Messaging-Top-Field-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 63%;
+  left: 50%;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 10vh;
+  background-color: var(--Avatar-Back-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Messaging-Top-Field-Avatar-Img {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 70%;
+  left: 50%;
+  top: 95%;
+  border-radius: 10vh;
+}
+
+#Messaging-Top-Field-Avatar-Image {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 60%;
+    left: 50%;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+#Messaging-Top-Field-Avatar-Image-Img {
+    width: 100%;
+    left: 50%;
+    border-radius: 10vh;
+    vertical-align: middle;
+    height: 100%;
+}
+
+#Messaging-Top-Field-Name {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 90%;
+  left: 50%;
+  width: fit-content;
+  color: var(--Texts-C);
+  font-family: "SF-LI";
+  font-size: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Messaging-Bottom-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: 100%;
+  left: 50%;
+  top: 0%;
+}
+
+#Messaging-Contents {
+  position: relative;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  max-height: var(--Main-height);
+  left: 50%;
+  top: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5vh;
+  overflow: auto;
+}
+
+.Messaging-Box {
+  position: relative;
+  width: var(--Main-width);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.Messaging-Send-Txt {
+  position: relative;
+  margin-right: 0.7vh;
+  padding: 1vh 2vh;
+  max-width: 60%;
+  border-radius: 2.5vh;
+  background-color: var(--Msg-Send-C);
+  word-wrap: break-word;
+  line-height: 2vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+  text-align: left;
+  align-self: flex-end;
+}
+
+.Messaging-Send-Txt::after {
+    content: attr(data-Messaging_Time);
+    word-wrap: break-word;
+    white-space: nowrap;
+    font-family: "SF";
+    font-size: 1vh;
+    line-height: 1vh;
+    color: hsla(0deg 0% 75% /0.75);
+    position: absolute;
+    transform: translate(-150%, -120%);
+    left: 100%;
+    top: 100%;
+}
+
+.Messaging-Send-Time {
+  display: none;
+}
+
+.Messaging-Send-DataId {
+  display: none;
+}
+
+.Messaging-Send-Arrow {
+    position: absolute;
+    transform: translate(-100%, -100%);
+    left: 100%;
+    top: 100%;
+    color: var(--Msg-Send-C);
+    width: fit-content;
+    z-index: -1;
+}
+
+.Messaging-Send-Loc {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 90%;
+  top: 50%;
+}
+
+.Messaging-Send-Loc-Address {
+  display: none;
+}
+
+#Messaging-Send-Loc-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 1.7vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Messaging-Send-Loc-Img {
+  fill: var(--Icons-C);
+}
+
+.Messaging-Send-Arrow-Icon {
+  width: 2vh;
+}
+
+.Messaging-Send-Arrow-Img {
+  fill: var(--Msg-Send-C);
+}
+
+.Messaging-Recive-Txt {
+  position: relative;
+  margin-left: 0.7vh;
+  padding: 1vh 2vh;
+  max-width: 60%;
+  border-radius: 2.5vh;
+  background-color: var(--Msg-Recive-C);
+  word-wrap: break-word;
+  line-height: 2vh;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+  text-align: left;
+  align-self: flex-start;
+}
+
+.Messaging-Recive-Txt::after {
+    content: attr(data-Messaging_Time);
+    word-wrap: break-word;
+    white-space: nowrap;
+    font-family: "SF";
+    font-size: 1vh;
+    line-height: 1vh;
+    color: hsla(0deg 0% 75% /0.75);
+    position: absolute;
+    transform: translate(-150%, -120%);
+    left: 100%;
+    top: 100%;
+}
+
+.Messaging-Send-Icon {
+	position: relative;
+	margin-right: 0.7vh;
+	margin-bottom: 0.3vh;
+	padding: 0.2vh;
+	max-width: 60%;
+	border-radius: 1vh;
+	background-color: var(--Msg-Send-C);
+	align-self: flex-end;
+}
+
+.Messaging-Send-Icon::after {
+	content: attr(data-Messaging_Time);
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-family: "SF";
+	font-size: 1vh;
+	line-height: 1vh;
+	color: hsla(0deg 0% 100% /0.5);
+	position: absolute;
+	transform: translate(-140%, -140%);
+	left: 100%;
+	top: 100%;
+}
+
+.Messaging-Recive-Icon {
+	position: relative;
+	margin-left: 0.7vh;
+	margin-bottom: 0.3vh;
+	padding: 0.2vh;
+	max-width: 60%;
+	border-radius: 1vh;
+	background-color: var(--Msg-Recive-C);
+	align-self: flex-start;
+}
+
+.Messaging-Recive-Icon::after {
+	content: attr(data-Messaging_Time);
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-family: "SF";
+	font-size: 1vh;
+	line-height: 1vh;
+	color: hsla(0deg 0% 100% /0.5);
+	position: absolute;
+	transform: translate(-140%, -140%);
+	left: 100%;
+	top: 100%;
+}
+
+.Messaging-Send-Img {
+	position: relative;
+	max-width: 100%;
+	border-radius: inherit;
+	align-self: flex-end;
+}
+
+.Messaging-Recive-Time {
+  display: none;
+}
+
+.Messaging-Recive-DataId {
+  display: none;
+}
+
+.Messaging-Recive-Arrow {
+  position: absolute;
+  transform: translate(0%, -100%);
+  left: 0;
+  top: 100%;
+  color: var(--Msg-Recive-C);
+  width: fit-content;
+  z-index: -1;
+}
+
+.Messaging-Recive-Loc {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 31%;
+  top: 50%;
+}
+
+#Messaging-Bar-Camera {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 3vh;
+	height: 3vh;
+	left: 23%;
+	top: 36%;
+	border: 0.01vh solid white;
+	border-radius: 3vh;
+}
+
+#Messaging-Bar-Camera:hover {
+	filter: var(--Main-Hover-Filter);
+}
+
+#Messaging-Bar-Camera-Icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 2.7vh;
+    left: 50%;
+    top: 50%;
+}
+
+#Messaging-Bar-Camera-Img {
+	fill: var(--Icons-L-C);
+}
+
+.Messaging-Recive-Loc-Address {
+  display: none;
+}
+
+#Messaging-Recive-Loc-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 1.7vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Messaging-Recive-Loc-Img {
+  fill: var(--Icons-C);
+}
+
+.Messaging-Recive-Arrow-Icon {
+  width: 2vh;
+  transform: scale(-1, 1);
+}
+
+.Messaging-Recive-Arrow-Img {
+  fill: var(--Msg-Recive-C);
+}
+
+.Messaging-Content-Box-Line {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: 22.5vh;
+  height: 1.1vh;
+  left: 100%;
+  top: 100%;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#Messaging-Space-From-Top {
+  position: relative;
+  width: var(--Main-width);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  height: 10vh;
+}
+
+#Messaging-Space-From-Bottom {
+  position: relative;
+  width: var(--Main-width);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  height: 7vh;
+}
+
+#Messaging-Bar {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: 7vh;
+  top: calc(var(--Main-height) + 0.1vh);
+  left: 50%;
+  background-color: #000000e0;
+}
+
+#Messaging-Top-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -1000%);
+  width: var(--Main-width);
+  height: 100%;
+  left: 50%;
+  top: 0%;
+}
+
+#Messaging-Bar-Textbox {
+  position: absolute;
+  transform: translate(-100%, -0%);
+  width: 68%;
+  height: 3.5vh;
+  left: 98%;
+  top: 10%;
+  border: 0.1vh solid white;
+  border-radius: 2vh;
+  color: var(--Texts-C);
+  background-color: var(--Back-I-C);
+  font-family: "SF";
+  resize: none;
+  text-align: left;
+  line-height: 2.5vh;
+  padding: 0.5vh 3.5vh 0.5vh 1vh;
+  font-size: 1.5vh;
+  text-indent: 1vh;
+  overflow: hidden;
+}
+
+#Messaging-Bar-Location {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  left: 10%;
+  top: 36%;
+  border: 0.1vh solid white;
+  border-radius: 3vh;
+}
+
+#Messaging-Bar-Location:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Messaging-Bar-Location-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 2.3vh;
+  left: 50%;
+  top: 50%;
+}
+
+#Messaging-Bar-Location-Img {
+  fill: var(--Icons-L-C);
+}
+
+/*--------------------------------------------Business------------------------------------------*/
+
+#Business {
+  --Col: var(--App-Col-2);
+	--Row: var(--App-Row-1);
+  position: absolute;
+  transform: translate(-81%, -89%) scale(0);
+  opacity: 1;
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Business-Caption-Field {
+  position: relative;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  height: fit-content;
+  max-height: 10.36vh;
+  left: 50%;
+  margin-top: 7vh;
+  margin-bottom: 1vh;
+  background-color: var(--Back-I-C);
+}
+
+#Business-Caption-Title {
+  position: relative;
+  transform: translate(-0%, -0%);
+  width: 17vh;
+  height: 2vh;
+  left: 10%;
+  margin-top: 1.5vh;
+  font-family: "SF";
+  font-size: 1.7vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-L-C);
+}
+
+#Business-Caption-Text {
+  position: relative;
+  transform: translate(-0%, -0%);
+  width: fit-content;
+  max-width: 80%;
+  height: 3.5vh;
+  margin-top: 0.5vh;
+  left: 10%;
+  font-family: "SF-LI";
+  font-size: 1.4vh;
+  color: var(--Texts-C);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#Business-Caption-Edit-Box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  height: 3.2vh;
+  top: 20%;
+  left: 90%;
+}
+
+#Business-Caption-Edit-Box:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Business-Caption-Edit {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+#Business-Caption-Edit-Icon {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 2vh;
+  height: 2vh;
+  left: 50%;
+  top: 0%;
+}
+
+#Business-Caption-Edit-Text {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 3.15vh;
+  height: 1vh;
+  left: 50%;
+  top: 100%;
+  font-family: "SF";
+  font-size: 0.8vh;
+  text-align: center;
+  line-height: 1vh;
+  color: var(--Texts-A-C);
+}
+
+.Business-Caption-Edit-Content {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: 0vh;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  background: #24242641;
+}
+
+#Business-Caption-Edit-Textbox {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 27vh;
+  height: 4vh;
+  top: 30%;
+  left: 50%;
+  border: 0;
+  color: var(--Texts-C);
+  background-color: var(--Back-S-C);
+  font-family: "SF";
+  text-align: left;
+  line-height: 4vh;
+  font-size: 1.5vh;
+  overflow: hidden;
+  resize: none;
+  padding: 0vh 2vh;
+  border-radius: 1.5vh;
+}
+
+.Business-Caption-Edit-Btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 10vh;
+  height: 3vh;
+  top: 40%;
+  border-radius: 1vh;
+}
+
+.Business-Caption-Edit-Btn:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Business-Caption-Edit-Apply {
+  left: 73%;
+  background-color: var(--Back-A-C);
+}
+
+#Business-Caption-Edit-Apply-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Business-Caption-Edit-Apply-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  height: 1.8vh;
+  left: 60%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+}
+
+#Business-Caption-Edit-Cancel {
+  left: 28%;
+  background-color: var(--Back-S-C);
+}
+
+#Business-Caption-Edit-Cancel-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3vh;
+  height: 3vh;
+  top: 50%;
+  left: 20%;
+}
+
+#Business-Caption-Edit-Cancel-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  height: 1.8vh;
+  left: 60%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+}
+
+#Business-Caption-Field-Line {
+  position: relative;
+  transform: translate(-50%, -50%);
+  width: 24vh;
+  height: 0.1vh;
+  left: 50%;
+  margin-top: 1vh;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#Business-Player-Count {
+  position: relative;
+  transform: translate(-0%, -0%);
+  width: var(--Main-width);
+  height: 2vh;
+  margin-top: 1.2vh;
+  display: flex;
+}
+
+#Business-Player-Count-Title {
+  position: relative;
+  margin-left: 10%;
+  width: fit-content;
+  font-family: "SF";
+  font-size: 1.7vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-L-C);
+}
+
+#Business-Player-Count-Text {
+  position: relative;
+  margin-left: 2%;
+  width: fit-content;
+  font-family: "SF";
+  font-size: 1.7vh;
+  text-align: left;
+  line-height: 2vh;
+  color: var(--Texts-C);
+}
+
+#Business-Contents {
+  bottom: 0vh;
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: var(--Main-width);
+  height: 37.5vh;
+  top: 100%;
+  left: 52%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.7vh;
+  overflow: auto;
+  align-content: flex-start;
+}
+
+.Business-Content-Box {
+  position: relative;
+  width: calc(var(--Main-width) - 1vh);
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+  border-radius: 1vh;
+  background: var(--Back-S-C);
+}
+
+.Business-Content-Box-Name {
+  transform: translateY(-50%);
+  position: relative;
+  margin-left: 5%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  color: var(--Texts-C);
+}
+
+.Business-Content-Box-DataId {
+  display: none;
+}
+
+.Business-Content-Box-Num {
+  display: none;
+}
+
+.Business-Content-Box-Rank {
+  opacity: 1;
+  position: absolute;
+  top: 55%;
+  width: 17vh;
+  height: 1.5vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Business-Content-Box-Rank-Title {
+  margin-left: 8%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+}
+
+.Business-Content-Box-Rank-Text {
+  margin-left: 2%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  color: var(--Texts-L-C);
+}
+
+#Business-Space-From-Bottom {
+  position: relative;
+  width: calc(var(--Main-width) - 1vh);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vh;
+  border-radius: 1vh;
+  background: var(--Back-S-C);
+  opacity: 0;
+  height: 2vh;
+}
+
+.Business-Action-Box {
+  position: absolute;
+  width: 9.3vh;
+  height: 3.2vh;
+  padding: 0.5vh;
+  border-radius: 0.7vh;
+  right: 0.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 18%;
+}
+
+.Business-Action-Content {
+  position: relative;
+  width: 2vh;
+  height: 3.2vh;
+  z-index: 3;
+}
+
+.Business-Action-Content:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Business-Action-Call {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.Business-Action-Message {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.Business-Action-Settings {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.6vh;
+  height: 150%;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.Business-Action-Img {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: 2vh;
+  height: 2vh;
+  left: 50%;
+  top: 0%;
+}
+
+.Business-Action-Text {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 3.15vh;
+  height: 1vh;
+  left: 50%;
+  top: 100%;
+  font-family: "SF";
+  font-size: 0.8vh;
+  text-align: center;
+  line-height: 1vh;
+  color: var(--Texts-A-C);
+}
+
+/*--------------------------------------------Business-Settings-Box------------------------------------------*/
+.Business-Settings-Content {
+  position: absolute;
+  transform: translate(-50%, -100%) scale(0);
+  opacity: 0;
+  width: 15vh;
+  height: 10vh;
+  left: 65%;
+  top: 19.5vh;
+  background-color: #242426a0;
+  border-radius: 1.2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 11;
+}
+
+#Business-Settings-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  border-radius: 1.2vh;
+  z-index: 10;
+}
+
+.Business-Settings-Line {
+  position: relative;
+  width: 100%;
+  height: 0.1vh;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+.Business-Settings-Action {
+  position: relative;
+  width: 100%;
+  height: 234.4vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3vh;
+}
+
+.Business-Settings-Action:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+.Business-Settings-Action-Icon {
+  position: relative;
+  width: 2vh;
+  height: 100%;
+  margin-right: 1vh;
+}
+
+.Business-Settings-Action-Img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 1.5vh;
+  left: 50%;
+  top: 50%;
+}
+
+.Business-Settings-Text {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  line-height: 100%;
+  font-family: "SF";
+  font-size: 1vh;
+  text-align: left;
+  color: var(--Texts-C);
+  margin-left: 1vh;
+}
+
+#Business-Settings-Kick-Text {
+  color: var(--Texts-R-C);
+}
+
+#Business-Settings-Close-Text {
+  color: var(--Texts-L-C);
+}
+
+#Business-Settings-Close-Img {
+  width: 2.5vh;
+}
+
+/*--------------------------------------------Settings------------------------------------------*/
+
+#Settings {
+  --Col: var(--App-Col-4);
+	--Row: var(--App-Row-D);
+  position: absolute;
+  transform: translate(-18%, -9%) scale(0);
+  opacity: 1;
+  width: var(--Main-width);
+  height: var(--Main-height);
+  left: 50%;
+  top: 50%;
+  border-radius: var(--Main-radius);
+  background-color: var(--Back-C);
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+#Settings-Contents {
+  position: absolute;
+  transform: translate(-50%, -0%);
+  width: var(--Main-width);
+  left: 50%;
+  top: 6.3vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.7vh;
+  overflow: auto;
+  align-content: space-around;
+}
+
+.Settings-Contents-Box {
+  position: relative;
+  width: var(--Main-width);
+  height: 4vh;
+}
+
+.Settings-Contents-Title {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: fit-content;
+  left: 10%;
+  top: 50%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: left;
+  color: var(--Texts-C);
+}
+
+.Settings-Contents-Text {
+  position: absolute;
+  transform: translate(-100%, -50%);
+  width: fit-content;
+  height: fit-content;
+  left: 90%;
+  top: 50%;
+  font-family: "SF";
+  font-size: 1.2vh;
+  text-align: right;
+  color: var(--Texts-C);
+}
+
+.Settings-switch-Container {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.4);
+  left: 80%;
+  top: 50%;
+  width: 14vh;
+}
+
+.Settings-Volume-Container {
+	position: absolute;
+	transform: translate(-100%, -50%);
+	left: 100%;
+	top: 50%;
+	width: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Settings-Content-Box-Line {
+  position: relative;
+  width: 100%;
+  height: 0.1vh;
+  border-bottom: solid 0.1vh var(--Line-C);
+  opacity: 0.2;
+}
+
+#FlightMode-Title {
+  font-size: 1.2vh;
+}
+
+#Volume-Setting-Title {
+  font-size: 1.2vh;
+}
+
+#Theme-Setting-Title {
+  font-size: 1.2vh;
+}
+
+/*--------------------------------------------FlappyBird------------------------------------------*/
+
+#FlappyBird {
+	--Col: var(--App-Col-4);
+	--Row: var(--App-Row-1);
+    position: absolute;
+    transform: translate(-81%, -89%) scale(0);
+    opacity: 1;
+    width: var(--Main-width);
+    height: var(--Main-height);
+    left: 50%;
+    top: 50%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#FlappyBird-Content {
+    position: relative;
+    opacity: 1;
+    width: var(--Main-width);
+    height: var(--Main-height);
+    border-radius: var(--Main-radius);
+    overflow: hidden;
+}
+
+/*--------------------------------------------Snake------------------------------------------*/
+
+#Snake {
+    --Col: var(--App-Col-4);
+	--Row: var(--App-Row-1);
+    position: absolute;
+    transform: translate(-81%, -89%) scale(0);
+    opacity: 1;
+    width: var(--Main-width);
+    height: var(--Main-height);
+    left: 50%;
+    top: 50%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#Snake-Content {
+    position: relative;
+    opacity: 1;
+    width: var(--Main-width);
+    height: var(--Main-height);
+    border-radius: var(--Main-radius);
+    overflow: hidden;
+}
+
+/*--------------------------------------------Call-PopUp------------------------------------------*/
+
+#Call-PopUp {
+  position: absolute;
+  transform: translate(-50%, -150%);
+  width: 95%;
+  height: 12%;
+  left: 50%;
+  top: 5%;
+  border-radius: 1vh;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  z-index: 6;
+}
+
+#Call-PopUp-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  border-radius: 1vh;
+  background: #000000d0;
+}
+
+#Call-PopUp-Avatar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4vh;
+  height: 4vh;
+  left: 14%;
+  top: 48%;
+  border-radius: 3vh;
+  background-color: var(--Back-D-C);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Call-PopUp-Avatar-Text {
+  font-family: "SF";
+  font-size: 2.5vh;
+  color: var(--Texts-C);
+}
+
+#Call-PopUp-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 15vh;
+  height: 1.5vh;
+  left: 25%;
+  top: 40%;
+  font-family: "SF";
+  font-size: 1.4vh;
+  text-align: left;
+  line-height: 1.5vh;
+  color: var(--Texts-C);
+}
+
+#Call-PopUp-Type {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 4.5vh;
+  height: 1vh;
+  left: 25%;
+  top: 60%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  text-align: left;
+  line-height: 1vh;
+  color: var(--Texts-L-C);
+}
+
+#Call-PopUp-Back-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 3vh;
+  height: 3vh;
+  border-radius: 5vh;
+  background-color: #fff;
+}
+
+#Call-PopUp-Answer {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  height: 4.5vh;
+  width: 4.5vh;
+  right: 0.5vh;
+  top: 50%;
+  border-radius: 3vh;
+}
+
+#Call-PopUp-Answer-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 4vh;
+}
+
+#Call-PopUp-Answer:hover #Call-PopUp-Answer-Img {
+  filter: none;
+  fill: #00ff33;
+}
+
+#Call-PopUp-Decline {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  height: 4.5vh;
+  width: 4.5vh;
+  right: 5.5vh;
+  top: 50%;
+  border-radius: 3vh;
+}
+
+#Call-PopUp-Decline:hover #Call-PopUp-Decline-Img {
+  filter: none;
+  fill: red;
+}
+
+#Call-PopUp-Decline-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(137deg);
+  top: 50%;
+  left: 50%;
+  width: 4vh;
+}
+
+/*--------------------------------------------Notification-PopUp------------------------------------------*/
+
+#Notification-PopUp {
+  position: absolute;
+  transform: translate(-50%, -150%);
+  width: 95%;
+  height: 12%;
+  left: 50%;
+  top: 5%;
+  border-radius: 1vh;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  z-index: 5;
+}
+
+#Notification-PopUp-Blur-Back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  border-radius: 1vh;
+  background: #000000d0;
+}
+
+#Notification-PopUp-App {
+  position: absolute;
+  transform: translate(-0%, -0%);
+  width: 6vh;
+  height: 1vh;
+  left: 1vh;
+  top: 1vh;
+}
+
+#Notification-PopUp-App-Icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 1.5vh;
+  height: 1.5vh;
+  left: 10%;
+  top: 50%;
+}
+
+#Notification-PopUp-App-Text {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: fit-content;
+  height: 100%;
+  left: 25%;
+  top: 50%;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  text-align: left;
+  line-height: 1vh;
+  color: var(--Texts-L-C);
+}
+
+#Notification-PopUp-Name {
+  position: absolute;
+  transform: translate(-0%, -50%);
+  width: 15vh;
+  height: 1.5vh;
+  left: 1vh;
+  top: 45%;
+  font-family: "SF";
+  font-size: 1.4vh;
+  text-align: left;
+  line-height: 1.5vh;
+  color: var(--Texts-C);
+}
+
+#Notification-PopUp-Text {
+  position: absolute;
+  transform: translate(-0%, -0%);
+  width: 25vh;
+  height: 1.6vh;
+  left: 1vh;
+  top: 60%;
+  color: var(--Texts-L-C);
+  font-family: "SF";
+  font-size: 1.3vh;
+  line-height: 1.5vh;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#Notification-PopUp-Time {
+  position: absolute;
+  transform: translate(0%, -0%);
+  width: fit-content;
+  height: 1vh;
+  right: 1vh;
+  top: 1vh;
+  font-family: "SF-LI";
+  font-size: 1vh;
+  text-align: right;
+  line-height: 1vh;
+  color: var(--Texts-L-C);
+}
+
+#Volume-Apply {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 7vh;
+  height: 3vh;
+  border-radius: 1vh;
+  left: 80%;
+  top: 50%;
+  background-color: var(--Back-A-C);
+}
+
+#Volume-Apply:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Volume-Apply-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  font-size: 1.3vh;
+  left: 50%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+}
+
+#Background-Setting-Textbox {
+    position: absolute;
+    transform: translate(-0%, -50%);
+    width: 60%;
+    height: 3vh;
+    top: 50%;
+    left: 5%;
+    border: 0;
+    color: var(--Texts-C);
+    background-color: var(--Back-S-C);
+    font-family: "SF";
+    resize: none;
+    text-align: left;
+    line-height: 3vh;
+    font-size: 1.5vh;
+    text-indent: 1vh;
+    overflow: hidden;
+    border-radius: 1vh;
+}
+
+#Background-Setting-Apply {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 7vh;
+  height: 3vh;
+  border-radius: 1vh;
+  left: 80%;
+  top: 50%;
+  background-color: var(--Back-A-C);
+}
+
+#Background-Setting-Apply:hover {
+  filter: var(--Main-Hover-Filter);
+}
+
+#Background-Setting-Apply-Text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4.7vh;
+  left: 50%;
+  top: 50%;
+  color: var(--Texts-C);
+  font-family: "SF";
+  text-align: center;
+  font-size: 1.3vh;
+}
+
+.main__img_container {
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    width: 100vh;
+    position: absolute;
+    padding: 1vh;
+    z-index: 88;
+}
+
+.main__img-img img {
+    max-width: 100vh;
+    max-height: 60vh;
+    border-radius: 1vh;
+}
+
+#main__img-buttons {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 17%;
+    height: 3vh;
+    left: 12%;
+    bottom: -7%;
+}
+
+.main__img-button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 13vh;
+    height: 3vh;
+    border-radius: 1vh;
+}
+
+#main__img-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    color: var(--Texts-C);
+    font-family: "SF";
+    text-align: center;
+}
+
+#main__img-button-close {
+    left: 100%;
+    top: 50%;
+    background-color: var(--Back-A-C);
+}
+
+#main__img-button-copy {
+    left: 22%;
+    top: 50%;
+    background-color: var(--Back-A-C);
+}
+
+.main__img-button:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+
+#Avatar-Avatar-Image-Img {
+    width: 100%;
+    left: 50%;
+    border-radius: 10vh;
+    vertical-align: middle;
+    height: 100%;
+}
+  
+#Avatar-Avatar-Image {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 80%;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Avatar-Apply {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 7vh;
+    height: 3vh;
+    border-radius: 1vh;
+    left: 80%;
+    top: 50%;
+    background-color: var(--Back-A-C);
+}
+  
+#Avatar-Apply:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+#Avatar-Apply-Text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 7.7vh;
+    left: 50%;
+    top: 50%;
+    color: var(--Texts-C);
+    font-family: "SF";
+    text-align: center;
+    font-size: 1.3vh;
+}
+
+#Avatar-Link-Textbox {
+    position: absolute;
+    transform: translate(-0%, -50%);
+    width: 60%;
+    height: 3vh;
+    top: 50%;
+    left: 5%;
+    border: 0;
+    color: var(--Texts-C);
+    background-color: var(--Back-S-C);
+    font-family: "SF";
+    resize: none;
+    text-align: left;
+    line-height: 3vh;
+    font-size: 1.5vh;
+    text-indent: 1vh;
+    overflow: hidden;
+    border-radius: 1vh;
+}
+
+.Avatar-Box-Avatar {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 80%;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10vh;
+    background-color: var(--Avatar-Back-C);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.Avatar-Box-Avatar-Img {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 70%;
+    left: 50%;
+    top: 95%;
+    border-radius: 10vh;
+}
+
+
+/*--------------------------------------------Garage------------------------------------------*/
+#Garage {
+    --Col: var(--App-Col-3);
+    --Row: var(--App-Row-1);
+    position: absolute;
+    transform: translate(-18%, -89%) scale(0);
+    opacity: 1;
+    width: var(--Main-width);
+    height: var(--Main-height);
+    left: 50%;
+    top: 50%;
+    border-radius: var(--Main-radius);
+    background-color: var(--Back-C);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+  
+  
+  
+#Garage-Send-Contents {
+    position: absolute;
+    transform: translate(-50%, -0%);
+    width: var(--Main-width);
+    height: 39.4vh;
+    left: 50%;
+    top: 6.3vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.1vh;
+    overflow: auto;
+    align-content: flex-start;
+}
+
+.Garage-Send-Contents-Box {
+    position: relative;
+    width: var(--Main-width);
+    height: 4vh;
+}
+
+.Garage-Send-Contents-Box:hover {
+    filter: var(--Main-Hover-Filter);
+}
+
+.Garage-Send-Contents-Title {
+    position: absolute;
+    transform: translate(-0%, -50%);
+    width: fit-content;
+    height: fit-content;
+    left: 10%;
+    top: 36%;
+    font-family: "SF";
+    font-size: 1.2vh;
+    text-align: left;
+    color: var(--Texts-C);
+}
+
+.Garage-Send-Contents-Plate {
+    position: absolute;
+    transform: translate(-0%, -50%);
+    width: fit-content;
+    height: fit-content;
+    left: 10%;
+    top: 70%;
+    font-family: "SF";
+    font-size: 1vh;
+    text-align: left;
+    color: var(--Texts-L-C);
+}
+
+.Garage-Send-Contents-Text {
+    position: absolute;
+    transform: translate(-100%, -50%);
+    width: fit-content;
+    height: fit-content;
+    left: 90%;
+    top: 50%;
+    font-family: "SF";
+    font-size: 1.2vh;
+    text-align: right;
+    color: var(--Texts-C);
+}
+  
+.Garage-switch-Container {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0.4);
+    left: 80%;
+    top: 50%;
+    width: 13vh;
+}
+  
+.Garage-Send-Content-Box-Line {
+    position: relative;
+    width: 100%;
+    height: 0.1vh;
+    border-bottom: solid 0.1vh var(--Line-C);
+    opacity: 0.2;
+}
+
+#Garage-Send-Loc-Icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 3vh;
+    height: 1.7vh;
+    right: 0%;
+    top: 50%;
+}
+  
+#Garage-Send-Loc-Img {
+    fill: var(--Icons-C);
+}
