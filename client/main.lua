@@ -146,7 +146,7 @@ function OpenPhone()
         haveAccess = haveAccess,
         haveAccess3 = haveAccess3,
         haveAccessName = ESX.PlayerData.job.label,
-        haveAccess3Name = ESX.PlayerData.job3.label
+        -- haveAccess3Name = ESX.PlayerData.job3.label
     })
 
     PhoneAnimation(true)
