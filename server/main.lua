@@ -689,7 +689,7 @@ end)
 -- Business
 
 Events.RegisterServerEvent('cc_phone:getBusiness', function(source)
-    local xPlayers = exports['cc_core']:GetPlayersFix()
+    local xPlayers = GetPlayers()
     local jobName = GetPlayerJob(source).name
 
     local data = {
@@ -699,16 +699,18 @@ Events.RegisterServerEvent('cc_phone:getBusiness', function(source)
     }
 
     for k, v in pairs(xPlayers) do
-        if v.job == jobName then
-
-            local phone = GetPlayerPhone(v.playerId)
+        local playerId = tonumber(v)
+        local xPlayer = ESX.GetPlayerFromId(playerId)
+        
+        if xPlayer.job.name == jobName then
+            local phone = GetPlayerPhone(playerId)
 
             if phone then
                 if v.job == jobName then
                     table.insert(data.members, {
-                        id = v.playerId,
-                        name = v.rpName,
-                        job = { grade = v.jobGrade },
+                        id = playerId,
+                        name = xPlayer.name,
+                        job = { grade = xPlayer.job.grade },
                         number = phone.number
                     })
         
@@ -730,7 +732,7 @@ Events.RegisterServerEvent('cc_phone:getBusiness', function(source)
 end)
 
 Events.RegisterServerEvent('cc_phone:getBusiness2', function(source)
-    local xPlayers = exports['cc_core']:GetPlayersFix()
+    local xPlayers = GetPlayers()
     local playerId = source
     local jobName = GetPlayerJob3(playerId).name
 
@@ -741,22 +743,22 @@ Events.RegisterServerEvent('cc_phone:getBusiness2', function(source)
     }
 
     for k, v in pairs(xPlayers) do
-        if v.job3 == jobName then
+        local playerId = tonumber(v)
+        local xPlayer = ESX.GetPlayerFromId(playerId)
 
-            local phone = GetPlayerPhone(v.playerId)
+        if xPlayer.job3.name == jobName then
+            local phone = GetPlayerPhone(playerId)
 
             if phone then
-                if v.job3 == jobName then
-                    table.insert(data.members, {
-                        id = v.playerId,
-                        name = v.rpName,
-                        job = { grade = v.job3Grade },
-                        number = phone.number
-                    })
-        
-                    data.onlinemembers = data.onlinemembers + 1
-                end
-            end 
+                table.insert(data.members, {
+                    id = playerId,
+                    name = xPlayer.name,
+                    job = { grade = xPlayer.job.grade },
+                    number = phone.number
+                })
+    
+                data.onlinemembers = data.onlinemembers + 1
+            end
         end
     end
 
@@ -1106,15 +1108,16 @@ AddEventHandler('cc_phone:sendDispatch', function(job, desc)
 
         for k, v in pairs(Config.dispatchJobs) do
             if v.name == job then
-                local xPlayers = exports['cc_core']:GetPlayersFix()
+                local xPlayers = GetPlayers()
                 uniqueId = uniqueId + 1
     
                 for k1, v1 in pairs(xPlayers) do
-                    local zJobName = GetPlayerJob(v1.playerId).name
+                    local playerId = tonumber(v1)
+                    local zJobName = GetPlayerJob(playerId).name
     
                     if zJobName == job then
-                        local distance = #(playerCoords - GetPlayerCoords(v1.playerId, true))
-                        TriggerClientEvent('cc_phone:sendNotify', v1.playerId, 'Dispatch', 'Es ist ein Notruf eingegangen! Entfernung: ' .. round(distance, 2) .. 'M', 'info', 4000)
+                        local distance = #(playerCoords - GetPlayerCoords(playerId, true))
+                        TriggerClientEvent('cc_phone:sendNotify', playerId, 'Dispatch', 'Es ist ein Notruf eingegangen! Entfernung: ' .. round(distance, 2) .. 'M', 'info', 4000)
                     end
                 end
 
