@@ -706,16 +706,14 @@ Events.RegisterServerEvent('cc_phone:getBusiness', function(source)
             local phone = GetPlayerPhone(playerId)
 
             if phone then
-                if v.job == jobName then
-                    table.insert(data.members, {
-                        id = playerId,
-                        name = xPlayer.name,
-                        job = { grade = xPlayer.job.grade },
-                        number = phone.number
-                    })
-        
-                    data.onlinemembers = data.onlinemembers + 1
-                end
+	    table.insert(data.members, {
+		id = playerId,
+		name = xPlayer.name,
+		job = { grade = xPlayer.job.grade },
+		number = phone.number
+	    })
+
+	    data.onlinemembers = data.onlinemembers + 1
             end 
         end
     end
