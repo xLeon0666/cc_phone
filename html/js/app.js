@@ -292,7 +292,7 @@ $(function() {
     })
 
     window.addEventListener("keyup", function(event) {
-        if (event.key == 'F1' || event.key == "Escape") {
+        if (event.key == "Escape") {
             if (currentApp != 'Camera' && !cameraFocus && !Camera_Shooting) {
                 $.post('https://cc_phone/closePhone', JSON.stringify({}))
             }

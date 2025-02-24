@@ -494,7 +494,7 @@ Config.RadioAccess = {
     },
 }
 
-Config.DefaultPhoneKey = 288
+Config.DefaultPhoneKey = 'F1'
 
 function sendNotify(title, message, type, timeout)
     TriggerEvent('cc_core:hud:notify', type, title, message)
