@@ -824,22 +824,19 @@ end)
 
 -- Open Phone
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if canBeUsed then
-            if IsControlJustReleased(2, Config.DefaultPhoneKey) then
-                if not PhoneData.Locked then
-                    if not PhoneData.Open then
-                        OpenPhone()
-                    else
-                        ClosePhone()
-                    end
-                end
-            end 
+RegisterCommand('cc_phone:openPhone', function()
+    if canBeUsed and not PhoneData.Locked then
+        if PhoneData.Open then
+            if not PhoneData.cameraOpen then
+                ClosePhone()
+            end
+        else
+            OpenPhone()
         end
     end
 end)
+
+RegisterKeyMapping('cc_phone:openPhone', 'Handy öffnen', 'keyboard', Config.DefaultPhoneKey)
 
 local function isPhoneOpen()
     return PhoneData.Open
