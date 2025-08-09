@@ -825,12 +825,21 @@ $(document).on("click", "#Dispatch-Bottom-Bar-Button-S", (Load_Dispatch_Send = f
 }))
 
 function Load_Dispatch_Inbox_Contents(DispInb_DataId, DispInb_Id, DispInb_Name, DispInb_Last, DispInb_Time, DispInb_IsRead, uniqueId, playerId, job, x, y) {
+    const escapedId = escapeHtml(DispInb_Id);
+    const escapedName = escapeHtml(DispInb_Name);
+    const escapedLast = escapeHtml(DispInb_Last);
+    const escapedTime = escapeHtml(DispInb_Time);
+    const escapedIsRead = escapeHtml(DispInb_IsRead);
+    const escapedUniqueId = escapeHtml(uniqueId);
+    const escapedPlayerId = escapeHtml(playerId);
+    const escapedJob = escapeHtml(job);
+    
     const dispatchItem = `
-        <div id="Dispatch-Inbox-Content-Box-${DispInb_Id}" class="Dispatch-Inbox-Content-Box" data-playerId="${playerId}" data-x="${x}" data-y="${y}" data-job="${job}" data-uniqueId="${uniqueId}">
-            <div id="Dispatch-Inbox-Content-Box-Read-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-${DispInb_IsRead}"></div>
+        <div id="Dispatch-Inbox-Content-Box-${escapedId}" class="Dispatch-Inbox-Content-Box" data-playerId="${escapedPlayerId}" data-x="${escapeHtml(x)}" data-y="${escapeHtml(y)}" data-job="${escapedJob}" data-uniqueId="${escapedUniqueId}">
+            <div id="Dispatch-Inbox-Content-Box-Read-${escapedId}" class="Dispatch-Inbox-Content-Box-${escapedIsRead}"></div>
             
-            <div id="Dispatch-Inbox-Content-Box-Avatar-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-Avatar">
-                <svg id="Dispatch-Inbox-Content-Box-Avatar-Img-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-Avatar-Img" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.6vh" height="3vh" viewBox="0 0 26 30">
+            <div id="Dispatch-Inbox-Content-Box-Avatar-${escapedId}" class="Dispatch-Inbox-Content-Box-Avatar">
+                <svg id="Dispatch-Inbox-Content-Box-Avatar-Img-${escapedId}" class="Dispatch-Inbox-Content-Box-Avatar-Img" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.6vh" height="3vh" viewBox="0 0 26 30">
                     <g fill="var(--Icons-C)" stroke="none" transform="translate(0,30) scale(0.1,-0.1)">
                         <path d="M80 280 c-27 -27 -27 -93 0 -120 30 -30 83 -27 109 6 27 34 27 74 0 108 -26 33 -79 36 -109 6z"/>
                         <path d="M32 99 c-19 -13 -32 -28 -30 -38 4 -22 85 -61 128 -61 42 0 118 33 126 54 22 57 -151 91 -224 45z"/>
@@ -838,16 +847,16 @@ function Load_Dispatch_Inbox_Contents(DispInb_DataId, DispInb_Id, DispInb_Name, 
                 </svg>
             </div>
 
-            <div id="Dispatch-Inbox-Content-Box-Name-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-Name">${DispInb_Name}</div>
-            <div id="Dispatch-Inbox-Content-Box-Last-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-Last">${DispInb_Last}</div>
-            <div id="Dispatch-Inbox-Content-Box-Time-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-Time">${DispInb_Time}</div>
-                <svg id="Dispatch-Inbox-Content-Box-Icon-${DispInb_Id}" Class="Dispatch-Inbox-Content-Box-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1.2vh" height="2vh" viewBox="0 0 476 800">
-                <g id="Dispatch-Inbox-Content-Box-Img-${DispInb_Id}" Class="Dispatch-Inbox-Content-Box-Img" transform="translate(0,800) scale(0.1,-0.1)">
+            <div id="Dispatch-Inbox-Content-Box-Name-${escapedId}" class="Dispatch-Inbox-Content-Box-Name">${escapedName}</div>
+            <div id="Dispatch-Inbox-Content-Box-Last-${escapedId}" class="Dispatch-Inbox-Content-Box-Last">${escapedLast}</div>
+            <div id="Dispatch-Inbox-Content-Box-Time-${escapedId}" class="Dispatch-Inbox-Content-Box-Time">${escapedTime}</div>
+                <svg id="Dispatch-Inbox-Content-Box-Icon-${escapedId}" Class="Dispatch-Inbox-Content-Box-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1.2vh" height="2vh" viewBox="0 0 476 800">
+                <g id="Dispatch-Inbox-Content-Box-Img-${escapedId}" Class="Dispatch-Inbox-Content-Box-Img" transform="translate(0,800) scale(0.1,-0.1)">
                     <path d="M3845 7984 c-99 -22 -203 -68 -282 -124 -43 -31 -683 -664 -1750 -1732 l-1681 -1683 -51 -105 c-110 -230 -110 -450 0 -680 l51 -105 1681 -1683 c925 -926 1710 -1704 1744 -1728 135 -98 264 -138 443 -138 145 0 213 15 335 74 192 93 344 278 400 485 53 198 16 431 -97 608 -29 45 -427 450 -1421 1444 l-1382 1383 1382 1382 c994 995 1392 1400 1421 1445 113 177 150 410 97 608 -69 257 -283 470 -540 540 -88 24 -264 28 -350 9z"/>
                 </g>
             </svg>
 
-            <div id="Dispatch-Inbox-Content-Box-Line-${DispInb_Id}" class="Dispatch-Inbox-Content-Box-Line"></div>
+            <div id="Dispatch-Inbox-Content-Box-Line-${escapedId}" class="Dispatch-Inbox-Content-Box-Line"></div>
         </div>
 
         <div id="Dispatch-Inbox-Space-From-Bottom"></div>
@@ -973,14 +982,31 @@ $(document).on("click", "#Dispatch-Form-Send", function() {
     })
 })
 
+function escapeHtml(text) {
+    if (typeof text !== 'string') return text;
+    var map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
 function Load_Dispatching_Contents(Dising_DataId, Dising_Id, Dising_Text, Dising_Type, Dising_Time, x, y) {
+    const escapedText = escapeHtml(Dising_Text);
+    const escapedTime = escapeHtml(Dising_Time);
+    const escapedId = escapeHtml(Dising_Id);
+    const escapedDataId = escapeHtml(Dising_DataId);
+    
     const dispatchItem = {
         RT: `
-        <div id="Dispatching-Box-${Dising_Id}'" class="Dispatching-Box" data-Dising_DataId="${Dising_DataId}">            
-            <div id="Dispatching-Recive-Txt-${Dising_Id}'" class="Dispatching-Recive-Txt" data-Dispatching_Time="${Dising_Time}">${Dising_Text}</div>
-            <div id="Dispatching-Recive-Arrow-${Dising_Id}'" class="Dispatching-Recive-Arrow">
-                <svg id="Dispatching-Recive-Arrow-Icon-${Dising_Id}'" Class="Dispatching-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                    <g id="Dispatching-Recive-Arrow-Img${Dising_Id}'" Class="Dispatching-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+        <div id="Dispatching-Box-${escapedId}'" class="Dispatching-Box" data-Dising_DataId="${escapedDataId}">            
+            <div id="Dispatching-Recive-Txt-${escapedId}'" class="Dispatching-Recive-Txt" data-Dispatching_Time="${escapedTime}">${escapedText}</div>
+            <div id="Dispatching-Recive-Arrow-${escapedId}'" class="Dispatching-Recive-Arrow">
+                <svg id="Dispatching-Recive-Arrow-Icon-${escapedId}'" Class="Dispatching-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                    <g id="Dispatching-Recive-Arrow-Img${escapedId}'" Class="Dispatching-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                         <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                     </g>
                 </svg>
@@ -989,11 +1015,11 @@ function Load_Dispatching_Contents(Dising_DataId, Dising_Id, Dising_Text, Dising
         <div id="Dispatching-Space-From-Bottom"></div>
         `,
         ST: `
-        <div id="Dispatching-Box-${Dising_Id}'" class="Dispatching-Box" data-Dising_DataId="${Dising_DataId}">            
-            <div id="Dispatching-Send-Txt-${Dising_Id}'" class="Dispatching-Send-Txt" data-Dispatching_Time="${Dising_Time}">${Dising_Text}'</div>
-            <div id="Dispatching-Send-Arrow-${Dising_Id}'" class="Dispatching-Send-Arrow">
-                <svg id="Dispatching-Send-Arrow-Icon-${Dising_Id}'" Class="Dispatching-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                    <g id="Dispatching-Send-Arrow-Img${Dising_Id}'" Class="Dispatching-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+        <div id="Dispatching-Box-${escapedId}'" class="Dispatching-Box" data-Dising_DataId="${escapedDataId}">            
+            <div id="Dispatching-Send-Txt-${escapedId}'" class="Dispatching-Send-Txt" data-Dispatching_Time="${escapedTime}">${escapedText}'</div>
+            <div id="Dispatching-Send-Arrow-${escapedId}'" class="Dispatching-Send-Arrow">
+                <svg id="Dispatching-Send-Arrow-Icon-${escapedId}'" Class="Dispatching-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                    <g id="Dispatching-Send-Arrow-Img${escapedId}'" Class="Dispatching-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                         <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                     </g>
                 </svg>
@@ -1002,10 +1028,10 @@ function Load_Dispatching_Contents(Dising_DataId, Dising_Id, Dising_Text, Dising
         <div id="Dispatching-Space-From-Bottom"></div>
         `,
         RL: `
-        <div id="Dispatching-Box-${Dising_Id}" class="Dispatching-Box" data-Dising_DataId="${Dising_DataId}" data-x="${x}" data-y="${y}">
-            <div id="Dispatching-Recive-Txt-${Dising_Id}" class="Dispatching-Recive-Txt" data-Dispatching_Time="${Dising_Time}">Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <div id="Dispatching-Recive-Loc-Address-${Dising_Id}" class="Dispatching-Recive-Loc-Address">${Dising_Text}</div>
-            <div id="Dispatching-Recive-Loc-${Dising_Id}" class="Dispatching-Recive-Loc">
+        <div id="Dispatching-Box-${escapedId}" class="Dispatching-Box" data-Dising_DataId="${escapedDataId}" data-x="${escapeHtml(x)}" data-y="${escapeHtml(y)}">
+            <div id="Dispatching-Recive-Txt-${escapedId}" class="Dispatching-Recive-Txt" data-Dispatching_Time="${escapedTime}">Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div id="Dispatching-Recive-Loc-Address-${escapedId}" class="Dispatching-Recive-Loc-Address">${escapedText}</div>
+            <div id="Dispatching-Recive-Loc-${escapedId}" class="Dispatching-Recive-Loc">
                 <svg id="Dispatching-Recive-Loc-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.4vh" height="4vh" viewBox="0 0 586 978">
                     <g id="Dispatching-Recive-Loc-Img" transform="translate(0,978) scale(0.1,-0.1)">
                         <path d="M2765 9768 c-573 -26 -1154 -239 -1620 -591 -746 -565 -1172 -1453 -1142 -2382 10 -296 72 -627 170 -906 26 -75 557 -1215 1397 -3005 745 -1586 1357 -2883 1360 -2883 5 0 2627 5574 2699 5737 199 451 275 1036 201 1547 -134 922 -699 1720 -1521 2149 -484 253 -982 361 -1544 334z m426 -1791 c364 -95 648 -384 741 -753 32 -128 32 -360 0 -488 -79 -314 -306 -581 -599 -706 -135 -57 -230 -74 -403 -74 -173 0 -268 17 -403 74 -233 100 -442 307 -542 538 -61 140 -79 236 -79 412 0 172 17 269 73 401 113 270 374 505 646 584 179 53 393 57 566 12z" />
@@ -1013,9 +1039,9 @@ function Load_Dispatching_Contents(Dising_DataId, Dising_Id, Dising_Text, Dising
                 </svg>
             </div>
 
-            <div id="Dispatching-Recive-Arrow-${Dising_Id}" class="Dispatching-Recive-Arrow">
-                <svg id="Dispatching-Recive-Arrow-Icon-${Dising_Id}" Class="Dispatching-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                    <g id="Dispatching-Recive-Arrow-Img${Dising_Id}" Class="Dispatching-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+            <div id="Dispatching-Recive-Arrow-${escapedId}" class="Dispatching-Recive-Arrow">
+                <svg id="Dispatching-Recive-Arrow-Icon-${escapedId}" Class="Dispatching-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                    <g id="Dispatching-Recive-Arrow-Img${escapedId}" Class="Dispatching-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                         <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                     </g>
                 </svg>
@@ -1024,10 +1050,10 @@ function Load_Dispatching_Contents(Dising_DataId, Dising_Id, Dising_Text, Dising
         <div id="Dispatching-Space-From-Bottom"></div>
         `,
         SL: `
-        <div id="Dispatching-Box-${Dising_Id}'" class="Dispatching-Box" data-Dising_DataId="${Dising_DataId}">            
-            <div id="Dispatching-Send-Txt-${Dising_Id}'" class="Dispatching-Send-Txt" data-Dispatching_Time="${Dising_Time}">Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-            <div id="Dispatching-Send-Loc-Address-${Dising_Id}'" class="Dispatching-Send-Loc-Address">${Dising_Text}'</div>
-            <div id="Dispatching-Send-Loc-${Dising_Id}'" class="Dispatching-Send-Loc">
+        <div id="Dispatching-Box-${escapedId}'" class="Dispatching-Box" data-Dising_DataId="${escapedDataId}">            
+            <div id="Dispatching-Send-Txt-${escapedId}'" class="Dispatching-Send-Txt" data-Dispatching_Time="${escapedTime}">Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div id="Dispatching-Send-Loc-Address-${escapedId}'" class="Dispatching-Send-Loc-Address">${escapedText}'</div>
+            <div id="Dispatching-Send-Loc-${escapedId}'" class="Dispatching-Send-Loc">
                 <svg id="Dispatching-Send-Loc-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.4vh" height="4vh" viewBox="0 0 586 978">
                     <g id="Dispatching-Send-Loc-Img" transform="translate(0,978) scale(0.1,-0.1)">
                         <path d="M2765 9768 c-573 -26 -1154 -239 -1620 -591 -746 -565 -1172 -1453 -1142 -2382 10 -296 72 -627 170 -906 26 -75 557 -1215 1397 -3005 745 -1586 1357 -2883 1360 -2883 5 0 2627 5574 2699 5737 199 451 275 1036 201 1547 -134 922 -699 1720 -1521 2149 -484 253 -982 361 -1544 334z m426 -1791 c364 -95 648 -384 741 -753 32 -128 32 -360 0 -488 -79 -314 -306 -581 -599 -706 -135 -57 -230 -74 -403 -74 -173 0 -268 17 -403 74 -233 100 -442 307 -542 538 -61 140 -79 236 -79 412 0 172 17 269 73 401 113 270 374 505 646 584 179 53 393 57 566 12z" />
@@ -1035,9 +1061,9 @@ function Load_Dispatching_Contents(Dising_DataId, Dising_Id, Dising_Text, Dising
                 </svg>
             </div>
 
-            <div id="Dispatching-Send-Arrow-${Dising_Id}'" class="Dispatching-Send-Arrow">
-                <svg id="Dispatching-Send-Arrow-Icon-${Dising_Id}'" Class="Dispatching-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                    <g id="Dispatching-Send-Arrow-Img${Dising_Id}'" Class="Dispatching-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+            <div id="Dispatching-Send-Arrow-${escapedId}'" class="Dispatching-Send-Arrow">
+                <svg id="Dispatching-Send-Arrow-Icon-${escapedId}'" Class="Dispatching-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                    <g id="Dispatching-Send-Arrow-Img${escapedId}'" Class="Dispatching-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                         <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                     </g>
                 </svg>
@@ -1701,14 +1727,20 @@ function Load_Add_Whatsapp_Contents(Add_Whats_User_DataId, Add_Whats_User_Id, Ad
 }
 
 function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsapping_UserId, Whatsapping_Text, Whatsapping_Type, Whatsapping_Time, x, y) {
+    const escapedText = escapeHtml(Whatsapping_Text);
+    const escapedUserId = escapeHtml(Whatsapping_UserId);
+    const escapedTime = escapeHtml(Whatsapping_Time);
+    const escapedId = escapeHtml(Whatsapping_Id);
+    const escapedDataId = escapeHtml(Whatsapping_DataId);
+    
     var New_Whatsapping = {
         RT: 
         `
-            <div id="Whatsapping-Box-${Whatsapping_Id}" class="Whatsapping-Box" data-Whatsapping_DataId="${Whatsapping_DataId}" data-Whatsapping_UserId="${Whatsapping_UserId}">
-                <div id="Whatsapping-Recive-Txt-${Whatsapping_Id}" class="Whatsapping-Recive-Txt" data-Whatsapping_Name="${Whatsapping_UserId}" data-Whatsapping_Time="${Whatsapping_Time}"><div id="Whatsapping-Send-Name-${Whatsapping_Id}" class="Whatsapping-Send-Name">${Whatsapping_UserId}</div>${Whatsapping_Text}</div>
-                    <div id="Whatsapping-Recive-Arrow-${Whatsapping_Id}" class="Whatsapping-Recive-Arrow">
-                        <svg id="Whatsapping-Recive-Arrow-Icon-${Whatsapping_Id}" Class="Whatsapping-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                            <g id="Whatsapping-Recive-Arrow-Img${Whatsapping_Id}" Class="Whatsapping-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+            <div id="Whatsapping-Box-${escapedId}" class="Whatsapping-Box" data-Whatsapping_DataId="${escapedDataId}" data-Whatsapping_UserId="${escapedUserId}">
+                <div id="Whatsapping-Recive-Txt-${escapedId}" class="Whatsapping-Recive-Txt" data-Whatsapping_Name="${escapedUserId}" data-Whatsapping_Time="${escapedTime}"><div id="Whatsapping-Send-Name-${escapedId}" class="Whatsapping-Send-Name">${escapedUserId}</div>${escapedText}</div>
+                    <div id="Whatsapping-Recive-Arrow-${escapedId}" class="Whatsapping-Recive-Arrow">
+                        <svg id="Whatsapping-Recive-Arrow-Icon-${escapedId}" Class="Whatsapping-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                            <g id="Whatsapping-Recive-Arrow-Img${escapedId}" Class="Whatsapping-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                                 <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                             </g>
                     </svg>
@@ -1719,15 +1751,15 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
         `,
         ST:
         `
-            <div id="Whatsapping-Box-${Whatsapping_Id}" class="Whatsapping-Box" data-Whatsapping_DataId="${Whatsapping_DataId}" data-Whatsapping_UserId="${Whatsapping_UserId}">
-                <div id="Whatsapping-Send-Txt-${Whatsapping_Id}" class="Whatsapping-Send-Txt" data-Whatsapping_Name="${Whatsapping_UserId}" data-Whatsapping_Time="${Whatsapping_Time}">
-                <div id="Whatsapping-Send-Name-${Whatsapping_Id}" class="Whatsapping-Send-Name">${Whatsapping_UserId}</div>
-                ${Whatsapping_Text}
+            <div id="Whatsapping-Box-${escapedId}" class="Whatsapping-Box" data-Whatsapping_DataId="${escapedDataId}" data-Whatsapping_UserId="${escapedUserId}">
+                <div id="Whatsapping-Send-Txt-${escapedId}" class="Whatsapping-Send-Txt" data-Whatsapping_Name="${escapedUserId}" data-Whatsapping_Time="${escapedTime}">
+                <div id="Whatsapping-Send-Name-${escapedId}" class="Whatsapping-Send-Name">${escapedUserId}</div>
+                ${escapedText}
                 </div>
                 
-                <div id="Whatsapping-Send-Arrow-${Whatsapping_Id}" class="Whatsapping-Send-Arrow">
-                    <svg id="Whatsapping-Send-Arrow-Icon-${Whatsapping_Id}" Class="Whatsapping-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                        <g id="Whatsapping-Send-Arrow-Img${Whatsapping_Id}" Class="Whatsapping-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+                <div id="Whatsapping-Send-Arrow-${escapedId}" class="Whatsapping-Send-Arrow">
+                    <svg id="Whatsapping-Send-Arrow-Icon-${escapedId}" Class="Whatsapping-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                        <g id="Whatsapping-Send-Arrow-Img${escapedId}" Class="Whatsapping-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                             <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                         </g>
                     </svg>
@@ -1738,12 +1770,12 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
         `,
         RL:
         `
-            <div id="Whatsapping-Box-${Whatsapping_Id}" class="Whatsapping-Box" data-Whatsapping_DataId="${Whatsapping_DataId}" data-Whatsapping_UserId="${Whatsapping_UserId}" data-x="${x}" data-y="${y}">
-                <div id="Whatsapping-Recive-Txt-${Whatsapping_Id}" class="Whatsapping-Recive-Txt" data-Whatsapping_Name="${Whatsapping_UserId}" data-Whatsapping_Time="${Whatsapping_Time}"><div id="Whatsapping-Send-Name-${Whatsapping_Id}" class="Whatsapping-Send-Name">${Whatsapping_UserId}</div>Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="Whatsapping-Box-${escapedId}" class="Whatsapping-Box" data-Whatsapping_DataId="${escapedDataId}" data-Whatsapping_UserId="${escapedUserId}" data-x="${escapeHtml(x)}" data-y="${escapeHtml(y)}">
+                <div id="Whatsapping-Recive-Txt-${escapedId}" class="Whatsapping-Recive-Txt" data-Whatsapping_Name="${escapedUserId}" data-Whatsapping_Time="${escapedTime}"><div id="Whatsapping-Send-Name-${escapedId}" class="Whatsapping-Send-Name">${escapedUserId}</div>Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
 
-            <div id="Whatsapping-Recive-Loc-Address-${Whatsapping_Id}" class="Whatsapping-Recive-Loc-Address">${Whatsapping_Text}</div>
-                <div id="Whatsapping-Recive-Loc-${Whatsapping_Id}" class="Whatsapping-Recive-Loc">
+            <div id="Whatsapping-Recive-Loc-Address-${escapedId}" class="Whatsapping-Recive-Loc-Address">${escapedText}</div>
+                <div id="Whatsapping-Recive-Loc-${escapedId}" class="Whatsapping-Recive-Loc">
                     <svg id="Whatsapping-Recive-Loc-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.4vh" height="4vh" viewBox="0 0 586 978">
                         <g id="Whatsapping-Recive-Loc-Img" transform="translate(0,978) scale(0.1,-0.1)">
                             <path d="M2765 9768 c-573 -26 -1154 -239 -1620 -591 -746 -565 -1172 -1453 -1142 -2382 10 -296 72 -627 170 -906 26 -75 557 -1215 1397 -3005 745 -1586 1357 -2883 1360 -2883 5 0 2627 5574 2699 5737 199 451 275 1036 201 1547 -134 922 -699 1720 -1521 2149 -484 253 -982 361 -1544 334z m426 -1791 c364 -95 648 -384 741 -753 32 -128 32 -360 0 -488 -79 -314 -306 -581 -599 -706 -135 -57 -230 -74 -403 -74 -173 0 -268 17 -403 74 -233 100 -442 307 -542 538 -61 140 -79 236 -79 412 0 172 17 269 73 401 113 270 374 505 646 584 179 53 393 57 566 12z" />
@@ -1751,9 +1783,9 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
                     </svg>
                 </div>
                 
-                <div id="Whatsapping-Recive-Arrow-${Whatsapping_Id}" class="Whatsapping-Recive-Arrow">
-                    <svg id="Whatsapping-Recive-Arrow-Icon-${Whatsapping_Id}" Class="Whatsapping-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                        <g id="Whatsapping-Recive-Arrow-Img${Whatsapping_Id}" Class="Whatsapping-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+                <div id="Whatsapping-Recive-Arrow-${escapedId}" class="Whatsapping-Recive-Arrow">
+                    <svg id="Whatsapping-Recive-Arrow-Icon-${escapedId}" Class="Whatsapping-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                        <g id="Whatsapping-Recive-Arrow-Img${escapedId}" Class="Whatsapping-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                             <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                         </g>
                     </svg>
@@ -1764,10 +1796,10 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
         `,
         SL:
         `
-            <div id="Whatsapping-Box-${Whatsapping_Id}" class="Whatsapping-Box" data-Whatsapping_DataId="${Whatsapping_DataId}" data-Whatsapping_UserId="${Whatsapping_UserId}" data-x="${x}" data-y="${y}">
-                <div id="Whatsapping-Send-Txt-${Whatsapping_Id}" class="Whatsapping-Send-Txt" data-Whatsapping_Name="${Whatsapping_UserId}" data-Whatsapping_Time="${Whatsapping_Time}"><div id="Whatsapping-Send-Name-${Whatsapping_Id}" class="Whatsapping-Send-Name">${Whatsapping_UserId}</div>Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                <div id="Whatsapping-Send-Loc-Address-${Whatsapping_Id}" class="Whatsapping-Send-Loc-Address">${Whatsapping_Text}</div>
-                <div id="Whatsapping-Send-Loc-${Whatsapping_Id}" class="Whatsapping-Send-Loc">
+            <div id="Whatsapping-Box-${escapedId}" class="Whatsapping-Box" data-Whatsapping_DataId="${escapedDataId}" data-Whatsapping_UserId="${escapedUserId}" data-x="${escapeHtml(x)}" data-y="${escapeHtml(y)}">
+                <div id="Whatsapping-Send-Txt-${escapedId}" class="Whatsapping-Send-Txt" data-Whatsapping_Name="${escapedUserId}" data-Whatsapping_Time="${escapedTime}"><div id="Whatsapping-Send-Name-${escapedId}" class="Whatsapping-Send-Name">${escapedUserId}</div>Location: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div id="Whatsapping-Send-Loc-Address-${escapedId}" class="Whatsapping-Send-Loc-Address">${escapedText}</div>
+                <div id="Whatsapping-Send-Loc-${escapedId}" class="Whatsapping-Send-Loc">
                     <svg id="Whatsapping-Send-Loc-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.4vh" height="4vh" viewBox="0 0 586 978">
                         <g id="Whatsapping-Send-Loc-Img" transform="translate(0,978) scale(0.1,-0.1)">
                             <path d="M2765 9768 c-573 -26 -1154 -239 -1620 -591 -746 -565 -1172 -1453 -1142 -2382 10 -296 72 -627 170 -906 26 -75 557 -1215 1397 -3005 745 -1586 1357 -2883 1360 -2883 5 0 2627 5574 2699 5737 199 451 275 1036 201 1547 -134 922 -699 1720 -1521 2149 -484 253 -982 361 -1544 334z m426 -1791 c364 -95 648 -384 741 -753 32 -128 32 -360 0 -488 -79 -314 -306 -581 -599 -706 -135 -57 -230 -74 -403 -74 -173 0 -268 17 -403 74 -233 100 -442 307 -542 538 -61 140 -79 236 -79 412 0 172 17 269 73 401 113 270 374 505 646 584 179 53 393 57 566 12z" />
@@ -1775,9 +1807,9 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
                     </svg>
                 </div>
 
-                <div id="Whatsapping-Send-Arrow-${Whatsapping_Id}" class="Whatsapping-Send-Arrow">
-                    <svg id="Whatsapping-Send-Arrow-Icon-${Whatsapping_Id}" Class="Whatsapping-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                        <g id="Whatsapping-Send-Arrow-Img${Whatsapping_Id}" Class="Whatsapping-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+                <div id="Whatsapping-Send-Arrow-${escapedId}" class="Whatsapping-Send-Arrow">
+                    <svg id="Whatsapping-Send-Arrow-Icon-${escapedId}" Class="Whatsapping-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                        <g id="Whatsapping-Send-Arrow-Img${escapedId}" Class="Whatsapping-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                             <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                         </g>
                     </svg>
@@ -1788,15 +1820,15 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
         `,
         RI:
         `
-            <div id="Whatsapping-Box-${Whatsapping_Id}" class="Whatsapping-Box" data-Whatsapping_DataId="${Whatsapping_DataId}" data-Whatsapping_UserId="${Whatsapping_UserId}">
-                <div class="Whatsapping-Recive-Icon" data-Whatsapping_Name="${Whatsapping_UserId}" data-Whatsapping_Time="${Whatsapping_Time}">
-                    <div id="Whatsapping-Send-Name-${Whatsapping_Id}" class="Whatsapping-Send-Name">${Whatsapping_UserId}</div>
-                    <img class="Whatsapping-Recive-Img" src="${Whatsapping_Text}">
+            <div id="Whatsapping-Box-${escapedId}" class="Whatsapping-Box" data-Whatsapping_DataId="${escapedDataId}" data-Whatsapping_UserId="${escapedUserId}">
+                <div class="Whatsapping-Recive-Icon" data-Whatsapping_Name="${escapedUserId}" data-Whatsapping_Time="${escapedTime}">
+                    <div id="Whatsapping-Send-Name-${escapedId}" class="Whatsapping-Send-Name">${escapedUserId}</div>
+                    <img class="Whatsapping-Recive-Img" src="${escapeHtml(Whatsapping_Text)}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y4ZjhmOCIvPjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgRXJyb3I8L3RleHQ+PC9zdmc+'">
                 </div>
 
-                <div id="Whatsapping-Recive-Arrow-${Whatsapping_Id}" class="Whatsapping-Recive-Arrow">
-                    <svg id="Whatsapping-Recive-Arrow-Icon-${Whatsapping_Id}" Class="Whatsapping-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                        <g id="Whatsapping-Recive-Arrow-Img${Whatsapping_Id}" Class="Whatsapping-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+                <div id="Whatsapping-Recive-Arrow-${escapedId}" class="Whatsapping-Recive-Arrow">
+                    <svg id="Whatsapping-Recive-Arrow-Icon-${escapedId}" Class="Whatsapping-Recive-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                        <g id="Whatsapping-Recive-Arrow-Img${escapedId}" Class="Whatsapping-Recive-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                             <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                         </g>
                     </svg>
@@ -1807,15 +1839,15 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
         `,
         SI:
         `
-            <div id="Whatsapping-Box-${Whatsapping_Id}" class="Whatsapping-Box" data-Whatsapping_DataId="${Whatsapping_DataId}" data-Whatsapping_UserId="${Whatsapping_UserId}">
-                <div class="Whatsapping-Send-Icon" data-Whatsapping_Name="${Whatsapping_UserId}" data-Whatsapping_Time="${Whatsapping_Time}">
-                    <div id="Whatsapping-Send-Name-${Whatsapping_Id}" class="Whatsapping-Send-Name">${Whatsapping_UserId}</div>    
-                    <img class="Whatsapping-Send-Img" src="${Whatsapping_Text}">
+            <div id="Whatsapping-Box-${escapedId}" class="Whatsapping-Box" data-Whatsapping_DataId="${escapedDataId}" data-Whatsapping_UserId="${escapedUserId}">
+                <div class="Whatsapping-Send-Icon" data-Whatsapping_Name="${escapedUserId}" data-Whatsapping_Time="${escapedTime}">
+                    <div id="Whatsapping-Send-Name-${escapedId}" class="Whatsapping-Send-Name">${escapedUserId}</div>    
+                    <img class="Whatsapping-Send-Img" src="${escapeHtml(Whatsapping_Text)}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y4ZjhmOCIvPjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgRXJyb3I8L3RleHQ+PC9zdmc+'">
                 </div>
 
-                <div id="Whatsapping-Send-Arrow-${Whatsapping_Id}" class="Whatsapping-Send-Arrow">
-                    <svg id="Whatsapping-Send-Arrow-Icon-${Whatsapping_Id}" Class="Whatsapping-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
-                        <g id="Whatsapping-Send-Arrow-Img${Whatsapping_Id}" Class="Whatsapping-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
+                <div id="Whatsapping-Send-Arrow-${escapedId}" class="Whatsapping-Send-Arrow">
+                    <svg id="Whatsapping-Send-Arrow-Icon-${escapedId}" Class="Whatsapping-Send-Arrow-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2.5vh" viewBox="0 0 61 75">
+                        <g id="Whatsapping-Send-Arrow-Img${escapedId}" Class="Whatsapping-Send-Arrow-Img" transform="translate(0,75) scale(0.1,-0.1)">
                             <path d="M2 528 l3 -223 34 -62 c39 -73 117 -151 187 -186 87 -44 149 -57 271 -57 118 0 133 7 68 34 -48 20 -107 78 -133 130 -34 67 -42 139 -42 374 l0 212 -196 0 -195 0 3 -222z" />
                         </g>
                     </svg>
@@ -1851,11 +1883,18 @@ function Load_Whatsapping_Contents(Whatsapping_DataId, Whatsapping_Id, Whatsappi
 }
 
 function Load_Edit_Whatsapp_Contents(Edit_Whats_User_DataId, Edit_Whats_User_Id, Edit_Whats_User_Name, Edit_Whats_User_Number, Edit_Whats_Avatar, Edit_Whats_User_Perm) {
+    const escapedDataId = escapeHtml(Edit_Whats_User_DataId);
+    const escapedId = escapeHtml(Edit_Whats_User_Id);
+    const escapedName = escapeHtml(Edit_Whats_User_Name);
+    const escapedNumber = escapeHtml(Edit_Whats_User_Number);
+    const escapedAvatar = escapeHtml(Edit_Whats_Avatar);
+    const escapedPerm = escapeHtml(Edit_Whats_User_Perm);
+    
     const newUserContent = `
-        <div id="Edit-Whatsapp-User-Box-${Edit_Whats_User_Id}" class="Edit-Whatsapp-User-Box" data-Edit_Whats_User_DataId="${Edit_Whats_User_DataId}" data-Edit_Whats_User_Perm="${Edit_Whats_User_Perm}">
+        <div id="Edit-Whatsapp-User-Box-${escapedId}" class="Edit-Whatsapp-User-Box" data-Edit_Whats_User_DataId="${escapedDataId}" data-Edit_Whats_User_Perm="${escapedPerm}">
             ${Edit_Whats_Avatar == "default" ? `
-            <div id="Edit-Whatsapp-Content-Box-Avatar-${Edit_Whats_User_Id}" class="Edit-Whatsapp-Content-Box-Avatar">
-                <svg id="Edit-Whatsapp-Content-Box-Avatar-Img-${Edit_Whats_User_Id}" class="Edit-Whatsapp-Content-Box-Avatar-Img" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.6vh" height="3vh" viewBox="0 0 26 30">
+            <div id="Edit-Whatsapp-Content-Box-Avatar-${escapedId}" class="Edit-Whatsapp-Content-Box-Avatar">
+                <svg id="Edit-Whatsapp-Content-Box-Avatar-Img-${escapedId}" class="Edit-Whatsapp-Content-Box-Avatar-Img" version="1.0" xmlns="http://www.w3.org/2000/svg" width="2.6vh" height="3vh" viewBox="0 0 26 30">
                     <g fill="var(--Icons-C)" stroke="none" transform="translate(0,30) scale(0.1,-0.1)">
                         <path d="M80 280 c-27 -27 -27 -93 0 -120 30 -30 83 -27 109 6 27 34 27 74 0 108 -26 33 -79 36 -109 6z"></path>
                         <path d="M32 99 c-19 -13 -32 -28 -30 -38 4 -22 85 -61 128 -61 42 0 118 33 126 54 22 57 -151 91 -224 45z"></path>
@@ -1863,14 +1902,14 @@ function Load_Edit_Whatsapp_Contents(Edit_Whats_User_DataId, Edit_Whats_User_Id,
                 </svg>
             </div>
             ` : `
-            <div id="Edit-Whatsapp-Content-Box-Avatar-Image-${Edit_Whats_User_Id}" class="Edit-Whatsapp-Content-Box-Avatar-Image">
-                <img id="Edit-Whatsapp-Content-Box-Avatar-Image-Img-${Edit_Whats_User_Id}" class="Edit-Whatsapp-Content-Box-Avatar-Image-Img" src="${Edit_Whats_Avatar}">
+            <div id="Edit-Whatsapp-Content-Box-Avatar-Image-${escapedId}" class="Edit-Whatsapp-Content-Box-Avatar-Image">
+                <img id="Edit-Whatsapp-Content-Box-Avatar-Image-Img-${escapedId}" class="Edit-Whatsapp-Content-Box-Avatar-Image-Img" src="${escapedAvatar}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y4ZjhmOCIvPjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgRXJyb3I8L3RleHQ+PC9zdmc+'">
             </div>
             `
             }
 
             <div class="Edit-Whatsapp-User-Texts">
-                <div id="Edit-Whatsapp-User-Name-${Edit_Whats_User_Id}" class="Edit-Whatsapp-User-Name">${Edit_Whats_User_Name}</div>
+                <div id="Edit-Whatsapp-User-Name-${escapedId}" class="Edit-Whatsapp-User-Name">${escapedName}</div>
                     <div class="Edit-Whatsapp-User-Star-Icon">
                         <svg class="Edit-Whatsapp-User-Star-Img" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <g transform="translate(0,512) scale(0.1,-0.1)" >
@@ -1881,7 +1920,7 @@ function Load_Edit_Whatsapp_Contents(Edit_Whats_User_DataId, Edit_Whats_User_Id,
                     </div>
                 </div>
                 
-                <div id="Edit-Whatsapp-User-Info-${Edit_Whats_User_Id}" class="Edit-Whatsapp-User-Info">${Edit_Whats_User_Number}</div>
+                <div id="Edit-Whatsapp-User-Info-${escapedId}" class="Edit-Whatsapp-User-Info">${escapedNumber}</div>
                     <div class="Edit-Whatsapp-User-More">
                         <svg class="Edit-Whatsapp-User-More-Icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1.2vh" height="2vh" viewBox="0 0 476 800">
                             <g class="Edit-Whatsapp-User-More-Img" transform="translate(0,800) scale(0.1,-0.1)">
