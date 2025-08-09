@@ -516,19 +516,31 @@ RegisterNUICallback('joinRadio', function(data, cb)
         end
 
         if canAccess then
-            exports['saltychat']:SetRadioChannel(frequenz, true)
+            if IsPMA() then
+                exports['pma-voice']:SetRadioChannel(frequenz, true)
+            else
+                exports['saltychat']:SetRadioChannel(frequenz, true)
+            end
             cb(true)
         else
             cb(false)
         end
     else
-        exports['saltychat']:SetRadioChannel(frequenz, true)
+        if IsPMA() then
+            exports['pma-voice']:SetRadioChannel(frequenz, true)
+        else
+            exports['saltychat']:SetRadioChannel(frequenz, true)
+        end
         cb(true)
     end
 end)
 
 RegisterNUICallback('leaveRadio', function(data, cb)
-    exports['saltychat']:SetRadioChannel('', true)
+    if IsPMA() then
+        exports['pma-voice']:removePlayerFromRadio()
+    else
+        exports['saltychat']:SetRadioChannel('', true)
+    end
 end)
 
 -- camera
