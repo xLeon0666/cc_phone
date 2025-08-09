@@ -47,3 +47,24 @@ else
         end)
     end
 end
+
+local VoiceSystem = nil
+if IsDuplicityVersion() then
+    CreateThread(function()
+        local hasPMA = GetResourceState('pma-voice') == 'started'
+        local hasSalty = GetResourceState('saltychat') == 'started'
+        if hasPMA or hasSalty then
+            if hasPMA and hasSalty then
+                print('[^2cc_phone^0] ^3WARNING:^7 Both pma-voice and saltychat resources are running! Please set VoiceSystem to ^2pma-voice^7 or ^2saltychat^7 manually or stop one of the resources!')
+            end
+            VoiceSystem = hasPMA and 'pma-voice' or 'saltychat'
+            print('[^2cc_phone^0] INFO:^7 Voice system automatically set to ^2' .. VoiceSystem .. '^7')
+        else
+            print('[^2cc_phone^0] ^3WARNING:^7 No voice system resource found! Please start ^2pma-voice^7 or ^2saltychat^7 or set VoiceSystem manually!')
+        end
+    end)
+end
+
+function IsPMA()
+    return VoiceSystem == 'pma-voice'
+end

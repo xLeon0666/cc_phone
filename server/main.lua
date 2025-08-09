@@ -33,10 +33,8 @@ function GetPlayerJob3(playerId)
     return xPlayer.job3
 end
 
-function GetPlayerCoords(playerId, vec)
-    local xPlayer = ESX.GetPlayerFromId(playerId)
-
-    return xPlayer.getCoords(vec)
+function GetPlayerCoords(playerId)
+    return GetEntityCoords(GetPlayerPed(playerId))
 end
 
 function SetPlayerJob(playerId, name, grade)
@@ -551,9 +549,13 @@ Events.RegisterServerEvent('cc_phone:answerCall', function(source, number, callF
     local phone = GetPlayerPhone(source)
     local target = GetPlayerFromPhone(number)
     local targetPhone = GetPlayerPhone(target)
-
-    exports['saltychat']:AddPlayerToCall(callFrequenz, source)
-    exports['saltychat']:AddPlayerToCall(callFrequenz, target)
+    if IsPMA() then
+        exports['pma-voice']:setPlayerCall(source, callFrequenz)
+        exports['pma-voice']:setPlayerCall(target, callFrequenz)
+    else
+        exports['saltychat']:AddPlayerToCall(callFrequenz, source)
+        exports['saltychat']:AddPlayerToCall(callFrequenz, target)
+    end
 
     TriggerClientEvent('cc_phone:answerCall', source, number, callFrequenz)
     TriggerClientEvent('cc_phone:answerCall', target, number, callFrequenz)
@@ -566,13 +568,22 @@ Events.RegisterServerEvent('cc_phone:declineCall', function(source, number, call
 
     TriggerClientEvent('cc_phone:declineCall', source)
 
-    exports['saltychat']:RemovePlayerFromCall(callFrequenz, source)
-
-    if target then
-        phone.setIsInCall(false)
-        targetPhone.setIsInCall(false)
-        TriggerClientEvent('cc_phone:declineCall', target)
-        exports['saltychat']:RemovePlayerFromCall(callFrequenz, target)
+    if IsPMA() then
+        exports['pma-voice']:removePlayerFromCall(source)
+        if target then
+            phone.setIsInCall(false)
+            targetPhone.setIsInCall(false)
+            TriggerClientEvent('cc_phone:declineCall', target)
+            exports['pma-voice']:removePlayerFromCall(target)
+        end
+    else
+        exports['saltychat']:RemovePlayerFromCall(callFrequenz, source)
+        if target then
+            phone.setIsInCall(false)
+            targetPhone.setIsInCall(false)
+            TriggerClientEvent('cc_phone:declineCall', target)
+            exports['saltychat']:RemovePlayerFromCall(callFrequenz, target)
+        end
     end
 end)
 
@@ -1095,7 +1106,7 @@ AddEventHandler('cc_phone:sendDispatch', function(job, desc)
     end
 
     if not DispatchTimeout[playerId] then
-        local playerCoords = GetPlayerCoords(playerId, true)
+        local playerCoords = GetPlayerCoords(playerId)
 
         -- if isInDistance(job, playerCoords) then
         --     TriggerClientEvent('cc_phone:sendNotify', playerId, 'Dispatch', 'Es ist schon ein Dispatch im Umkreis von 30M offen!', 'info', 4000)
@@ -1114,7 +1125,7 @@ AddEventHandler('cc_phone:sendDispatch', function(job, desc)
                     local zJobName = GetPlayerJob(playerId).name
     
                     if zJobName == job then
-                        local distance = #(playerCoords - GetPlayerCoords(playerId, true))
+                        local distance = #(playerCoords - GetPlayerCoords(playerId))
                         TriggerClientEvent('cc_phone:sendNotify', playerId, 'Dispatch', 'Es ist ein Notruf eingegangen! Entfernung: ' .. round(distance, 2) .. 'M', 'info', 4000)
                     end
                 end
@@ -1184,7 +1195,7 @@ Events.RegisterServerEvent('cc_phone:getDispatchType', function(source, dispatch
                     end
                 end
 
-                local distance = #(v.coords - GetPlayerCoords(source, true))
+                local distance = #(v.coords - GetPlayerCoords(source))
 
                 table.insert(dispatches, {
                     uniqueId = k,
